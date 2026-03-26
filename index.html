@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PraiseGraphics – Unlimited Graphic Design Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="logo">Praise<span>Graphics</span></a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="#pricing" class="btn btn-primary nav-cta">Get Started</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">&#9776;</button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#hero">Home</a>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="hero">
+    <div class="container hero-inner">
+      <div class="hero-text" data-reveal="fade-left">
+        <span class="badge">🎨 #1 Design Subscription</span>
+        <h1>Unlimited Graphic<br /><span class="gradient-text">Design Services</span></h1>
+        <p>Get stunning designs delivered fast. Branding, UI/UX, social media, and more — all for one flat monthly fee.</p>
+        <div class="hero-btns">
+          <a href="#pricing" class="btn btn-primary">Get Started</a>
+          <a href="#contact" class="btn btn-outline">Book a Demo</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><strong>500+</strong><span>Happy Clients</span></div>
+          <div class="stat"><strong>10K+</strong><span>Projects Done</span></div>
+          <div class="stat"><strong>48h</strong><span>Avg. Turnaround</span></div>
+        </div>
+      </div>
+      <div class="hero-visual" data-reveal="fade-right" data-delay="200">
+        <div class="hero-blob"></div>
+        <div class="hero-card card-float">
+          <div class="card-icon">🖌️</div>
+          <p>Brand Identity</p>
+          <span>Delivered in 48h</span>
+        </div>
+        <div class="hero-card card-float2">
+          <div class="card-icon">✅</div>
+          <p>Revision Done</p>
+          <span>Unlimited revisions</span>
+        </div>
+        <div class="hero-mockup">
+          <div class="mockup-screen">
+            <div class="mockup-bar"></div>
+            <div class="mockup-content">
+              <div class="mockup-img"></div>
+              <div class="mockup-lines">
+                <div class="mline w80"></div>
+                <div class="mline w60"></div>
+                <div class="mline w40"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-wave">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8f9ff"/></svg>
+    </div>
+  </section>
+
+  <!-- ── TRUSTED BY ── -->
+  <section class="trusted">
+    <div class="container">
+      <p class="trusted-label">Trusted by teams at</p>
+      <div class="trusted-logos">
+        <span>Acme Corp</span><span>Nexus Studio</span><span>BrightWave</span><span>Pixel Labs</span><span>Orbit Media</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ── -->
+  <section class="services section" id="services">
+    <div class="container">
+      <div class="section-header" data-reveal="fade-up">
+        <span class="section-tag">What We Do</span>
+        <h2>Design Services <span class="gradient-text">Tailored for You</span></h2>
+        <p>Everything your brand needs, delivered by expert designers.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="service-card" data-reveal="fade-up" data-delay="100">
+          <div class="s-icon" style="background:#ede9fe;">🏷️</div>
+          <h3>Branding</h3>
+          <p>Logo design, brand guidelines, color palettes, and full brand identity kits.</p>
+          <a href="#" class="card-link">Learn more →</a>
+        </div>
+        <div class="service-card" data-reveal="fade-up" data-delay="200">
+          <div class="s-icon" style="background:#dbeafe;">🖥️</div>
+          <h3>UI/UX Design</h3>
+          <p>Beautiful, user-centered interfaces for web and mobile applications.</p>
+          <a href="#" class="card-link">Learn more →</a>
+        </div>
+        <div class="service-card" data-reveal="fade-up" data-delay="300">
+          <div class="s-icon" style="background:#dcfce7;">📱</div>
+          <h3>Social Media</h3>
+          <p>Eye-catching posts, stories, banners, and ad creatives for every platform.</p>
+          <a href="#" class="card-link">Learn more →</a>
+        </div>
+        <div class="service-card" data-reveal="fade-up" data-delay="400">
+          <div class="s-icon" style="background:#fef9c3;">🎬</div>
+          <h3>Video Editing</h3>
+          <p>Reels, explainer videos, motion graphics, and branded video content.</p>
+          <a href="#" class="card-link">Learn more →</a>
+        </div>
+        <div class="service-card" data-reveal="fade-up" data-delay="500">
+          <div class="s-icon" style="background:#ffe4e6;">🖨️</div>
+          <h3>Print Design</h3>
+          <p>Business cards, flyers, brochures, and packaging design ready for print.</p>
+          <a href="#" class="card-link">Learn more →</a>
+        </div>
+        <div class="service-card" data-reveal="fade-up" data-delay="600">
+          <div class="s-icon" style="background:#e0f2fe;">📊</div>
+          <h3>Presentations</h3>
+          <p>Stunning pitch decks and slide templates that impress every audience.</p>
+          <a href="#" class="card-link">Learn more →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FEATURES ── -->
+  <section class="features section" id="features">
+    <div class="container features-inner">
+      <div class="features-text" data-reveal="fade-left">
+        <span class="section-tag">Why Choose Us</span>
+        <h2>Design without the <span class="gradient-text">hassle</span></h2>
+        <p>We remove the friction from getting great design work done.</p>
+        <ul class="feature-list">
+          <li>
+            <div class="feat-icon">⚡</div>
+            <div>
+              <strong>Fast Turnaround</strong>
+              <p>Most requests delivered within 24–48 hours, guaranteed.</p>
+            </div>
+          </li>
+          <li>
+            <div class="feat-icon">🔄</div>
+            <div>
+              <strong>Unlimited Revisions</strong>
+              <p>We iterate until you're 100% satisfied — no extra charges.</p>
+            </div>
+          </li>
+          <li>
+            <div class="feat-icon">💰</div>
+            <div>
+              <strong>Affordable Pricing</strong>
+              <p>Flat monthly fee. No hidden costs, no per-project billing.</p>
+            </div>
+          </li>
+          <li>
+            <div class="feat-icon">🤝</div>
+            <div>
+              <strong>Dedicated Designer</strong>
+              <p>Your own designer who understands your brand inside out.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="features-visual" data-reveal="fade-right" data-delay="200">
+        <div class="feat-card-stack">
+          <div class="feat-card fc1">
+            <span class="fc-emoji">⚡</span>
+            <div>
+              <strong>48h Delivery</strong>
+              <p>Average turnaround time</p>
+            </div>
+          </div>
+          <div class="feat-card fc2">
+            <span class="fc-emoji">🎯</span>
+            <div>
+              <strong>98% Satisfaction</strong>
+              <p>Client approval rate</p>
+            </div>
+          </div>
+          <div class="feat-card fc3">
+            <span class="fc-emoji">🔄</span>
+            <div>
+              <strong>Unlimited Revisions</strong>
+              <p>Until you love it</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PORTFOLIO ── -->
+  <section class="portfolio section" id="portfolio">
+    <div class="container">
+      <div class="section-header" data-reveal="fade-up">
+        <span class="section-tag">Our Work</span>
+        <h2>Featured <span class="gradient-text">Portfolio</span></h2>
+        <p>A glimpse of the work we've delivered for our clients.</p>
+      </div>
+      <div class="portfolio-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="logo">Logo</button>
+        <button class="filter-btn" data-filter="branding">Branding</button>
+        <button class="filter-btn" data-filter="uiux">UI/UX</button>
+        <button class="filter-btn" data-filter="social">Social</button>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-item" data-cat="logo" data-reveal="zoom-in" data-delay="100">
+          <div class="p-thumb" style="background:linear-gradient(135deg,#667eea,#764ba2);">
+            <span>Logo Design</span>
+          </div>
+          <div class="p-info"><h4>Nexus Brand Logo</h4><span>Logo</span></div>
+        </div>
+        <div class="portfolio-item" data-cat="uiux" data-reveal="zoom-in" data-delay="200">
+          <div class="p-thumb" style="background:linear-gradient(135deg,#f093fb,#f5576c);">
+            <span>UI/UX</span>
+          </div>
+          <div class="p-info"><h4>FinTech Dashboard</h4><span>UI/UX</span></div>
+        </div>
+        <div class="portfolio-item" data-cat="branding" data-reveal="zoom-in" data-delay="300">
+          <div class="p-thumb" style="background:linear-gradient(135deg,#4facfe,#00f2fe);">
+            <span>Branding</span>
+          </div>
+          <div class="p-info"><h4>Orbit Brand Kit</h4><span>Branding</span></div>
+        </div>
+        <div class="portfolio-item" data-cat="social" data-reveal="zoom-in" data-delay="400">
+          <div class="p-thumb" style="background:linear-gradient(135deg,#43e97b,#38f9d7);">
+            <span>Social Media</span>
+          </div>
+          <div class="p-info"><h4>Instagram Campaign</h4><span>Social</span></div>
+        </div>
+        <div class="portfolio-item" data-cat="logo" data-reveal="zoom-in" data-delay="500">
+          <div class="p-thumb" style="background:linear-gradient(135deg,#fa709a,#fee140);">
+            <span>Logo Design</span>
+          </div>
+          <div class="p-info"><h4>Bloom Café Logo</h4><span>Logo</span></div>
+        </div>
+        <div class="portfolio-item" data-cat="uiux" data-reveal="zoom-in" data-delay="600">
+          <div class="p-thumb" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb);">
+            <span>UI/UX</span>
+          </div>
+          <div class="p-info"><h4>E-Commerce App</h4><span>UI/UX</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ── -->
+  <section class="testimonials section" id="testimonials">
+    <div class="container">
+      <div class="section-header" data-reveal="fade-up">
+        <span class="section-tag">Client Love</span>
+        <h2>What Our <span class="gradient-text">Clients Say</span></h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card" data-reveal="fade-up" data-delay="100">
+          <div class="stars">★★★★★</div>
+          <p>"PraiseGraphics transformed our brand completely. The turnaround was insanely fast and the quality exceeded our expectations."</p>
+          <div class="testi-author">
+            <div class="avatar" style="background:#667eea;">JM</div>
+            <div><strong>James Miller</strong><span>CEO, Nexus Studio</span></div>
+          </div>
+        </div>
+        <div class="testi-card featured-testi" data-reveal="fade-up" data-delay="200">
+          <div class="stars">★★★★★</div>
+          <p>"Best design subscription we've ever used. Unlimited revisions means we never feel rushed. Our social media engagement doubled!"</p>
+          <div class="testi-author">
+            <div class="avatar" style="background:#f5576c;">SR</div>
+            <div><strong>Sarah Rodriguez</strong><span>Marketing Lead, BrightWave</span></div>
+          </div>
+        </div>
+        <div class="testi-card" data-reveal="fade-up" data-delay="300">
+          <div class="stars">★★★★★</div>
+          <p>"Affordable, professional, and always on time. I've recommended PraiseGraphics to every startup founder I know."</p>
+          <div class="testi-author">
+            <div class="avatar" style="background:#43e97b;">AK</div>
+            <div><strong>Alex Kim</strong><span>Founder, Pixel Labs</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRICING ── -->
+  <section class="pricing section" id="pricing">
+    <div class="container">
+      <div class="section-header" data-reveal="fade-up">
+        <span class="section-tag">Simple Pricing</span>
+        <h2>One Flat Fee, <span class="gradient-text">Unlimited Design</span></h2>
+        <p>No contracts. Cancel anytime. Start designing today.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card" data-reveal="fade-up" data-delay="100">
+          <h3>Starter</h3>
+          <div class="price"><sup>$</sup>499<sub>/mo</sub></div>
+          <p class="price-desc">Perfect for small businesses and startups.</p>
+          <ul class="price-features">
+            <li>✅ 1 Active Request</li>
+            <li>✅ Unlimited Revisions</li>
+            <li>✅ Branding & Social Media</li>
+            <li>✅ 48h Turnaround</li>
+            <li>❌ UI/UX Design</li>
+            <li>❌ Video Editing</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline w-full">Get Started</a>
+        </div>
+        <div class="pricing-card popular" data-reveal="zoom-in" data-delay="200">
+          <div class="popular-badge">Most Popular</div>
+          <h3>Pro</h3>
+          <div class="price"><sup>$</sup>899<sub>/mo</sub></div>
+          <p class="price-desc">For growing teams that need more design power.</p>
+          <ul class="price-features">
+            <li>✅ 2 Active Requests</li>
+            <li>✅ Unlimited Revisions</li>
+            <li>✅ All Design Services</li>
+            <li>✅ 24h Turnaround</li>
+            <li>✅ UI/UX Design</li>
+            <li>❌ Video Editing</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary w-full">Get Started</a>
+        </div>
+        <div class="pricing-card" data-reveal="fade-up" data-delay="300">
+          <h3>Agency</h3>
+          <div class="price"><sup>$</sup>1499<sub>/mo</sub></div>
+          <p class="price-desc">Full-scale design for agencies and enterprises.</p>
+          <ul class="price-features">
+            <li>✅ Unlimited Requests</li>
+            <li>✅ Unlimited Revisions</li>
+            <li>✅ All Design Services</li>
+            <li>✅ Same-day Turnaround</li>
+            <li>✅ UI/UX Design</li>
+            <li>✅ Video Editing</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline w-full">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA BANNER ── -->
+  <section class="cta-banner">
+    <div class="container cta-inner" data-reveal="zoom-in">
+      <h2>Ready to elevate your brand?</h2>
+      <p>Join 500+ businesses getting world-class design every day.</p>
+      <div class="cta-btns">
+        <a href="#pricing" class="btn btn-white">Start Today</a>
+        <a href="#contact" class="btn btn-outline-white">Book a Demo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer" id="contact">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">Praise<span>Graphics</span></a>
+        <p>Unlimited graphic design for modern brands. Fast, affordable, and always on-brand.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Dribbble"><i class="fa-brands fa-dribbble"></i></a>
+          <a href="#" aria-label="Behance"><i class="fa-brands fa-behance"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Branding</a></li>
+          <li><a href="#">UI/UX Design</a></li>
+          <li><a href="#">Social Media</a></li>
+          <li><a href="#">Video Editing</a></li>
+          <li><a href="#">Print Design</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><i class="fa-solid fa-envelope footer-contact-icon"></i> hello@praisegraphics.com</li>
+          <li><i class="fa-solid fa-phone footer-contact-icon"></i> +1 (555) 123-4567</li>
+          <li><i class="fa-solid fa-location-dot footer-contact-icon"></i> New York, NY 10001</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PraiseGraphics. All rights reserved.</p>
+      <div>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+  <!-- Back to Top -->
+  <button id="back-to-top" aria-label="Back to top">↑</button>
+
+  <script>
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+
+    // Portfolio filter
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.portfolio-item').forEach(item => {
+          item.style.display = (filter === 'all' || item.dataset.cat === filter) ? 'block' : 'none';
+        });
+      });
+    });
+
+    // Scroll Reveal (IntersectionObserver)
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+
+    // Scroll Progress Bar
+    const progressBar = document.getElementById('scroll-progress');
+    const backToTop = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY;
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      progressBar.style.width = (scrolled / total * 100) + '%';
+
+      // Navbar
+      document.querySelector('.navbar').classList.toggle('scrolled', scrolled > 50);
+
+      // Back to top
+      backToTop.classList.toggle('visible', scrolled > 400);
+    });
+
+    // Back to top click
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+</body>
+</html>
