@@ -892,6 +892,10 @@ nav {
   margin-top: 56px;
 }
 
+@media (max-width: 1024px) {
+  .cat-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 .cat-card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -1606,18 +1610,19 @@ footer {
 
       <div class="feat-proj-info sr" style="transition-delay:0.1s;">
         <div class="feat-proj-cat">Brand Identity · Case Study</div>
-        <h2 class="feat-proj-title">Roar & Co — Complete Brand Overhaul</h2>
+        <h2 class="feat-proj-title">PraiseGraphics — Design Services</h2>
         <p class="feat-proj-desc">
-          A bold brand identity system for a luxury safari company — from logo and typography to brand guidelines, packaging, and digital presence. Delivered in under 5 business days.
+          From brand identities to birthday graphics, church designs to logo creation — we deliver stunning, professional designs for every occasion and every need.
         </p>
 
         <div class="feat-proj-tags">
+          <span class="skill-tag">Brand Design</span>
+          <span class="skill-tag">Church Design</span>
+          <span class="skill-tag">Birthday Design</span>
+          <span class="skill-tag">Anniversary Design</span>
+          <span class="skill-tag">Album Design</span>
+          <span class="skill-tag">Book Design</span>
           <span class="skill-tag">Logo Design</span>
-          <span class="skill-tag">Brand Guidelines</span>
-          <span class="skill-tag">Typography</span>
-          <span class="skill-tag">Packaging</span>
-          <span class="skill-tag">Business Cards</span>
-          <span class="skill-tag">Web Assets</span>
         </div>
 
         <div class="feat-proj-metrics">
@@ -1668,31 +1673,31 @@ footer {
         <div class="rw-carousel-track" style="transform-style: preserve-3d;" id="rwCarouselTrack">
 
           <div class="rw-card" data-index="0">
-            <div class="rw-card-bg" style="background:linear-gradient(135deg,#1a1a1a,#0d0d0d);"><i class="fa-solid fa-mug-hot" style="font-size:80px;color:rgba(189,242,0,0.4);"></i></div>
+            <div class="rw-card-bg" style="background:linear-gradient(135deg,#1a0a1a,#0d0010);background-image:url('https://drive.google.com/thumbnail?id=1M_XrD37wYoNhQRua-nmyprD01mhVvPhJ&sz=w800');background-size:cover;background-position:center;"></div>
             <div class="rw-card-gradient"></div>
             <div class="rw-card-bottom">
               <div class="rw-card-pill">
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#BDF200;"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-                <span>Brand Identity</span>
+                <i class="fa-solid fa-fingerprint" style="color:#BDF200;font-size:10px;"></i>
+                <span>Brand Design</span>
               </div>
-              <p class="rw-card-title">Bruin Coffee</p>
+              <p class="rw-card-title">Brand Identity</p>
             </div>
           </div>
 
           <div class="rw-card" data-index="1">
-            <div class="rw-card-bg" style="background:linear-gradient(135deg,#111827,#0f172a);"><i class="fa-solid fa-mobile-screen-button" style="font-size:80px;color:rgba(189,242,0,0.4);"></i></div>
+            <div class="rw-card-bg" style="background:linear-gradient(135deg,#0a0a1a,#050510);background-image:url('https://drive.google.com/thumbnail?id=142ZRKeozabOrpPAsXQKiSG7JmV-qU2w2&sz=w800');background-size:cover;background-position:center;"></div>
             <div class="rw-card-gradient"></div>
             <div class="rw-card-bottom">
               <div class="rw-card-pill">
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#BDF200;"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/></svg>
-                <span>UI/UX Design</span>
+                <i class="fa-solid fa-church" style="color:#BDF200;font-size:10px;"></i>
+                <span>Church Design</span>
               </div>
-              <p class="rw-card-title">Fintrack App</p>
+              <p class="rw-card-title">Church Graphics</p>
             </div>
           </div>
 
           <div class="rw-card" data-index="2">
-            <div class="rw-card-bg" style="background:linear-gradient(135deg,#1a0d2e,#0d0018);"><i class="fa-brands fa-instagram" style="font-size:80px;color:rgba(189,242,0,0.4);"></i></div>
+            <div class="rw-card-bg" style="background:linear-gradient(135deg,#1a0d2e,#0d0018);background-image:url('https://drive.google.com/thumbnail?id=19WxLp5c2LGALKrfzybXI8hHNGPEnpbkt&sz=w800');background-size:cover;background-position:center;"></div>
             <div class="rw-card-gradient"></div>
             <div class="rw-card-top">
               <div class="rw-card-featured">
@@ -1702,47 +1707,59 @@ footer {
             </div>
             <div class="rw-card-bottom">
               <div class="rw-card-pill rw-card-pill-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#BDF200;"><rect width="20" height="14" x="2" y="6" rx="2"/><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-                <span>Social Media</span>
+                <i class="fa-solid fa-cake-candles" style="color:#BDF200;font-size:10px;"></i>
+                <span>Birthday Design</span>
               </div>
-              <p class="rw-card-title rw-card-title-lg">LuxeGlow Kit</p>
-              <p class="rw-card-desc">Leading social media kit for a cosmetics brand & strategy</p>
+              <p class="rw-card-title rw-card-title-lg">Birthday Graphics</p>
+              <p class="rw-card-desc">Custom birthday cards, banners & social posts</p>
             </div>
           </div>
 
           <div class="rw-card" data-index="3">
-            <div class="rw-card-bg" style="background:linear-gradient(135deg,#0d1a0d,#0a150a);"><i class="fa-solid fa-leaf" style="font-size:80px;color:rgba(189,242,0,0.4);"></i></div>
+            <div class="rw-card-bg" style="background:linear-gradient(135deg,#1a0a00,#100600);background-image:url('https://drive.google.com/thumbnail?id=1G4rIDNo_8SiZt_YVmC-acqCpgjntKQUc&sz=w800');background-size:cover;background-position:center;"></div>
             <div class="rw-card-gradient"></div>
             <div class="rw-card-bottom">
               <div class="rw-card-pill">
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#BDF200;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-                <span>Packaging</span>
+                <i class="fa-solid fa-heart" style="color:#BDF200;font-size:10px;"></i>
+                <span>Anniversary Design</span>
               </div>
-              <p class="rw-card-title">TerraBotanica</p>
+              <p class="rw-card-title">Anniversary</p>
             </div>
           </div>
 
           <div class="rw-card" data-index="4">
-            <div class="rw-card-bg" style="background:linear-gradient(135deg,#0a0a1a,#050510);"><i class="fa-solid fa-display" style="font-size:80px;color:rgba(189,242,0,0.4);"></i></div>
+            <div class="rw-card-bg" style="background:linear-gradient(135deg,#0a1a0d,#050f08);background-image:url('https://drive.google.com/thumbnail?id=1lquvhMvq--tBALEJ1QYg3Fesa9kTnKbs&sz=w800');background-size:cover;background-position:center;"></div>
             <div class="rw-card-gradient"></div>
             <div class="rw-card-bottom">
               <div class="rw-card-pill">
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#BDF200;"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-                <span>Web Design</span>
+                <i class="fa-solid fa-book-open" style="color:#BDF200;font-size:10px;"></i>
+                <span>Album Design</span>
               </div>
-              <p class="rw-card-title">Vortex SaaS</p>
+              <p class="rw-card-title">Album Design</p>
             </div>
           </div>
 
           <div class="rw-card" data-index="5">
-            <div class="rw-card-bg" style="background:linear-gradient(135deg,#1a0a00,#100600);"><i class="fa-solid fa-clapperboard" style="font-size:80px;color:rgba(189,242,0,0.4);"></i></div>
+            <div class="rw-card-bg" style="background:linear-gradient(135deg,#1a1500,#100d00);background-image:url('https://drive.google.com/thumbnail?id=1yGQr951PJx8U6DqPnkjqiQ_05cFV99UJ&sz=w800');background-size:cover;background-position:center;"></div>
             <div class="rw-card-gradient"></div>
             <div class="rw-card-bottom">
               <div class="rw-card-pill">
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#BDF200;"><path d="m22 8-6 4 6 4V8z"/><rect width="14" height="12" x="2" y="6" rx="2"/></svg>
-                <span>Motion</span>
+                <i class="fa-solid fa-book" style="color:#BDF200;font-size:10px;"></i>
+                <span>Book Design</span>
               </div>
-              <p class="rw-card-title">Ignite Brand</p>
+              <p class="rw-card-title">Book Design</p>
+            </div>
+          </div>
+
+          <div class="rw-card" data-index="6">
+            <div class="rw-card-bg" style="background:linear-gradient(135deg,#001a10,#00100a);background-image:url('https://drive.google.com/thumbnail?id=1tWgyQpmTI4j8m3kc_6ONaxqtKngpMZI9&sz=w800');background-size:cover;background-position:center;"></div>
+            <div class="rw-card-gradient"></div>
+            <div class="rw-card-bottom">
+              <div class="rw-card-pill">
+                <i class="fa-solid fa-pen-ruler" style="color:#BDF200;font-size:10px;"></i>
+                <span>Logo Design</span>
+              </div>
+              <p class="rw-card-title">Logo Design</p>
             </div>
           </div>
 
@@ -1880,15 +1897,16 @@ footer {
 <script>
 (function () {
   const cards = [
-    { name: 'Bruin Coffee',   role: 'Brand Identity' },
-    { name: 'Fintrack App',   role: 'UI/UX Design'   },
-    { name: 'LuxeGlow Kit',   role: 'Social Media'   },
-    { name: 'TerraBotanica',  role: 'Packaging'      },
-    { name: 'Vortex SaaS',    role: 'Web Design'     },
-    { name: 'Ignite Brand',   role: 'Motion'         }
+    { name: 'Brand Identity',   role: 'Brand Design'       },
+    { name: 'Church Graphics',  role: 'Church Design'      },
+    { name: 'Birthday Graphics',role: 'Birthday Design'    },
+    { name: 'Anniversary',      role: 'Anniversary Design' },
+    { name: 'Album Design',     role: 'Album Design'       },
+    { name: 'Book Design',      role: 'Book Design'        },
+    { name: 'Logo Design',      role: 'Logo Design'        }
   ];
 
-  let currentIndex = 2;
+  let currentIndex = 3;
   const prevBtn = document.getElementById('rwPrevBtn');
   const nextBtn = document.getElementById('rwNextBtn');
   const rwCards = document.querySelectorAll('.rw-card');
@@ -1973,7 +1991,7 @@ footer {
 
       <div class="cat-card sr">
         <span class="cat-icon"><i class="fa-solid fa-fingerprint"></i></span>
-        <h3>Brand Identity</h3>
+        <h3>Brand Design</h3>
         <p>Logos, brand guidelines, typography, color systems — everything to make your brand unforgettable.</p>
         <div class="cat-footer">
           <span class="cat-count">148 Projects</span>
@@ -1982,19 +2000,19 @@ footer {
       </div>
 
       <div class="cat-card accent sr" style="transition-delay:0.05s;">
-        <span class="cat-icon"><i class="fa-solid fa-pen-nib"></i></span>
-        <h3>UI/UX Design</h3>
-        <p>Apps, dashboards, and websites designed to convert — built in Figma with developer-ready handoff.</p>
+        <span class="cat-icon"><i class="fa-solid fa-church"></i></span>
+        <h3>Church Design</h3>
+        <p>Bulletins, banners, social graphics, and sermon series artwork crafted for your congregation.</p>
         <div class="cat-footer">
-          <span class="cat-count">96 Projects</span>
+          <span class="cat-count">64 Projects</span>
           <div class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></div>
         </div>
       </div>
 
       <div class="cat-card sr" style="transition-delay:0.1s;">
-        <span class="cat-icon"><i class="fa-brands fa-instagram"></i></span>
-        <h3>Social Media</h3>
-        <p>Templates, campaigns, reels graphics, and content kits that stop the scroll and build community.</p>
+        <span class="cat-icon"><i class="fa-solid fa-cake-candles"></i></span>
+        <h3>Birthday Design</h3>
+        <p>Custom birthday cards, banners, invitations, and social media posts that celebrate in style.</p>
         <div class="cat-footer">
           <span class="cat-count">203 Projects</span>
           <div class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></div>
@@ -2002,19 +2020,19 @@ footer {
       </div>
 
       <div class="cat-card sr" style="transition-delay:0.05s;">
-        <span class="cat-icon"><i class="fa-solid fa-clapperboard"></i></span>
-        <h3>Motion Graphics</h3>
-        <p>Animated logos, explainer videos, social reels, and brand animations in After Effects and Lottie.</p>
+        <span class="cat-icon"><i class="fa-solid fa-heart"></i></span>
+        <h3>Anniversary Design</h3>
+        <p>Elegant anniversary cards, flyers, and keepsake designs for every milestone celebration.</p>
         <div class="cat-footer">
-          <span class="cat-count">57 Projects</span>
+          <span class="cat-count">87 Projects</span>
           <div class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></div>
         </div>
       </div>
 
       <div class="cat-card sr" style="transition-delay:0.1s;">
-        <span class="cat-icon"><i class="fa-solid fa-box-open"></i></span>
-        <h3>Packaging</h3>
-        <p>Shelf-ready packaging with dielines, structural design, and print-ready files for any industry.</p>
+        <span class="cat-icon"><i class="fa-solid fa-book-open"></i></span>
+        <h3>Album Design</h3>
+        <p>Photo album layouts, music album covers, and digital album art delivered print-ready.</p>
         <div class="cat-footer">
           <span class="cat-count">74 Projects</span>
           <div class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></div>
@@ -2022,11 +2040,21 @@ footer {
       </div>
 
       <div class="cat-card sr" style="transition-delay:0.15s;">
-        <span class="cat-icon"><i class="fa-regular fa-newspaper"></i></span>
-        <h3>Print & Editorial</h3>
-        <p>Magazines, brochures, reports, pitch decks, and any print collateral delivered press-ready.</p>
+        <span class="cat-icon"><i class="fa-solid fa-book"></i></span>
+        <h3>Book Design</h3>
+        <p>Book covers, interior layouts, and e-book designs that captivate readers from the first glance.</p>
         <div class="cat-footer">
           <span class="cat-count">82 Projects</span>
+          <div class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+      </div>
+
+      <div class="cat-card sr" style="transition-delay:0.2s;">
+        <span class="cat-icon"><i class="fa-solid fa-pen-ruler"></i></span>
+        <h3>Logo Design</h3>
+        <p>Iconic, versatile logos crafted to represent your brand across every platform and medium.</p>
+        <div class="cat-footer">
+          <span class="cat-count">320 Projects</span>
           <div class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></div>
         </div>
       </div>
