@@ -50,7 +50,7 @@ img { max-width: 100%; display: block; }
 /* ============================================================
    UTILITY
 ============================================================ */
-.container { max-width: 1240px; margin: 0 auto; padding: 0 40px; }
+.container { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
 .section-pad { padding: 110px 0; }
 .text-lime { color: var(--lime); }
 .text-gray { color: var(--gray); }
@@ -631,7 +631,7 @@ nav {
 }
 
 /* ============================================================
-   MAIN GRID SECTION
+   MAIN GRID SECTION — CAROUSEL STYLE
 ============================================================ */
 .grid-section {
   background: var(--dark);
@@ -648,74 +648,75 @@ nav {
   gap: 20px;
 }
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.proj-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+/* Carousel wrapper */
+.proj-carousel-wrap {
   position: relative;
-}
-
-.proj-card:hover {
-  border-color: rgba(189,242,0,0.3);
-  transform: translateY(-8px);
-  box-shadow: 0 24px 80px rgba(189,242,0,0.07);
-}
-
-.proj-card.wide {
-  grid-column: span 2;
-}
-
-.proj-thumb-wrap {
-  position: relative;
-  aspect-ratio: 16/9;
-  overflow: hidden;
-  background: var(--dark);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 64px;
-  border-bottom: 1px solid var(--border);
+  perspective: 1200px;
+  height: 520px;
 }
 
-.proj-card.wide .proj-thumb-wrap {
-  aspect-ratio: 21/9;
-  font-size: 84px;
+.proj-carousel-track {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+}
+
+/* Each card */
+.proj-card {
+  position: absolute;
+  width: 320px;
+  height: 460px;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  ring: 1px solid rgba(255,255,255,0.1);
+}
+
+.proj-card.active-card {
+  ring: 2px solid rgba(189,242,0,0.4);
+  box-shadow: 0 20px 60px rgba(189,242,0,0.25);
+}
+
+/* Thumb — full height image area */
+.proj-thumb-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .proj-thumb-inner {
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   width: 100%; height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  font-size: 80px;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.proj-card:hover .proj-thumb-inner { transform: scale(1.06); }
+.proj-card:hover .proj-thumb-inner,
+.proj-card.active-card .proj-thumb-inner { transform: scale(1.06); }
 
+/* Gradient overlay */
 .proj-thumb-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0);
+  background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.25) 50%, transparent 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.4s;
 }
 
-.proj-card:hover .proj-thumb-overlay {
-  background: rgba(0,0,0,0.4);
-}
-
+/* View button — appears on hover */
 .proj-view-btn {
   width: 52px; height: 52px;
   background: var(--lime);
@@ -723,77 +724,100 @@ nav {
   display: grid;
   place-items: center;
   color: var(--black);
-  font-size: 20px;
+  font-size: 18px;
   transform: scale(0) rotate(-45deg);
   transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: absolute;
+  top: 50%; left: 50%;
+  margin: -26px 0 0 -26px;
 }
 
-.proj-card:hover .proj-view-btn {
-  transform: scale(1) rotate(0deg);
+.proj-card:hover .proj-view-btn,
+.proj-card.active-card .proj-view-btn { transform: scale(1) rotate(0deg); }
+
+/* Featured badge — top right */
+.proj-featured-badge {
+  position: absolute;
+  top: 16px; right: 16px;
+  background: var(--lime);
+  color: var(--black);
+  font-size: 10px;
+  font-weight: 800;
+  padding: 5px 12px;
+  border-radius: 50px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  z-index: 3;
 }
 
+/* Category badge — top left */
 .proj-cat-badge {
   position: absolute;
-  top: 14px;
-  left: 14px;
-  background: rgba(0,0,0,0.75);
-  border: 1px solid var(--border);
+  top: 16px; left: 16px;
+  background: rgba(0,0,0,0.65);
+  border: 1px solid rgba(255,255,255,0.15);
   backdrop-filter: blur(8px);
-  padding: 4px 10px;
+  padding: 5px 12px;
   border-radius: 50px;
   font-size: 10px;
   font-weight: 700;
   color: var(--lime);
   text-transform: uppercase;
   letter-spacing: 1.5px;
-}
-
-.proj-body {
-  padding: 24px;
-}
-
-.proj-body-top {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
+  align-items: center;
+  gap: 6px;
+  z-index: 3;
+}
+
+/* Bottom info overlay */
+.proj-body {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 24px;
+  z-index: 3;
+}
+
+.proj-role-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(8px);
+  padding: 5px 12px;
+  border-radius: 50px;
+  font-size: 11px;
+  color: var(--white);
   margin-bottom: 10px;
 }
 
+.proj-role-pill i { color: var(--lime); font-size: 10px; }
+
 .proj-title {
   font-family: 'Montserrat', sans-serif;
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 700;
-  line-height: 1.3;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 4px;
   transition: color 0.25s;
 }
 
-.proj-card:hover .proj-title { color: var(--lime); }
-
-.proj-year-badge {
-  font-size: 11px;
-  color: var(--gray);
-  border: 1px solid var(--border);
-  border-radius: 50px;
-  padding: 3px 10px;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
+.proj-card.active-card .proj-title { color: var(--lime); }
 
 .proj-desc {
-  font-size: 13.5px;
-  color: var(--light-gray);
-  line-height: 1.65;
-  margin-bottom: 20px;
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.5;
+  margin-bottom: 14px;
+  display: none;
 }
 
-.proj-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 18px;
-  border-top: 1px solid var(--border);
-}
+.proj-card.active-card .proj-desc { display: block; }
 
 .proj-tags-row {
   display: flex;
@@ -802,27 +826,56 @@ nav {
 }
 
 .proj-tag-sm {
-  font-size: 11px;
-  padding: 3px 10px;
+  font-size: 10px;
+  padding: 3px 9px;
   border-radius: 50px;
-  background: rgba(189,242,0,0.07);
-  border: 1px solid rgba(189,242,0,0.15);
+  background: rgba(189,242,0,0.1);
+  border: 1px solid rgba(189,242,0,0.2);
   color: var(--lime);
   font-weight: 600;
-  letter-spacing: 0.3px;
 }
 
-.proj-link {
+/* Arrow buttons */
+.proj-arrow {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  z-index: 20;
+  width: 48px; height: 48px;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 50%;
   display: flex;
   align-items: center;
-  gap: 5px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--gray);
-  transition: color 0.25s;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s;
+  color: var(--lime);
+  font-size: 16px;
 }
 
-.proj-card:hover .proj-link { color: var(--lime); }
+.proj-arrow:hover { background: rgba(255,255,255,0.08); border-color: var(--lime); }
+.proj-arrow.prev { left: 8px; }
+.proj-arrow.next { right: 8px; }
+
+/* Dots */
+.proj-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.proj-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 0;
+}
+
+.proj-dot.active { background: var(--lime); width: 24px; border-radius: 4px; }
 
 /* ============================================================
    CATEGORIES SHOWCASE
@@ -879,11 +932,14 @@ nav {
 .cat-card.accent .cat-count { color: rgba(0,0,0,0.6); }
 
 .cat-icon {
-  font-size: 40px;
+  font-size: 36px;
   margin-bottom: 20px;
   display: block;
+  color: var(--lime);
   transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
+
+.cat-card.accent .cat-icon { color: var(--black); }
 
 .cat-card:hover .cat-icon { transform: scale(1.2) rotate(-8deg); }
 
@@ -1324,8 +1380,6 @@ footer {
 ============================================================ */
 @media (max-width: 1024px) {
   .feat-proj-inner { grid-template-columns: 1fr; gap: 40px; }
-  .projects-grid { grid-template-columns: repeat(2, 1fr); }
-  .proj-card.wide { grid-column: span 2; }
   .cat-grid { grid-template-columns: repeat(2, 1fr); }
   .testi-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-top { grid-template-columns: 1fr 1fr; }
@@ -1333,20 +1387,78 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .container { padding: 0 20px; }
-  .section-pad { padding: 70px 0; }
+  .container { padding: 0 16px; }
+  .section-pad { padding: 56px 0; }
   .nav-menu, .nav-actions { display: none; }
   .hamburger { display: flex; }
-  .projects-grid { grid-template-columns: 1fr; }
-  .proj-card.wide { grid-column: span 1; }
-  .cat-grid { grid-template-columns: 1fr; }
-  .testi-grid { grid-template-columns: 1fr; }
-  .port-hero-stats { gap: 24px; }
+
+  /* Hero */
+  .port-hero { min-height: auto; padding: 100px 0 48px; }
+  .port-hero-inner h1 { font-size: clamp(36px, 10vw, 56px); letter-spacing: -1.5px; }
+  .port-hero-desc { font-size: 14px; margin-bottom: 32px; }
+  .port-hero-stats { gap: 20px; }
+  .ph-stat-num { font-size: 26px; }
   .ph-divider { display: none; }
-  .footer-top { grid-template-columns: 1fr; gap: 36px; }
-  .footer-bottom { flex-direction: column; text-align: center; }
-  .feat-proj-metrics { gap: 20px; }
-  .filter-inner { flex-direction: column; align-items: flex-start; }
+
+  /* Filter bar */
+  .filter-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .filter-tabs { gap: 6px; }
+  .ftab { padding: 6px 14px; font-size: 12px; }
+
+  /* Featured project */
+  .featured-project { padding: 48px 0; }
+  .feat-proj-inner { grid-template-columns: 1fr; gap: 28px; }
+  .feat-proj-card { font-size: 72px; }
+  .feat-proj-title { font-size: clamp(22px, 6vw, 32px); }
+  .feat-proj-desc { font-size: 14px; }
+  .feat-proj-metrics { gap: 16px; flex-wrap: wrap; }
+  .feat-proj-tags { gap: 6px; }
+
+  /* Recent Work carousel */
+  .grid-section { padding: 56px 0; }
+  .section-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .rw-carousel-wrap { height: 380px; }
+  .rw-carousel-stage { height: 340px; max-width: 100%; }
+  .rw-card { width: 220px; height: 320px; border-radius: 14px; }
+  .rw-card-title { font-size: 15px; }
+  .rw-card-title-lg { font-size: 18px; }
+  .rw-card-desc { font-size: 11px; }
+  .rw-card-bg { font-size: 52px !important; }
+  .rw-arrow-btn { width: 36px; height: 36px; }
+  .rw-arrow-btn[style*="left"] { left: 4px !important; }
+  .rw-arrow-btn[style*="right"] { right: 4px !important; }
+
+  /* Categories */
+  .categories-sec { padding: 56px 0; }
+  .cat-grid { grid-template-columns: 1fr; gap: 14px; margin-top: 32px; }
+  .cat-card { padding: 24px 20px; }
+  .cat-card h3 { font-size: 17px; }
+  .cat-card p { font-size: 13px; }
+  .cat-icon { font-size: 28px; margin-bottom: 14px; }
+
+  /* Before & After */
+  .before-after-sec { padding: 56px 0; }
+  .ba-grid { grid-template-columns: 1fr; gap: 14px; margin-top: 32px; }
+  .ba-visual { height: 160px; }
+
+  /* Testimonials */
+  .testi-sec { padding: 56px 0; }
+  .testi-grid { grid-template-columns: 1fr; gap: 14px; margin-top: 32px; }
+  .testi-card { padding: 24px 20px; }
+  .testi-text { font-size: 13px; }
+
+  /* CTA */
+  .cta-sec { padding: 64px 0; }
+  .cta-sec h2 { font-size: clamp(28px, 8vw, 44px); }
+  .cta-sec p { font-size: 14px; }
+  .cta-btns { flex-direction: column; align-items: center; }
+  .cta-btns .btn { width: 100%; max-width: 300px; justify-content: center; }
+  .cta-note { font-size: 12px; flex-direction: column; gap: 6px; }
+
+  /* Footer */
+  .footer-top { grid-template-columns: 1fr; gap: 28px; padding-bottom: 32px; margin-bottom: 32px; }
+  .footer-bottom { flex-direction: column; text-align: center; gap: 8px; }
+  .footer-bottom span { font-size: 12px; }
 }
 
 </style>
@@ -1486,7 +1598,7 @@ footer {
       <div class="feat-proj-visual sr">
         <div class="feat-proj-card">
           <div class="feat-proj-glow"></div>
-          <span style="font-size:110px;">🦁</span>
+          <span style="font-size:110px;"><i class="fa-solid fa-crown" style="color:var(--lime);"></i></span>
           <div class="feat-badge-overlay">Featured</div>
           <div class="feat-proj-year">2025</div>
         </div>
@@ -1534,7 +1646,7 @@ footer {
 </section>
 
 <!-- ============================================================
-     PROJECTS GRID
+     PROJECTS GRID — TEAM CAROUSEL STYLE
 ============================================================ -->
 <section class="grid-section" id="projects">
   <div class="container">
@@ -1546,260 +1658,305 @@ footer {
       <a href="index.html#pricing" class="btn btn-outline sr">Start a Project →</a>
     </div>
 
-    <div class="projects-grid" id="projects-grid">
+    <div class="rw-carousel-wrap" style="perspective: 1200px;">
 
-      <!-- Project 1 — wide -->
-      <div class="proj-card wide sr" data-cat="brand">
-        <div class="proj-thumb-wrap">
-          <div class="proj-thumb-inner" style="background:linear-gradient(135deg,#1a1a1a,#0d0d0d);">
-            <span style="font-size:90px;">🐻</span>
-          </div>
-          <div class="proj-thumb-overlay">
-            <div class="proj-view-btn"><i class="fa-solid fa-arrow-up-right"></i></div>
-          </div>
-          <div class="proj-cat-badge">Brand Identity</div>
-        </div>
-        <div class="proj-body">
-          <div class="proj-body-top">
-            <h3 class="proj-title">Bruin Coffee — Brand System</h3>
-            <span class="proj-year-badge">2025</span>
-          </div>
-          <p class="proj-desc">Full brand identity for a specialty coffee chain — logo, packaging, cups, signage, and a complete visual language ready for franchise rollout.</p>
-          <div class="proj-footer">
-            <div class="proj-tags-row">
-              <span class="proj-tag-sm">Logo</span>
-              <span class="proj-tag-sm">Packaging</span>
-              <span class="proj-tag-sm">Signage</span>
+      <button id="rwPrevBtn" class="rw-arrow-btn" style="left:16px;" aria-label="Previous">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;color:#BDF200;"><path d="m15 18-6-6 6-6"></path></svg>
+      </button>
+
+      <div class="rw-carousel-stage">
+        <div class="rw-carousel-track" style="transform-style: preserve-3d;" id="rwCarouselTrack">
+
+          <div class="rw-card" data-index="0">
+            <div class="rw-card-bg" style="background:linear-gradient(135deg,#1a1a1a,#0d0d0d);"><i class="fa-solid fa-mug-hot" style="font-size:80px;color:rgba(189,242,0,0.4);"></i></div>
+            <div class="rw-card-gradient"></div>
+            <div class="rw-card-bottom">
+              <div class="rw-card-pill">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#BDF200;"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                <span>Brand Identity</span>
+              </div>
+              <p class="rw-card-title">Bruin Coffee</p>
             </div>
-            <span class="proj-link">View Project <i class="fa-solid fa-arrow-right"></i></span>
           </div>
+
+          <div class="rw-card" data-index="1">
+            <div class="rw-card-bg" style="background:linear-gradient(135deg,#111827,#0f172a);"><i class="fa-solid fa-mobile-screen-button" style="font-size:80px;color:rgba(189,242,0,0.4);"></i></div>
+            <div class="rw-card-gradient"></div>
+            <div class="rw-card-bottom">
+              <div class="rw-card-pill">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#BDF200;"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/></svg>
+                <span>UI/UX Design</span>
+              </div>
+              <p class="rw-card-title">Fintrack App</p>
+            </div>
+          </div>
+
+          <div class="rw-card" data-index="2">
+            <div class="rw-card-bg" style="background:linear-gradient(135deg,#1a0d2e,#0d0018);"><i class="fa-brands fa-instagram" style="font-size:80px;color:rgba(189,242,0,0.4);"></i></div>
+            <div class="rw-card-gradient"></div>
+            <div class="rw-card-top">
+              <div class="rw-card-featured">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>
+                Featured
+              </div>
+            </div>
+            <div class="rw-card-bottom">
+              <div class="rw-card-pill rw-card-pill-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#BDF200;"><rect width="20" height="14" x="2" y="6" rx="2"/><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                <span>Social Media</span>
+              </div>
+              <p class="rw-card-title rw-card-title-lg">LuxeGlow Kit</p>
+              <p class="rw-card-desc">Leading social media kit for a cosmetics brand & strategy</p>
+            </div>
+          </div>
+
+          <div class="rw-card" data-index="3">
+            <div class="rw-card-bg" style="background:linear-gradient(135deg,#0d1a0d,#0a150a);"><i class="fa-solid fa-leaf" style="font-size:80px;color:rgba(189,242,0,0.4);"></i></div>
+            <div class="rw-card-gradient"></div>
+            <div class="rw-card-bottom">
+              <div class="rw-card-pill">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#BDF200;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                <span>Packaging</span>
+              </div>
+              <p class="rw-card-title">TerraBotanica</p>
+            </div>
+          </div>
+
+          <div class="rw-card" data-index="4">
+            <div class="rw-card-bg" style="background:linear-gradient(135deg,#0a0a1a,#050510);"><i class="fa-solid fa-display" style="font-size:80px;color:rgba(189,242,0,0.4);"></i></div>
+            <div class="rw-card-gradient"></div>
+            <div class="rw-card-bottom">
+              <div class="rw-card-pill">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#BDF200;"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                <span>Web Design</span>
+              </div>
+              <p class="rw-card-title">Vortex SaaS</p>
+            </div>
+          </div>
+
+          <div class="rw-card" data-index="5">
+            <div class="rw-card-bg" style="background:linear-gradient(135deg,#1a0a00,#100600);"><i class="fa-solid fa-clapperboard" style="font-size:80px;color:rgba(189,242,0,0.4);"></i></div>
+            <div class="rw-card-gradient"></div>
+            <div class="rw-card-bottom">
+              <div class="rw-card-pill">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#BDF200;"><path d="m22 8-6 4 6 4V8z"/><rect width="14" height="12" x="2" y="6" rx="2"/></svg>
+                <span>Motion</span>
+              </div>
+              <p class="rw-card-title">Ignite Brand</p>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <!-- Project 2 -->
-      <div class="proj-card sr" data-cat="ui" style="transition-delay:0.05s;">
-        <div class="proj-thumb-wrap">
-          <div class="proj-thumb-inner" style="background:linear-gradient(135deg,#111827,#0f172a);">
-            <span style="font-size:64px;">📱</span>
-          </div>
-          <div class="proj-thumb-overlay">
-            <div class="proj-view-btn"><i class="fa-solid fa-arrow-up-right"></i></div>
-          </div>
-          <div class="proj-cat-badge">UI/UX</div>
-        </div>
-        <div class="proj-body">
-          <div class="proj-body-top">
-            <h3 class="proj-title">Fintrack — Mobile App UI</h3>
-            <span class="proj-year-badge">2025</span>
-          </div>
-          <p class="proj-desc">A finance tracking app UI with dark mode, custom icon set, and a seamless 40-screen user flow.</p>
-          <div class="proj-footer">
-            <div class="proj-tags-row">
-              <span class="proj-tag-sm">Mobile</span>
-              <span class="proj-tag-sm">Figma</span>
-            </div>
-            <span class="proj-link">View Project <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-        </div>
-      </div>
+      <button id="rwNextBtn" class="rw-arrow-btn" style="right:16px;" aria-label="Next">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;color:#BDF200;"><path d="m9 18 6-6-6-6"></path></svg>
+      </button>
 
-      <!-- Project 3 -->
-      <div class="proj-card sr" data-cat="social" style="transition-delay:0.1s;">
-        <div class="proj-thumb-wrap">
-          <div class="proj-thumb-inner" style="background:linear-gradient(135deg,#1a0d2e,#0d0018);">
-            <span style="font-size:64px;">✨</span>
-          </div>
-          <div class="proj-thumb-overlay">
-            <div class="proj-view-btn"><i class="fa-solid fa-arrow-up-right"></i></div>
-          </div>
-          <div class="proj-cat-badge">Social Media</div>
-        </div>
-        <div class="proj-body">
-          <div class="proj-body-top">
-            <h3 class="proj-title">LuxeGlow — Instagram Kit</h3>
-            <span class="proj-year-badge">2025</span>
-          </div>
-          <p class="proj-desc">60-template social media kit for a cosmetics brand — Stories, Reels covers, carousels, and highlights.</p>
-          <div class="proj-footer">
-            <div class="proj-tags-row">
-              <span class="proj-tag-sm">Instagram</span>
-              <span class="proj-tag-sm">Reels</span>
-            </div>
-            <span class="proj-link">View Project <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 4 -->
-      <div class="proj-card sr" data-cat="packaging" style="transition-delay:0.05s;">
-        <div class="proj-thumb-wrap">
-          <div class="proj-thumb-inner" style="background:linear-gradient(135deg,#0d1a0d,#0a150a);">
-            <span style="font-size:64px;">🌿</span>
-          </div>
-          <div class="proj-thumb-overlay">
-            <div class="proj-view-btn"><i class="fa-solid fa-arrow-up-right"></i></div>
-          </div>
-          <div class="proj-cat-badge">Packaging</div>
-        </div>
-        <div class="proj-body">
-          <div class="proj-body-top">
-            <h3 class="proj-title">TerraBotanica — Packaging Line</h3>
-            <span class="proj-year-badge">2024</span>
-          </div>
-          <p class="proj-desc">Eco-conscious supplement brand packaging — 12 SKUs with botanical illustration and sustainable printing specs.</p>
-          <div class="proj-footer">
-            <div class="proj-tags-row">
-              <span class="proj-tag-sm">Print-Ready</span>
-              <span class="proj-tag-sm">Eco</span>
-            </div>
-            <span class="proj-link">View Project <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 5 — wide -->
-      <div class="proj-card wide sr" data-cat="ui" style="transition-delay:0.1s;">
-        <div class="proj-thumb-wrap">
-          <div class="proj-thumb-inner" style="background:linear-gradient(135deg,#0a0a1a,#050510);">
-            <span style="font-size:90px;">🖥️</span>
-          </div>
-          <div class="proj-thumb-overlay">
-            <div class="proj-view-btn"><i class="fa-solid fa-arrow-up-right"></i></div>
-          </div>
-          <div class="proj-cat-badge">Web Design</div>
-        </div>
-        <div class="proj-body">
-          <div class="proj-body-top">
-            <h3 class="proj-title">Vortex SaaS — Full Web Design</h3>
-            <span class="proj-year-badge">2025</span>
-          </div>
-          <p class="proj-desc">Complete 14-page website design for a B2B SaaS platform — landing, pricing, blog, onboarding flow, and component library in Figma.</p>
-          <div class="proj-footer">
-            <div class="proj-tags-row">
-              <span class="proj-tag-sm">Figma</span>
-              <span class="proj-tag-sm">SaaS</span>
-              <span class="proj-tag-sm">Components</span>
-            </div>
-            <span class="proj-link">View Project <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 6 -->
-      <div class="proj-card sr" data-cat="motion" style="transition-delay:0.05s;">
-        <div class="proj-thumb-wrap">
-          <div class="proj-thumb-inner" style="background:linear-gradient(135deg,#1a0a00,#100600);">
-            <span style="font-size:64px;">🎬</span>
-          </div>
-          <div class="proj-thumb-overlay">
-            <div class="proj-view-btn"><i class="fa-solid fa-arrow-up-right"></i></div>
-          </div>
-          <div class="proj-cat-badge">Motion</div>
-        </div>
-        <div class="proj-body">
-          <div class="proj-body-top">
-            <h3 class="proj-title">Ignite — Brand Animation Pack</h3>
-            <span class="proj-year-badge">2024</span>
-          </div>
-          <p class="proj-desc">Logo reveal, animated social templates, and product launch video graphics for a fitness brand.</p>
-          <div class="proj-footer">
-            <div class="proj-tags-row">
-              <span class="proj-tag-sm">After Effects</span>
-              <span class="proj-tag-sm">Lottie</span>
-            </div>
-            <span class="proj-link">View Project <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 7 -->
-      <div class="proj-card sr" data-cat="brand" style="transition-delay:0.1s;">
-        <div class="proj-thumb-wrap">
-          <div class="proj-thumb-inner" style="background:linear-gradient(135deg,#1a1500,#100d00);">
-            <span style="font-size:64px;">🦅</span>
-          </div>
-          <div class="proj-thumb-overlay">
-            <div class="proj-view-btn"><i class="fa-solid fa-arrow-up-right"></i></div>
-          </div>
-          <div class="proj-cat-badge">Brand Identity</div>
-        </div>
-        <div class="proj-body">
-          <div class="proj-body-top">
-            <h3 class="proj-title">Summit Capital — Corporate Brand</h3>
-            <span class="proj-year-badge">2025</span>
-          </div>
-          <p class="proj-desc">Sophisticated identity for a VC firm — wordmark, stationery, pitch deck template, and digital brand guide.</p>
-          <div class="proj-footer">
-            <div class="proj-tags-row">
-              <span class="proj-tag-sm">Corporate</span>
-              <span class="proj-tag-sm">Stationery</span>
-            </div>
-            <span class="proj-link">View Project <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 8 -->
-      <div class="proj-card sr" data-cat="print" style="transition-delay:0.05s;">
-        <div class="proj-thumb-wrap">
-          <div class="proj-thumb-inner" style="background:linear-gradient(135deg,#0d0a1a,#07050f);">
-            <span style="font-size:64px;">📰</span>
-          </div>
-          <div class="proj-thumb-overlay">
-            <div class="proj-view-btn"><i class="fa-solid fa-arrow-up-right"></i></div>
-          </div>
-          <div class="proj-cat-badge">Print</div>
-        </div>
-        <div class="proj-body">
-          <div class="proj-body-top">
-            <h3 class="proj-title">The Outlook — Magazine Layout</h3>
-            <span class="proj-year-badge">2024</span>
-          </div>
-          <p class="proj-desc">48-page editorial magazine layout with grid system, custom typography, and full prepress package.</p>
-          <div class="proj-footer">
-            <div class="proj-tags-row">
-              <span class="proj-tag-sm">InDesign</span>
-              <span class="proj-tag-sm">Editorial</span>
-            </div>
-            <span class="proj-link">View Project <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 9 -->
-      <div class="proj-card sr" data-cat="social" style="transition-delay:0.1s;">
-        <div class="proj-thumb-wrap">
-          <div class="proj-thumb-inner" style="background:linear-gradient(135deg,#001a10,#00100a);">
-            <span style="font-size:64px;">🌊</span>
-          </div>
-          <div class="proj-thumb-overlay">
-            <div class="proj-view-btn"><i class="fa-solid fa-arrow-up-right"></i></div>
-          </div>
-          <div class="proj-cat-badge">Social Media</div>
-        </div>
-        <div class="proj-body">
-          <div class="proj-body-top">
-            <h3 class="proj-title">TideWave — LinkedIn Campaign</h3>
-            <span class="proj-year-badge">2025</span>
-          </div>
-          <p class="proj-desc">B2B LinkedIn content system — 90 days of branded posts, carousel templates, and banner graphics for a maritime tech startup.</p>
-          <div class="proj-footer">
-            <div class="proj-tags-row">
-              <span class="proj-tag-sm">LinkedIn</span>
-              <span class="proj-tag-sm">B2B</span>
-            </div>
-            <span class="proj-link">View Project <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /projects-grid -->
-
-    <div style="text-align:center;margin-top:56px;" class="sr">
-      <a href="#" class="btn btn-outline" style="font-size:15px;padding:16px 36px;">Load More Projects →</a>
     </div>
+
+
   </div>
 </section>
+
+<style>
+/* Recent Work Carousel */
+.rw-carousel-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 520px;
+}
+.rw-carousel-stage {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rw-carousel-track {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rw-card {
+  position: absolute;
+  width: 320px;
+  height: 460px;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: 1px solid rgba(255,255,255,0.1);
+}
+.rw-card-bg {
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  transition: transform 0.6s ease;
+}
+.rw-card:hover .rw-card-bg { transform: scale(1.06); }
+.rw-card-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.25) 50%, transparent 100%);
+}
+.rw-card-top {
+  position: absolute;
+  top: 24px; right: 24px;
+  z-index: 3;
+}
+.rw-card-featured {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #BDF200;
+  color: #050505;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 50px;
+  letter-spacing: 1px;
+}
+.rw-card-bottom {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 24px;
+  z-index: 3;
+}
+.rw-card-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(8px);
+  padding: 5px 12px;
+  border-radius: 50px;
+  font-size: 11px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.rw-card-pill-lg { padding: 6px 14px; font-size: 12px; margin-bottom: 14px; }
+.rw-card-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+  margin: 0;
+}
+.rw-card-title-lg { font-size: 28px; font-weight: 800; margin-bottom: 6px; }
+.rw-card-desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  margin: 0;
+  line-height: 1.5;
+}
+.rw-arrow-btn {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  z-index: 20;
+  width: 48px; height: 48px;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.rw-arrow-btn:hover { background: rgba(255,255,255,0.08); border-color: #BDF200; }
+</style>
+
+<script>
+(function () {
+  const cards = [
+    { name: 'Bruin Coffee',   role: 'Brand Identity' },
+    { name: 'Fintrack App',   role: 'UI/UX Design'   },
+    { name: 'LuxeGlow Kit',   role: 'Social Media'   },
+    { name: 'TerraBotanica',  role: 'Packaging'      },
+    { name: 'Vortex SaaS',    role: 'Web Design'     },
+    { name: 'Ignite Brand',   role: 'Motion'         }
+  ];
+
+  let currentIndex = 2;
+  const prevBtn = document.getElementById('rwPrevBtn');
+  const nextBtn = document.getElementById('rwNextBtn');
+  const rwCards = document.querySelectorAll('.rw-card');
+
+  function updateCarousel() {
+    const isMobile = window.innerWidth <= 768;
+    const gap = isMobile ? 120 : 180;
+    const farGap = isMobile ? 240 : 360;
+
+    rwCards.forEach((card, i) => {
+      const rel = i - currentIndex;
+      let transform, opacity, filter, zIndex, shadow = '', outline;
+
+      if (rel === 0) {
+        transform = 'translateX(0px) scale(1) rotateY(0deg)';
+        opacity = 1; filter = 'brightness(1)'; zIndex = 10;
+        outline = '2px solid rgba(189,242,0,0.4)';
+        shadow = '0px 20px 60px rgba(163,230,53,0.3)';
+        card.style.background = 'rgba(189,242,0,0.05)';
+      } else if (rel === -1) {
+        transform = `translateX(-${gap}px) scale(0.9) rotateY(10deg)`;
+        opacity = 0.6; filter = 'brightness(0.75)'; zIndex = 5;
+        outline = '1px solid rgba(255,255,255,0.1)';
+        card.style.background = '';
+      } else if (rel === 1) {
+        transform = `translateX(${gap}px) scale(0.9) rotateY(-10deg)`;
+        opacity = 0.6; filter = 'brightness(0.75)'; zIndex = 5;
+        outline = '1px solid rgba(255,255,255,0.1)';
+        card.style.background = '';
+      } else if (rel === -2) {
+        transform = `translateX(-${farGap}px) scale(0.85) rotateY(20deg)`;
+        opacity = isMobile ? 0 : 0.4; filter = 'brightness(0.6)'; zIndex = 2;
+        outline = '1px solid rgba(255,255,255,0.1)';
+        card.style.background = '';
+      } else if (rel === 2) {
+        transform = `translateX(${farGap}px) scale(0.85) rotateY(-20deg)`;
+        opacity = isMobile ? 0 : 0.4; filter = 'brightness(0.6)'; zIndex = 2;
+        outline = '1px solid rgba(255,255,255,0.1)';
+        card.style.background = '';
+      } else {
+        transform = `translateX(${rel * gap}px) scale(0.75) rotateY(${-rel * 15}deg)`;
+        opacity = 0; filter = 'brightness(0.5)'; zIndex = 1;
+        outline = '1px solid rgba(255,255,255,0.1)';
+        card.style.background = '';
+      }
+
+      card.style.transform  = transform;
+      card.style.opacity    = opacity;
+      card.style.filter     = filter;
+      card.style.zIndex     = zIndex;
+      card.style.boxShadow  = shadow;
+      card.style.outline    = outline;
+    });
+  }
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+    updateCarousel();
+  });
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % cards.length;
+    updateCarousel();
+  });
+
+  window.addEventListener('resize', updateCarousel);
+  updateCarousel();
+})();
+</script>
 
 <!-- ============================================================
      CATEGORIES
@@ -1815,7 +1972,7 @@ footer {
     <div class="cat-grid">
 
       <div class="cat-card sr">
-        <span class="cat-icon">🎨</span>
+        <span class="cat-icon"><i class="fa-solid fa-fingerprint"></i></span>
         <h3>Brand Identity</h3>
         <p>Logos, brand guidelines, typography, color systems — everything to make your brand unforgettable.</p>
         <div class="cat-footer">
@@ -1825,7 +1982,7 @@ footer {
       </div>
 
       <div class="cat-card accent sr" style="transition-delay:0.05s;">
-        <span class="cat-icon">📱</span>
+        <span class="cat-icon"><i class="fa-solid fa-pen-nib"></i></span>
         <h3>UI/UX Design</h3>
         <p>Apps, dashboards, and websites designed to convert — built in Figma with developer-ready handoff.</p>
         <div class="cat-footer">
@@ -1835,7 +1992,7 @@ footer {
       </div>
 
       <div class="cat-card sr" style="transition-delay:0.1s;">
-        <span class="cat-icon">📲</span>
+        <span class="cat-icon"><i class="fa-brands fa-instagram"></i></span>
         <h3>Social Media</h3>
         <p>Templates, campaigns, reels graphics, and content kits that stop the scroll and build community.</p>
         <div class="cat-footer">
@@ -1845,7 +2002,7 @@ footer {
       </div>
 
       <div class="cat-card sr" style="transition-delay:0.05s;">
-        <span class="cat-icon">🎬</span>
+        <span class="cat-icon"><i class="fa-solid fa-clapperboard"></i></span>
         <h3>Motion Graphics</h3>
         <p>Animated logos, explainer videos, social reels, and brand animations in After Effects and Lottie.</p>
         <div class="cat-footer">
@@ -1855,7 +2012,7 @@ footer {
       </div>
 
       <div class="cat-card sr" style="transition-delay:0.1s;">
-        <span class="cat-icon">📦</span>
+        <span class="cat-icon"><i class="fa-solid fa-box-open"></i></span>
         <h3>Packaging</h3>
         <p>Shelf-ready packaging with dielines, structural design, and print-ready files for any industry.</p>
         <div class="cat-footer">
@@ -1865,7 +2022,7 @@ footer {
       </div>
 
       <div class="cat-card sr" style="transition-delay:0.15s;">
-        <span class="cat-icon">📰</span>
+        <span class="cat-icon"><i class="fa-regular fa-newspaper"></i></span>
         <h3>Print & Editorial</h3>
         <p>Magazines, brochures, reports, pitch decks, and any print collateral delivered press-ready.</p>
         <div class="cat-footer">
@@ -1899,7 +2056,7 @@ footer {
           <span class="ba-label before">Before</span>
         </div>
         <div class="ba-visual before-vis">
-          <span>🏢</span>
+          <i class="fa-solid fa-building" style="font-size:70px;color:#444;"></i>
         </div>
         <div class="ba-body">
           <div class="ba-client">Enterprise Software</div>
@@ -1913,7 +2070,7 @@ footer {
           <span class="ba-label after">After</span>
         </div>
         <div class="ba-visual after-vis">
-          <span>🚀</span>
+          <i class="fa-solid fa-rocket" style="font-size:70px;color:var(--lime);"></i>
         </div>
         <div class="ba-body">
           <div class="ba-client">Enterprise Software</div>
@@ -1927,7 +2084,7 @@ footer {
           <span class="ba-label before">Before</span>
         </div>
         <div class="ba-visual before-vis">
-          <span>🏪</span>
+          <i class="fa-solid fa-store" style="font-size:70px;color:#444;"></i>
         </div>
         <div class="ba-body">
           <div class="ba-client">F&B / Retail</div>
@@ -1941,7 +2098,7 @@ footer {
           <span class="ba-label after">After</span>
         </div>
         <div class="ba-visual after-vis">
-          <span>🧁</span>
+          <i class="fa-solid fa-bag-shopping" style="font-size:70px;color:var(--lime);"></i>
         </div>
         <div class="ba-body">
           <div class="ba-client">F&B / Retail</div>
