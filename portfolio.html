@@ -1475,8 +1475,11 @@ footer {
 <header id="site-header">
   <nav class="container">
     <a href="index.html" class="logo">
-      <div class="logo-mark">PG</div>
-      Praise<span>Graphics</span>
+      <img src="gallery/1714665825236.png" alt="PraiseGraphics" style="width:38px;height:38px;border-radius:9px;object-fit:cover;border:2px solid #BDF200;">
+      <div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;color:#BDF200;line-height:1;">PraiseGraphics</div>
+        <div style="font-size:10px;color:#777;letter-spacing:1px;text-transform:uppercase;margin-top:2px;">Creative Design Studio</div>
+      </div>
     </a>
 
     <ul class="nav-menu">
@@ -1485,11 +1488,12 @@ footer {
       <li><a href="index.html#services">Services</a></li>
       <li><a href="portfolio.html" class="active-nav">Portfolio</a></li>
       <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
     </ul>
 
     <div class="nav-actions">
-      <a href="index.html#cta" class="btn btn-outline" style="padding:10px 20px;font-size:13px;">Login</a>
-      <a href="index.html#pricing" class="btn btn-lime" style="padding:10px 20px;font-size:13px;">Get Started →</a>
+      <a href="index.html#pricing" class="btn btn-outline" style="padding:10px 20px;font-size:13px;">View Plans</a>
+      <a href="index.html#cta" class="btn btn-lime" style="padding:10px 20px;font-size:13px;">Get Started →</a>
     </div>
 
     <button class="hamburger" id="hamBtn" onclick="toggleMobile()" aria-label="Menu">
@@ -1505,6 +1509,7 @@ footer {
   <a href="index.html#services" onclick="closeMobile()">Services</a>
   <a href="portfolio.html" onclick="closeMobile()">Portfolio</a>
   <a href="index.html#pricing" onclick="closeMobile()">Pricing</a>
+  <a href="index.html#contact" onclick="closeMobile()">Contact</a>
   <a href="index.html#pricing" class="btn btn-lime" onclick="closeMobile()">Get Started →</a>
 </div>
 
@@ -1696,8 +1701,8 @@ footer {
             </div>
           </div>
 
-          <div class="rw-card" data-index="2">
-            <div class="rw-card-bg" style="background:linear-gradient(135deg,#1a0d2e,#0d0018);background-image:url('https://drive.google.com/thumbnail?id=19WxLp5c2LGALKrfzybXI8hHNGPEnpbkt&sz=w800');background-size:cover;background-position:center;"></div>
+          <div class="rw-card" data-index="2" id="birthdayCard">
+            <div class="rw-card-bg" id="birthdayBg" style="background:linear-gradient(135deg,#1a0d2e,#0d0018);background-image:url('https://drive.google.com/thumbnail?id=1NqkADAsXZ4V1bJNbTx37wV3lvDHTwc-z&sz=w800');background-size:cover;background-position:center;"></div>
             <div class="rw-card-gradient"></div>
             <div class="rw-card-top">
               <div class="rw-card-featured">
@@ -1712,6 +1717,8 @@ footer {
               </div>
               <p class="rw-card-title rw-card-title-lg">Birthday Graphics</p>
               <p class="rw-card-desc">Custom birthday cards, banners & social posts</p>
+              <!-- Slide dots -->
+              <div id="bdDots" style="display:flex;gap:5px;margin-top:10px;"></div>
             </div>
           </div>
 
@@ -2151,9 +2158,12 @@ footer {
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <div class="logo-mark">PG</div>
-          Praise<span>Graphics</span>
+        <a href="index.html" class="logo" style="margin-bottom:16px;display:flex;">
+          <img src="gallery/1714665825236.png" alt="PraiseGraphics" style="width:38px;height:38px;border-radius:9px;object-fit:cover;border:2px solid #BDF200;">
+          <div style="margin-left:10px;">
+            <div style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;color:#BDF200;line-height:1;">PraiseGraphics</div>
+            <div style="font-size:10px;color:#777;letter-spacing:1px;text-transform:uppercase;margin-top:2px;">Creative Design Studio</div>
+          </div>
         </a>
         <p class="footer-brand-desc">PraiseGraphics — unlimited graphic design for modern brands. Fast turnarounds, unlimited revisions, flat monthly rate.</p>
         <div class="social-row">
@@ -2167,12 +2177,12 @@ footer {
       <div class="footer-col">
         <h5>Portfolio</h5>
         <ul>
-          <li><a href="#">Brand Identity</a></li>
-          <li><a href="#">UI/UX Design</a></li>
-          <li><a href="#">Social Media</a></li>
-          <li><a href="#">Motion Graphics</a></li>
-          <li><a href="#">Packaging</a></li>
-          <li><a href="#">Print & Editorial</a></li>
+          <li><a href="portfolio.html">Brand Identity</a></li>
+          <li><a href="portfolio.html">Church Design</a></li>
+          <li><a href="portfolio.html">Birthday Design</a></li>
+          <li><a href="portfolio.html">Anniversary Design</a></li>
+          <li><a href="portfolio.html">Album Design</a></li>
+          <li><a href="portfolio.html">Logo Design</a></li>
         </ul>
       </div>
 
@@ -2180,11 +2190,11 @@ footer {
         <h5>Company</h5>
         <ul>
           <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
           <li><a href="index.html#process">How It Works</a></li>
           <li><a href="index.html#pricing">Pricing</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
         </ul>
       </div>
 
@@ -2217,6 +2227,47 @@ footer {
      JAVASCRIPT
 ============================================================ -->
 <script>
+/* ---- BIRTHDAY CARD SLIDESHOW ---- */
+(function () {
+  const bdImages = [
+    '1NqkADAsXZ4V1bJNbTx37wV3lvDHTwc-z',
+    '1yG7TWyJDPEa-rmmFdfiLZFlrowGtmDLJ',
+    '14C5186Ttu-GWRwOeIycQMc7FcFSjy2I6',
+    '17BEN7dO0RXPjtvjM0dMdI_qX5DNxtjWl',
+    '1-S7fX1h-TYfbHC37dnt2hKbGcPxvM_Io',
+    '1vbN0cPLITgVYB3pfhD8SF2z5Y-_AVcCa',
+    '1M_XrD37wYoNhQRua-nmyprD01mhVvPhJ',
+    '1E-dRUgNs1uLFfuEfYiZPonaRSWdJf9db',
+    '13LVJBKQt-POh0sJbUB67TTwCwKXzxzP6'
+  ];
+
+  const bg = document.getElementById('birthdayBg');
+  const dotsWrap = document.getElementById('bdDots');
+  let bdIdx = 0;
+
+  // Build dots
+  bdImages.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.style.cssText = `width:${i===0?'18px':'6px'};height:6px;border-radius:3px;background:${i===0?'#BDF200':'rgba(255,255,255,0.35)'};transition:all 0.3s;`;
+    dotsWrap.appendChild(d);
+  });
+
+  function setBdSlide(idx) {
+    bg.style.backgroundImage = `url('https://drive.google.com/thumbnail?id=${bdImages[idx]}&sz=w800')`;
+    bg.style.backgroundSize = 'cover';
+    bg.style.backgroundPosition = 'center';
+    Array.from(dotsWrap.children).forEach((d, i) => {
+      d.style.width = i === idx ? '18px' : '6px';
+      d.style.background = i === idx ? '#BDF200' : 'rgba(255,255,255,0.35)';
+    });
+    bdIdx = idx;
+  }
+
+  setInterval(() => {
+    setBdSlide((bdIdx + 1) % bdImages.length);
+  }, 2500);
+})();
+
 /* ---- SCROLL REVEAL ---- */
 const srEls = document.querySelectorAll('.sr');
 const revealObs = new IntersectionObserver((entries) => {
