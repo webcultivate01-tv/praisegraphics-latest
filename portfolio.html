@@ -367,11 +367,11 @@ nav {
   justify-content: center;
   gap: 56px;
   animation: fadeUp 0.9s ease 0.46s both;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   background: rgba(255,255,255,0.025);
   border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 28px 48px;
+  border-radius: 16px;
+  padding: 20px 48px;
   max-width: 700px;
   margin: 0 auto;
   backdrop-filter: blur(10px);
@@ -468,62 +468,52 @@ nav {
 .filter-count span { color: var(--lime); font-weight: 700; }
 
 /* ============================================================
-   PORTFOLIO BENTO GRID
+   PORTFOLIO GRID
 ============================================================ */
 .portfolio-grid-sec {
   background: var(--black);
-  padding: 64px 0 100px;
+  padding: 48px 0 100px;
 }
 
-.bento-grid {
+/* Creative asymmetric grid */
+.pg-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-auto-rows: 80px;
+  grid-auto-rows: 60px;
   gap: 14px;
-  margin-top: 0;
 }
 
-/* Card sizes via row/col spans */
-.bc-wide   { grid-column: span 5; grid-row: span 4; }  /* 400px tall */
-.bc-tall   { grid-column: span 4; grid-row: span 5; }  /* 500px tall */
-.bc-sq     { grid-column: span 4; grid-row: span 4; }  /* 320px tall */
-.bc-short  { grid-column: span 3; grid-row: span 3; }  /* 240px tall */
-.bc-hero   { grid-column: span 7; grid-row: span 5; }  /* big hero */
-.bc-slim   { grid-column: span 5; grid-row: span 3; }  /* wide short */
-
-@media (max-width: 1100px) {
-  .bento-grid { grid-template-columns: repeat(8, 1fr); }
-  .bc-hero  { grid-column: span 8; grid-row: span 4; }
-  .bc-wide  { grid-column: span 4; grid-row: span 4; }
-  .bc-tall  { grid-column: span 4; grid-row: span 5; }
-  .bc-sq    { grid-column: span 4; grid-row: span 4; }
-  .bc-short { grid-column: span 4; grid-row: span 3; }
-  .bc-slim  { grid-column: span 4; grid-row: span 3; }
-}
-@media (max-width: 700px) {
-  .bento-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 160px; gap: 10px; }
-  .bc-hero, .bc-wide, .bc-tall, .bc-sq, .bc-short, .bc-slim {
-    grid-column: span 2; grid-row: span 2;
-  }
-}
+/* Span definitions */
+.pg-c1 { grid-column: span 5; grid-row: span 7; }  /* tall left */
+.pg-c2 { grid-column: span 4; grid-row: span 4; }  /* medium */
+.pg-c3 { grid-column: span 3; grid-row: span 4; }  /* small */
+.pg-c4 { grid-column: span 4; grid-row: span 5; }  /* medium tall */
+.pg-c5 { grid-column: span 3; grid-row: span 3; }  /* small short */
+.pg-c6 { grid-column: span 5; grid-row: span 5; }  /* wide */
+.pg-c7 { grid-column: span 4; grid-row: span 4; }  /* medium */
+.pg-c8 { grid-column: span 3; grid-row: span 6; }  /* narrow tall */
+.pg-c9 { grid-column: span 5; grid-row: span 4; }  /* wide short */
+.pg-c10{ grid-column: span 4; grid-row: span 3; }  /* small */
+.pg-c11{ grid-column: span 7; grid-row: span 5; }  /* hero wide */
+.pg-c12{ grid-column: span 5; grid-row: span 5; }  /* medium */
 
 /* Base card */
-.bento-card {
+.pg-card {
   position: relative;
-  border-radius: 20px;
+  border-radius: 18px;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.4s cubic-bezier(0.34,1.4,0.64,1), box-shadow 0.4s ease;
   border: 1px solid rgba(255,255,255,0.06);
+  transition: transform 0.4s cubic-bezier(0.34,1.4,0.64,1), box-shadow 0.4s;
 }
-.bento-card:hover {
-  transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 24px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(189,242,0,0.2);
-  z-index: 2;
+.pg-card:hover {
+  transform: translateY(-8px) scale(1.015);
+  box-shadow: 0 28px 70px rgba(0,0,0,0.65), 0 0 0 1px rgba(189,242,0,0.25);
+  z-index: 5;
 }
 
-/* Card inner fill */
-.bc-fill {
+/* Inner content */
+.pg-inner {
   position: absolute;
   inset: 0;
   display: flex;
@@ -534,45 +524,43 @@ nav {
   padding: 24px;
 }
 
-/* Emoji / icon */
-.bc-emoji {
+.pg-icon {
   font-size: 52px;
   line-height: 1;
-  filter: drop-shadow(0 4px 16px rgba(0,0,0,0.5));
-  transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  filter: drop-shadow(0 6px 20px rgba(0,0,0,0.5));
+  transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1);
 }
-.bento-card:hover .bc-emoji { transform: scale(1.18) rotate(-6deg); }
-.bc-hero .bc-emoji  { font-size: 80px; }
-.bc-short .bc-emoji { font-size: 38px; }
+.pg-c1 .pg-icon, .pg-c11 .pg-icon { font-size: 72px; }
+.pg-c5 .pg-icon, .pg-c3 .pg-icon { font-size: 38px; }
+.pg-card:hover .pg-icon { transform: scale(1.22) rotate(-8deg); }
 
-/* Text inside card */
-.bc-label {
+.pg-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
   color: #fff;
   text-align: center;
-  line-height: 1.1;
-  letter-spacing: -0.5px;
+  line-height: 1.15;
+  letter-spacing: -0.3px;
+  font-size: 17px;
 }
-.bc-hero .bc-label  { font-size: 30px; }
-.bc-wide .bc-label, .bc-tall .bc-label, .bc-sq .bc-label { font-size: 20px; }
-.bc-short .bc-label, .bc-slim .bc-label { font-size: 15px; }
+.pg-c1 .pg-title, .pg-c11 .pg-title { font-size: 22px; }
+.pg-c5 .pg-title, .pg-c3 .pg-title { font-size: 13px; }
 
-.bc-sub {
-  font-size: 11px;
-  color: rgba(255,255,255,0.5);
+.pg-cat {
+  font-size: 9.5px;
+  color: rgba(255,255,255,0.4);
   letter-spacing: 2.5px;
   text-transform: uppercase;
   text-align: center;
 }
 
-/* Category pill top-left */
-.bc-pill {
+/* Category pill */
+.pg-pill {
   position: absolute;
-  top: 14px; left: 14px;
-  background: rgba(0,0,0,0.55);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.12);
+  top: 13px; left: 13px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.1);
   color: var(--lime);
   font-size: 9px;
   font-weight: 700;
@@ -583,47 +571,50 @@ nav {
   z-index: 3;
   transition: opacity 0.3s;
 }
-.bento-card:hover .bc-pill { opacity: 0; }
+.pg-card:hover .pg-pill { opacity: 0; }
 
-/* Hover overlay */
-.bc-hover {
+/* Hover reveal */
+.pg-hover {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.3) 55%, transparent 100%);
+  background: linear-gradient(to top, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.45) 55%, transparent 100%);
   opacity: 0;
-  transition: opacity 0.35s ease;
+  transition: opacity 0.35s;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 22px;
+  padding: 20px;
   z-index: 4;
 }
-.bento-card:hover .bc-hover { opacity: 1; }
-.bc-hover-title {
+.pg-card:hover .pg-hover { opacity: 1; }
+
+.pg-hover-title {
   font-family: 'Montserrat', sans-serif;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 800;
   color: #fff;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
+  line-height: 1.2;
 }
-.bc-hover-sub { font-size: 12px; color: rgba(255,255,255,0.6); }
-.bc-hover-arrow {
+.pg-hover-sub { font-size: 11px; color: rgba(255,255,255,0.5); }
+
+.pg-arrow {
   position: absolute;
-  top: 16px; right: 16px;
-  width: 38px; height: 38px;
+  top: 13px; right: 13px;
+  width: 34px; height: 34px;
   background: var(--lime);
   border-radius: 50%;
   display: grid;
   place-items: center;
   color: #000;
-  font-size: 14px;
+  font-size: 12px;
   transform: scale(0) rotate(-45deg);
   transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
 }
-.bento-card:hover .bc-hover-arrow { transform: scale(1) rotate(0deg); }
+.pg-card:hover .pg-arrow { transform: scale(1) rotate(0deg); }
 
-/* Accent line at bottom */
-.bc-line {
+/* Lime bottom line */
+.pg-line {
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 3px;
@@ -632,50 +623,112 @@ nav {
   transform-origin: left;
   transition: transform 0.4s ease;
 }
-.bento-card:hover .bc-line { transform: scaleX(1); }
+.pg-card:hover .pg-line { transform: scaleX(1); }
 
-/* Gradient backgrounds per category */
-.bg-brand  { background: radial-gradient(ellipse at 30% 20%, #1e3a5f 0%, #0a0f1e 60%), #050505; }
-.bg-church { background: radial-gradient(ellipse at 70% 30%, #3b1f6e 0%, #0d0520 60%), #050505; }
-.bg-bday   { background: radial-gradient(ellipse at 40% 60%, #6b1a3a 0%, #1a0010 60%), #050505; }
-.bg-anniv  { background: radial-gradient(ellipse at 60% 40%, #1a4a25 0%, #040e06 60%), #050505; }
-.bg-album  { background: radial-gradient(ellipse at 50% 50%, #3d2800 0%, #100900 60%), #050505; }
-.bg-logo   { background: radial-gradient(ellipse at 30% 70%, #003060 0%, #000c1a 60%), #050505; }
-.bg-social { background: radial-gradient(ellipse at 70% 20%, #350055 0%, #0a0015 60%), #050505; }
-
-/* Noise texture overlay on each card */
-.bento-card::after {
+/* Noise overlay */
+.pg-card::after {
   content: '';
   position: absolute;
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 1;
-  opacity: 0.35;
+  opacity: 0.28;
 }
 
-/* Shimmer effect on hero card */
-.bc-hero::before {
-  content: '';
-  position: absolute;
-  top: -50%; left: -75%;
-  width: 50%; height: 200%;
-  background: linear-gradient(105deg, transparent 40%, rgba(189,242,0,0.06) 50%, transparent 60%);
-  transform: rotate(0deg);
-  animation: shimmer 6s ease-in-out infinite;
-  z-index: 2;
-  pointer-events: none;
-}
-@keyframes shimmer {
-  0%   { left: -75%; }
-  100% { left: 150%; }
-}
+/* Gradient backgrounds */
+.bg-brand  { background: radial-gradient(ellipse at 30% 20%, #1e3a5f 0%, #0a0f1e 65%), #050505; }
+.bg-church { background: radial-gradient(ellipse at 70% 30%, #3b1f6e 0%, #0d0520 65%), #050505; }
+.bg-bday   { background: radial-gradient(ellipse at 40% 60%, #6b1a3a 0%, #1a0010 65%), #050505; }
+.bg-anniv  { background: radial-gradient(ellipse at 60% 40%, #1a4a25 0%, #040e06 65%), #050505; }
+.bg-album  { background: radial-gradient(ellipse at 50% 50%, #3d2800 0%, #100900 65%), #050505; }
+.bg-logo   { background: radial-gradient(ellipse at 30% 70%, #003060 0%, #000c1a 65%), #050505; }
+.bg-social { background: radial-gradient(ellipse at 70% 20%, #350055 0%, #0a0015 65%), #050505; }
 
-/* Load more button */
+/* Load more */
 .load-more-wrap { text-align: center; margin-top: 56px; }
 
+/* Responsive */
+@media (max-width: 1024px) {
+  .pg-grid { grid-template-columns: repeat(6, 1fr); grid-auto-rows: 70px; }
+  .pg-c1  { grid-column: span 3; grid-row: span 5; }
+  .pg-c2  { grid-column: span 3; grid-row: span 4; }
+  .pg-c3  { grid-column: span 3; grid-row: span 3; }
+  .pg-c4  { grid-column: span 3; grid-row: span 4; }
+  .pg-c5  { grid-column: span 3; grid-row: span 3; }
+  .pg-c6  { grid-column: span 3; grid-row: span 4; }
+  .pg-c7  { grid-column: span 3; grid-row: span 4; }
+  .pg-c8  { grid-column: span 3; grid-row: span 5; }
+  .pg-c9  { grid-column: span 3; grid-row: span 3; }
+  .pg-c10 { grid-column: span 3; grid-row: span 3; }
+  .pg-c11 { grid-column: span 4; grid-row: span 4; }
+  .pg-c12 { grid-column: span 2; grid-row: span 4; }
+}
+@media (max-width: 640px) {
+  .pg-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 160px; gap: 10px; }
+  .pg-c1,.pg-c2,.pg-c3,.pg-c4,.pg-c5,.pg-c6,
+  .pg-c7,.pg-c8,.pg-c9,.pg-c10,.pg-c11,.pg-c12 {
+    grid-column: span 1; grid-row: span 1;
+  }
+  .pg-c1, .pg-c11 { grid-column: span 2; grid-row: span 1; }
+  .pg-icon { font-size: 36px !important; }
+  .pg-title { font-size: 13px !important; }
+  .pg-c1 .pg-title, .pg-c11 .pg-title { font-size: 15px !important; }
+}
+
 /* ============================================================
-   CATEGORIES SECTION
+   GZ SHOWCASE
+============================================================ */
+.gz-showcase { background: var(--black); padding: 72px 0 80px; }
+.gz-title { font-family:'Montserrat',sans-serif; font-size:clamp(36px,5vw,64px); font-weight:900; letter-spacing:-2px; text-align:center; margin-bottom:16px; line-height:1.05; }
+.gz-title em { font-style:normal; color:var(--lime); }
+.gz-subtitle { text-align:center; color:var(--light-gray); font-size:16px; line-height:1.7; max-width:680px; margin:0 auto 52px; }
+.gz-cat-wrap { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom:40px; }
+.gz-pill { display:inline-flex; align-items:center; gap:6px; padding:10px 22px; border-radius:12px; border:1.5px solid var(--border); background:var(--dark); color:var(--light-gray); font-size:13.5px; font-weight:600; font-family:'Poppins',sans-serif; cursor:pointer; transition:all 0.28s cubic-bezier(0.34,1.56,0.64,1); user-select:none; }
+.gz-pill:hover { border-color:rgba(189,242,0,0.5); color:var(--lime); background:rgba(189,242,0,0.05); transform:translateY(-2px); }
+.gz-pill.gz-active { background:var(--lime); color:var(--black); border-color:var(--lime); transform:translateY(-2px); box-shadow:0 8px 24px rgba(189,242,0,0.28); }
+.gz-pill i { font-size:13px; }
+.gz-cat-heading { font-family:'Montserrat',sans-serif; font-size:clamp(24px,3.5vw,42px); font-weight:900; color:var(--lime); margin-bottom:28px; letter-spacing:-1px; }
+.gz-img-grid { display:grid; grid-template-columns:repeat(12,1fr); grid-auto-rows:60px; gap:14px; }
+.gz-img-item { border-radius:18px; overflow:hidden; position:relative; background:var(--card); border:1px solid rgba(255,255,255,0.06); transition:transform 0.4s cubic-bezier(0.34,1.4,0.64,1),box-shadow 0.4s; cursor:pointer; display:none; }
+.gz-img-item.gz-show { display:block; }
+.gz-img-item:hover { transform:translateY(-8px) scale(1.015); box-shadow:0 28px 70px rgba(0,0,0,0.65),0 0 0 1px rgba(189,242,0,0.25); z-index:5; }
+/* asymmetric spans — same pattern as pg-grid */
+.gz-img-item:nth-child(8n+1) { grid-column:span 5; grid-row:span 7; }
+.gz-img-item:nth-child(8n+2) { grid-column:span 4; grid-row:span 4; }
+.gz-img-item:nth-child(8n+3) { grid-column:span 3; grid-row:span 4; }
+.gz-img-item:nth-child(8n+4) { grid-column:span 4; grid-row:span 5; }
+.gz-img-item:nth-child(8n+5) { grid-column:span 3; grid-row:span 3; }
+.gz-img-item:nth-child(8n+6) { grid-column:span 5; grid-row:span 5; }
+.gz-img-item:nth-child(8n+7) { grid-column:span 4; grid-row:span 4; }
+.gz-img-item:nth-child(8n+8) { grid-column:span 3; grid-row:span 6; }
+.gz-img-placeholder { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; }
+.gz-img-placeholder-inner { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; padding:20px; text-align:center; }
+.gz-img-icon { font-size:52px; line-height:1; filter:drop-shadow(0 6px 20px rgba(0,0,0,0.5)); transition:transform 0.45s cubic-bezier(0.34,1.56,0.64,1); }
+.gz-img-item:hover .gz-img-icon { transform:scale(1.22) rotate(-8deg); }
+.gz-img-item:nth-child(8n+1) .gz-img-icon { font-size:72px; }
+.gz-img-label { font-family:'Montserrat',sans-serif; font-size:15px; font-weight:800; color:rgba(255,255,255,0.9); letter-spacing:-0.3px; }
+.gz-img-item:nth-child(8n+1) .gz-img-label { font-size:20px; }
+.gz-img-sublabel { font-size:11px; color:rgba(255,255,255,0.4); letter-spacing:1px; }
+.gz-hover-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,0.96) 0%,rgba(0,0,0,0.45) 55%,transparent 100%); opacity:0; transition:opacity 0.35s; display:flex; flex-direction:column; justify-content:flex-end; padding:20px; z-index:4; }
+.gz-img-item:hover .gz-hover-overlay { opacity:1; }
+.gz-view-btn { background:var(--lime); color:var(--black); font-family:'Poppins',sans-serif; font-size:12px; font-weight:700; padding:8px 18px; border-radius:8px; display:inline-flex; align-items:center; gap:6px; width:fit-content; transform:translateY(8px); transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+.gz-img-item:hover .gz-view-btn { transform:translateY(0); }
+@media (max-width:1024px) {
+  .gz-img-grid { grid-template-columns:repeat(6,1fr); grid-auto-rows:70px; }
+  .gz-img-item:nth-child(8n+1),.gz-img-item:nth-child(8n+4),.gz-img-item:nth-child(8n+6) { grid-column:span 3; grid-row:span 5; }
+  .gz-img-item:nth-child(8n+2),.gz-img-item:nth-child(8n+3),.gz-img-item:nth-child(8n+5),.gz-img-item:nth-child(8n+7),.gz-img-item:nth-child(8n+8) { grid-column:span 3; grid-row:span 4; }
+}
+@media (max-width:640px) {
+  .gz-img-grid { grid-template-columns:1fr 1fr; grid-auto-rows:160px; gap:10px; }
+  .gz-img-item:nth-child(n) { grid-column:span 1; grid-row:span 1; }
+  .gz-img-item:nth-child(8n+1) { grid-column:span 2; }
+  .gz-img-icon { font-size:36px !important; }
+  .gz-img-label { font-size:13px !important; }
+  .gz-cat-wrap { gap:7px; }
+  .gz-pill { font-size:12px; padding:8px 14px; }
+}
+
 /* ============================================================
    CATEGORIES SECTION
 ============================================================ */
@@ -1081,93 +1134,69 @@ nav {
    FOOTER
 ============================================================ */
 footer {
-  background: #050505;
+  background: var(--dark);
   border-top: 1px solid var(--border);
-  padding: 72px 0 40px;
+  padding: 64px 0 40px;
 }
 .footer-top {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.5fr;
-  gap: 48px;
-  margin-bottom: 56px;
-  padding-bottom: 56px;
+  grid-template-columns: 2.2fr 1fr 1fr 1.3fr;
+  gap: 60px;
+  margin-bottom: 48px;
+  padding-bottom: 48px;
   border-bottom: 1px solid var(--border);
 }
-@media (max-width: 1000px) { .footer-top { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 600px) { .footer-top { grid-template-columns: 1fr; } }
+@media (max-width: 1000px) { .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; } }
+@media (max-width: 600px) { .footer-top { grid-template-columns: 1fr; gap: 32px; } }
 
 .footer-brand-desc {
   font-size: 14px;
   color: var(--gray);
-  line-height: 1.7;
-  margin: 18px 0 22px;
+  line-height: 1.75;
+  margin: 16px 0 22px;
   max-width: 280px;
 }
 .social-row { display: flex; gap: 10px; }
 .soc-btn {
   width: 38px; height: 38px;
-  border-radius: 50%;
+  background: var(--card);
   border: 1px solid var(--border);
+  border-radius: 8px;
   display: grid;
   place-items: center;
   font-size: 14px;
   color: var(--gray);
+  text-decoration: none;
   transition: all 0.3s;
 }
-.soc-btn:hover { border-color: var(--lime); color: var(--lime); background: rgba(189,242,0,0.07); }
+.soc-btn:hover { background: var(--lime); border-color: var(--lime); color: var(--black); transform: translateY(-2px); }
 .footer-col h5 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--white);
   margin-bottom: 20px;
 }
 .footer-col ul { display: flex; flex-direction: column; gap: 12px; }
-.footer-col a { font-size: 14px; color: var(--gray); transition: color 0.25s; }
+.footer-col a { font-size: 14px; color: var(--gray); transition: color 0.25s; text-decoration: none; }
 .footer-col a:hover { color: var(--lime); }
 .footer-contact p { font-size: 13.5px; color: var(--gray); line-height: 1.65; margin-bottom: 16px; }
-.newsletter-input {
-  display: flex;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  background: var(--dark);
-}
-.newsletter-input input {
-  flex: 1;
-  background: none;
-  border: none;
-  outline: none;
-  color: var(--white);
-  font-family: 'Poppins', sans-serif;
-  font-size: 13px;
-  padding: 11px 14px;
-}
-.newsletter-input input::placeholder { color: var(--gray); }
-.newsletter-input button {
-  background: var(--lime);
-  border: none;
-  color: var(--black);
-  font-weight: 700;
-  font-size: 13px;
-  padding: 11px 16px;
-  cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-  transition: background 0.25s;
-}
-.newsletter-input button:hover { background: #d4ff00; }
 .footer-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 14px;
+  gap: 12px;
   font-size: 13px;
   color: var(--gray);
 }
-.footer-bottom a:hover { color: var(--lime); }
+.footer-bottom a { color: var(--lime); text-decoration: none; }
+.footer-bottom a:hover { text-decoration: underline; }
+@media (max-width: 768px) {
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
 
 /* ============================================================
    RESPONSIVE
@@ -1194,11 +1223,15 @@ footer {
   <div class="container">
     <nav>
       <a href="index.html" class="logo">
-        <div class="logo-mark">PG</div>
-        Praise<span>Graphics</span>
+        <img src="gallery/1714665825236.png" alt="PraiseGraphics" style="width:36px;height:36px;border-radius:8px;object-fit:cover;border:2px solid #BDF200;">
+        <div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:800;color:#BDF200;line-height:1;">PraiseGraphics</div>
+          <div style="font-size:9px;color:#777;letter-spacing:1px;text-transform:uppercase;margin-top:2px;">Creative Design Studio</div>
+        </div>
       </a>
       <ul class="nav-menu">
         <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="index.html#services">Services</a></li>
         <li><a href="portfolio.html" class="active-nav">Portfolio</a></li>
         <li><a href="index.html#pricing">Pricing</a></li>
@@ -1206,7 +1239,7 @@ footer {
       </ul>
       <div class="nav-actions">
         <a href="index.html#pricing" class="btn btn-outline" style="font-size:13px;padding:9px 20px;">View Plans</a>
-        <a href="index.html#pricing" class="btn btn-lime" style="font-size:13px;padding:9px 20px;">Start Free Trial</a>
+        <a href="index.html#cta" class="btn btn-lime" style="font-size:13px;padding:9px 20px;">Get Started →</a>
       </div>
       <button class="hamburger" id="hamBtn" onclick="toggleMobile()" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -1218,11 +1251,12 @@ footer {
 <!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobileNav">
   <a href="index.html" onclick="closeMobile()">Home</a>
+  <a href="about.html" onclick="closeMobile()">About</a>
   <a href="index.html#services" onclick="closeMobile()">Services</a>
   <a href="portfolio.html" onclick="closeMobile()">Portfolio</a>
   <a href="index.html#pricing" onclick="closeMobile()">Pricing</a>
   <a href="index.html#contact" onclick="closeMobile()">Contact</a>
-  <a href="index.html#pricing" class="btn btn-lime" onclick="closeMobile()">Start Free Trial</a>
+  <a href="index.html#cta" class="btn btn-lime" onclick="closeMobile()">Get Started →</a>
 </div>
 
 <!-- ============================================================
@@ -1271,8 +1305,274 @@ footer {
 
 </div>
 
-<!-- FILTER BAR -->
-<div class="filter-bar" id="portfolio-grid">
+<!-- ============================================================
+     GZ PORTFOLIO SHOWCASE
+============================================================ -->
+<section class="gz-showcase" id="portfolio-grid">
+  <div class="container">
+    <div class="tag sr" style="margin:0 auto 20px;"><span class="tag-dot"></span>Browse by Category</div>
+    <h2 class="gz-title sr">Our <em>Design</em> Portfolio</h2>
+    <p class="gz-subtitle sr">We pride ourselves in the quality of our graphic designs. From logos, brochures, flyers, social media to so much more — browse our work by category.</p>
+
+    <div class="gz-cat-wrap">
+      <button class="gz-pill gz-active" data-gz="all"><i class="fa-solid fa-border-all"></i> All Work</button>
+      <button class="gz-pill" data-gz="brand"><i class="fa-solid fa-fingerprint"></i> Brand</button>
+      <button class="gz-pill" data-gz="church"><i class="fa-solid fa-church"></i> Church</button>
+      <button class="gz-pill" data-gz="birthday"><i class="fa-solid fa-cake-candles"></i> Birthday</button>
+      <button class="gz-pill" data-gz="anniversary"><i class="fa-solid fa-heart"></i> Anniversary</button>
+      <button class="gz-pill" data-gz="album"><i class="fa-solid fa-compact-disc"></i> Album</button>
+      <button class="gz-pill" data-gz="logo"><i class="fa-solid fa-pen-fancy"></i> Logo</button>
+      <button class="gz-pill" data-gz="social"><i class="fa-brands fa-instagram"></i> Social</button>
+    </div>
+
+    <h3 class="gz-cat-heading" id="gzCatHeading">All Work</h3>
+
+    <div class="gz-img-grid" id="gzGrid">
+
+      <!-- BRAND -->
+      <div class="gz-img-item gz-show" data-gz-cat="brand" style="background:radial-gradient(ellipse at 30% 20%,#1e3a5f 0%,#0a0f1e 65%)">
+        <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
+          <div class="gz-img-icon">🏢</div>
+          <div class="gz-img-label">Apex Corporate Rebrand</div>
+          <div class="gz-img-sublabel">Logo · Brand Guide · Collateral</div>
+        </div></div>
+        <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
+      </div>
+      <div class="gz-img-item gz-show" data-gz-cat="brand" style="background:radial-gradient(ellipse at 60% 40%,#1a3b1a 0%,#051405 65%)">
+        <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
+          <div class="gz-img-icon">🌿</div>
+          <div class="gz-img-label">GreenRoot Organic Brand</div>
+          <div class="gz-img-sublabel">Full Brand Identity Package</div>
+        </div></div>
+        <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
+      </div>
+      <div class="gz-img-item gz-show" data-gz-cat="brand" style="background:radial-gradient(ellipse at 40% 60%,#2a0050 0%,#0d0020 65%)">
+        <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
+          <div class="gz-img-icon">🚀</div>
+          <div class="gz-img-label">Launchpad Startup Brand</div>
+          <div class="gz-img-sublabel">Brand Identity · Pitch Deck</div>
+        </div></div>
+        <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
+      </div>
+      <div class="gz-img-item gz-show" data-gz-cat="brand" style="background:radial-gradient(ellipse at 65% 30%,#3b1a1a 0%,#150505 65%)">
+        <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
+          <div class="gz-img-icon">💄</div>
+          <div class="gz-img-label">Velour Beauty Brand</div>
+          <div class="gz-img-sublabel">Logo · Packaging · Identity</div>
+        </div></div>
+        <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
+      </div>
+
+      <!-- CHURCH -->
+      <div class="gz-img-item gz-show" data-gz-cat="church" style="background:radial-gradient(ellipse at 70% 30%,#3b1f6e 0%,#0d0520 65%)">
+        <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
+          <div class="gz-img-icon">⛪</div>
+          <div class="gz-img-label">Glory Chapel Sunday Flyer</div>
+          <div class="gz-img-sublabel">Event Flyer · Program Design</div>
+        </div></div>
+        <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
+      </div>
+      <div class="gz-img-item gz-show" data-gz-cat="church" style="background:radial-gradient(ellipse at 40% 60%,#2a1f5e 0%,#0a0818 65%)">
+        <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
+          <div class="gz-img-icon">✝️</div>
+          <div class="gz-img-label">Kingdom Arise Conference</div>
+          <div class="gz-img-sublabel">Conference Flyer · Program · Banner</div>
+        </div></div>
+        <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
+      </div>
+      <div class="gz-img-item gz-show" data-gz-cat="church" style="background:radial-gradient(ellipse at 55% 35%,#1f1a5e 0%,#080618 65%)">
+        <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
+          <div class="gz-img-icon">📖</div>
+          <div class="gz-img-label">Bible Study Series</div>
+          <div class="gz-img-sublabel">Weekly Flyer Template</div>
+        </div></div>
+        <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
+      </div>
+      <div class="gz-img-item gz-show" data-gz-cat="church" style="background:radial-gradient(ellipse at 30% 65%,#3b1f6e 0%,#0d0520 65%)">
+        <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
+          <div class="gz-img-icon">🕊️</div>
+          <div class="gz-img-label">Youth Revival Summer Camp</div>
+          <div class="gz-img-sublabel">Flyer · Social Graphics · Banner</div>
+        </div></div>
+        <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
+      </div>
+
+      <!-- BIRTHDAY -->
+      <div class="gz-img-item gz-show" data-gz-cat="birthday" style="background:radial-gradient(ellipse at 40% 60%,#6b1a3a 0%,#1a0010 65%)">
+        <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
+          <div class="gz-img-icon">🎂</div>
+          <div class="gz-img-label">Sarah's 30th Birthday</div>
+          <div class="gz-img-sublabel">Birthday Card · Invite</div>
+        </div></div>
+        <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
+      </div>
+      <div class="gz-img-item gz-show" data-gz-cat="birthday" style="background:radial-gradient(ellipse at 60% 35%,#5a1a30 0%,#15080c 65%)">
+        <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
+          <div class="gz-img-icon">🎉</div>
+          <div class="gz-img-label">Kids Party Invite</div>
+          <div class="gz-img-sublabel">Fun & Colorful Design</div>
+        </div></div>
+        <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
+      </div>
+      <div class="gz-img-item gz-show" data-gz-cat="birthday" style="background:radial-gradient(ellipse at 45% 65%,#6b1a3a 0%,#1a0010 65%)">
+        <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
+          <div class="gz-img-icon">🎀</div>
+          <div class="gz-img-label">Emma's Sweet 16</div>
+          <div class="gz-img-sublabel">Birthday Invite · Party Pack</div>
+        </div></div>
+        <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
+      </div>
+      <div class="gz-img-item gz-show" data-gz-cat="birthday" style="background:radial-gradient(ellipse at 65% 25%,#4a1a28 0%,#120008 65%)">
+        <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
+          <div class="gz-img-icon">🎊</div>
+          <div class="gz-img-label">Boss Man 50th Bash</div>
+          <div class="gz-img-sublabel">Luxury Birthday Design</div>
+        </div></div>
+        <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
+      </div>
+
+      <!-- ANNIVERSARY -->
+      <div class="gz-img-item gz-show" data-gz-cat="anniversary" style="background:radial-gradient(ellipse at 60% 40%,#1a4a25 0%,#040e06 65%)">
+        <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
+          <div class="gz-img-icon">💍</div>
+          <div class="gz-img-label">James & Mary — 25th</div>
+          <div class="gz-img-sublabel">Anniversary Card · Digital Invite</div>
+        </div></div>
+        <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
+      </div>
+      <div class="gz-img-item gz-show" data-gz-cat="anniversary" style="background:radial-gradient(ellipse at 40% 60%,#1a4a25 0%,#040e06 65%)">
+        <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
+          <div class="gz-img-icon">💐</div>
+          <div class="gz-img-label">10th Wedding Anniversary</div>
+          <div class="gz-img-sublabel">Card Design · Digital Flyer</div>
+        </div></div>
+        <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
+      </div>
+      <div class="gz-img-item gz-show" data-gz-cat="anniversary" style="background:radial-gradient(ellipse at 55% 35%,#0f3a1a 0%,#030e06 65%)">
+        <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
+          <div class="gz-img-icon">🥂</div>
+          <div class="gz-img-label">Church 50th Anniversary</div>
+          <div class="gz-img-sublabel">Jubilee Package · Banner</div>
+        </div></div>
+        <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
+      </div>
+      <div class="gz-img-item gz-show" data-gz-cat="anniversary" style="background:radial-gradient(ellipse at 65% 25%,#1a4a25 0%,#040e06 65%)">
+        <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
+          <div class="gz-img-icon">🌹</div>
+          <div class="gz-img-label">Silver Wedding Jubilee</div>
+          <div class="gz-img-sublabel">Elegant Print · Digital Pack</div>
+        </div></div>
+        <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
+      </div>
+
+      <!-- ALBUM -->
+      <div class="gz-img-item gz-show" data-gz-cat="album" style="background:radial-gradient(ellipse at 50% 50%,#3d2800 0%,#100900 65%)">
+        <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
+          <div class="gz-img-icon">🎵</div>
+          <div class="gz-img-label">Elevation Gospel Choir</div>
+          <div class="gz-img-sublabel">Album Cover · Back Art · CD Label</div>
+        </div></div>
+        <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
+      </div>
+      <div class="gz-img-item gz-show" data-gz-cat="album" style="background:radial-gradient(ellipse at 35% 60%,#2d1e00 0%,#0c0800 65%)">
+        <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
+          <div class="gz-img-icon">🎙️</div>
+          <div class="gz-img-label">Arise — Worship EP Cover</div>
+          <div class="gz-img-sublabel">Album Art · Streaming Artwork</div>
+        </div></div>
+        <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
+      </div>
+      <div class="gz-img-item gz-show" data-gz-cat="album" style="background:radial-gradient(ellipse at 60% 35%,#3d2800 0%,#100900 65%)">
+        <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
+          <div class="gz-img-icon">🎺</div>
+          <div class="gz-img-label">Breakthrough Praise Album</div>
+          <div class="gz-img-sublabel">Full Album Package · Booklet</div>
+        </div></div>
+        <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
+      </div>
+      <div class="gz-img-item gz-show" data-gz-cat="album" style="background:radial-gradient(ellipse at 45% 65%,#2d1e00 0%,#0c0800 65%)">
+        <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
+          <div class="gz-img-icon">🎼</div>
+          <div class="gz-img-label">Hallelujah Live Album</div>
+          <div class="gz-img-sublabel">Cover · Spine · Back Design</div>
+        </div></div>
+        <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
+      </div>
+
+      <!-- LOGO -->
+      <div class="gz-img-item gz-show" data-gz-cat="logo" style="background:radial-gradient(ellipse at 30% 70%,#003060 0%,#000c1a 65%)">
+        <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
+          <div class="gz-img-icon">✦</div>
+          <div class="gz-img-label">Nexus Tech Logo</div>
+          <div class="gz-img-sublabel">Logo · Icon · Brand Mark</div>
+        </div></div>
+        <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
+      </div>
+      <div class="gz-img-item gz-show" data-gz-cat="logo" style="background:radial-gradient(ellipse at 55% 35%,#0a3520 0%,#020e08 65%)">
+        <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
+          <div class="gz-img-icon">☕</div>
+          <div class="gz-img-label">Mocha Café Logo</div>
+          <div class="gz-img-sublabel">Wordmark · Icon · Signage</div>
+        </div></div>
+        <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
+      </div>
+      <div class="gz-img-item gz-show" data-gz-cat="logo" style="background:radial-gradient(ellipse at 40% 60%,#001a50 0%,#00060f 65%)">
+        <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
+          <div class="gz-img-icon">WF</div>
+          <div class="gz-img-label">WaveFit Gym Logo</div>
+          <div class="gz-img-sublabel">Logo · App Icon · Brand</div>
+        </div></div>
+        <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
+      </div>
+      <div class="gz-img-item gz-show" data-gz-cat="logo" style="background:radial-gradient(ellipse at 65% 30%,#30150a 0%,#10060a 65%)">
+        <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
+          <div class="gz-img-icon">🦅</div>
+          <div class="gz-img-label">Apex Brand Mark</div>
+          <div class="gz-img-sublabel">Logo · Emblem · Identity</div>
+        </div></div>
+        <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
+      </div>
+
+      <!-- SOCIAL -->
+      <div class="gz-img-item gz-show" data-gz-cat="social" style="background:radial-gradient(ellipse at 70% 20%,#350055 0%,#0a0015 65%)">
+        <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
+          <div class="gz-img-icon">📱</div>
+          <div class="gz-img-label">Instagram Story Pack</div>
+          <div class="gz-img-sublabel">10-piece Story Templates</div>
+        </div></div>
+        <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
+      </div>
+      <div class="gz-img-item gz-show" data-gz-cat="social" style="background:radial-gradient(ellipse at 50% 40%,#2a0050 0%,#0d0020 65%)">
+        <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
+          <div class="gz-img-icon">📊</div>
+          <div class="gz-img-label">LinkedIn Banner Pack</div>
+          <div class="gz-img-sublabel">Professional Profile Set</div>
+        </div></div>
+        <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
+      </div>
+      <div class="gz-img-item gz-show" data-gz-cat="social" style="background:radial-gradient(ellipse at 35% 65%,#350055 0%,#0a0015 65%)">
+        <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
+          <div class="gz-img-icon">🎯</div>
+          <div class="gz-img-label">Facebook Ad Campaign Pack</div>
+          <div class="gz-img-sublabel">12 Ad Creatives · A/B Variants</div>
+        </div></div>
+        <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
+      </div>
+      <div class="gz-img-item gz-show" data-gz-cat="social" style="background:radial-gradient(ellipse at 65% 25%,#1a0040 0%,#080015 65%)">
+        <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
+          <div class="gz-img-icon">📸</div>
+          <div class="gz-img-label">Twitter / X Banner Design</div>
+          <div class="gz-img-sublabel">Profile · Header · Brand Kit</div>
+        </div></div>
+        <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
+      </div>
+
+    </div><!-- end gz-img-grid -->
+  </div>
+</section>
+
+<!-- FILTER BAR HIDDEN -->
+<div class="filter-bar" id="portfolio-grid-old" style="display:none;">
   <div class="container">
     <div class="filter-inner">
       <div class="filter-tabs">
@@ -1285,7 +1585,6 @@ footer {
         <button class="ftab" data-filter="logo">Logo</button>
         <button class="ftab" data-filter="social">Social</button>
       </div>
-      <div class="filter-count">Showing <span id="proj-count">6</span> projects</div>
     </div>
   </div>
 </div>
@@ -1293,7 +1592,7 @@ footer {
 <!-- ============================================================
      PORTFOLIO BENTO GRID
 ============================================================ -->
-<section class="portfolio-grid-sec">
+<section class="portfolio-grid-sec" style="display:none;">
   <div class="container">
     <div class="bento-grid" id="bentoGrid">
 
@@ -1719,206 +2018,6 @@ footer {
 </section>
 
 <!-- ============================================================
-     FEATURED HORIZONTAL SCROLL
-============================================================ -->
-<section class="featured-sec">
-  <div class="container">
-    <div class="section-header sr">
-      <div>
-        <div class="tag"><span class="tag-dot"></span>Editor's Picks</div>
-        <h2 class="section-title">Featured<br><em style="font-style:normal;color:var(--lime);">Projects</em></h2>
-      </div>
-      <a href="#portfolio-grid" class="btn btn-outline" style="font-size:13px;padding:10px 22px;">View All <i class="fa-solid fa-arrow-right"></i></a>
-    </div>
-  </div>
-  <div class="container" style="max-width:100%;padding:0 24px;">
-    <div class="featured-scroll-wrap" id="featuredScroll">
-      <div class="featured-scroll-inner">
-
-        <div class="feat-card">
-          <div class="feat-card-visual bg-brand">
-            <div class="feat-card-visual-inner">🏢</div>
-          </div>
-          <div class="feat-top-badge">⭐ Featured</div>
-          <div class="feat-card-body">
-            <div class="feat-card-cat">Brand Identity</div>
-            <div class="feat-card-title">Apex Corporate Rebrand</div>
-            <div class="feat-card-desc">A full brand overhaul for a consulting firm — logo, colors, typography, and a comprehensive brand guide.</div>
-            <div class="feat-card-tags">
-              <span class="sk-tag">Logo</span><span class="sk-tag">Brand Guide</span><span class="sk-tag">Stationery</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="feat-card">
-          <div class="feat-card-visual bg-church">
-            <div class="feat-card-visual-inner">⛪</div>
-          </div>
-          <div class="feat-top-badge">🔥 Popular</div>
-          <div class="feat-card-body">
-            <div class="feat-card-cat">Church Design</div>
-            <div class="feat-card-title">Kingdom Arise Conference</div>
-            <div class="feat-card-desc">A full design package for a 3-day church conference — flyer, program, stage banner &amp; social set.</div>
-            <div class="feat-card-tags">
-              <span class="sk-tag">Flyer</span><span class="sk-tag">Program</span><span class="sk-tag">Banner</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="feat-card">
-          <div class="feat-card-visual bg-bday">
-            <div class="feat-card-visual-inner">🎂</div>
-          </div>
-          <div class="feat-card-body">
-            <div class="feat-card-cat">Birthday Design</div>
-            <div class="feat-card-title">Sarah's 30th Celebration</div>
-            <div class="feat-card-desc">A luxurious gold-and-black birthday design package including invite, card, and social graphics.</div>
-            <div class="feat-card-tags">
-              <span class="sk-tag">Invite</span><span class="sk-tag">Card</span><span class="sk-tag">Social</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="feat-card">
-          <div class="feat-card-visual bg-album">
-            <div class="feat-card-visual-inner">🎵</div>
-          </div>
-          <div class="feat-card-body">
-            <div class="feat-card-cat">Album Design</div>
-            <div class="feat-card-title">Elevation Gospel Choir</div>
-            <div class="feat-card-desc">Powerful album artwork for a gospel choir — front cover, back, booklet design, and streaming assets.</div>
-            <div class="feat-card-tags">
-              <span class="sk-tag">Album Art</span><span class="sk-tag">Booklet</span><span class="sk-tag">Streaming</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="feat-card">
-          <div class="feat-card-visual bg-logo">
-            <div class="feat-card-visual-inner">✏️</div>
-          </div>
-          <div class="feat-top-badge">✨ Award</div>
-          <div class="feat-card-body">
-            <div class="feat-card-cat">Logo Design</div>
-            <div class="feat-card-title">WaveFit Gym Brand</div>
-            <div class="feat-card-desc">Clean, bold logo design for a fitness brand — mark, wordmark, icon variations, and brand colours.</div>
-            <div class="feat-card-tags">
-              <span class="sk-tag">Logo</span><span class="sk-tag">Icon</span><span class="sk-tag">Colour Palette</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="feat-card">
-          <div class="feat-card-visual bg-social">
-            <div class="feat-card-visual-inner">📱</div>
-          </div>
-          <div class="feat-card-body">
-            <div class="feat-card-cat">Social Media</div>
-            <div class="feat-card-title">Facebook Ad Campaign Pack</div>
-            <div class="feat-card-desc">12 high-converting Facebook ad creatives with A/B variants for a product launch campaign.</div>
-            <div class="feat-card-tags">
-              <span class="sk-tag">Ads</span><span class="sk-tag">A/B Variants</span><span class="sk-tag">Campaign</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     PROCESS STRIP
-============================================================ -->
-<div class="process-strip">
-  <div class="container">
-    <div class="process-inner">
-      <div class="proc-step">
-        <div class="proc-num">01</div>
-        <div class="proc-info">
-          <h4>Submit Brief</h4>
-          <p>Tell us your vision</p>
-        </div>
-      </div>
-      <div class="proc-step">
-        <div class="proc-num">02</div>
-        <div class="proc-info">
-          <h4>We Design</h4>
-          <p>First draft in 24hrs</p>
-        </div>
-      </div>
-      <div class="proc-step">
-        <div class="proc-num">03</div>
-        <div class="proc-info">
-          <h4>Review & Revise</h4>
-          <p>Unlimited revisions</p>
-        </div>
-      </div>
-      <div class="proc-step">
-        <div class="proc-num">04</div>
-        <div class="proc-info">
-          <h4>Final Delivery</h4>
-          <p>All formats included</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ============================================================
-     TESTIMONIALS
-============================================================ -->
-<section class="testi-sec">
-  <div class="container">
-    <div class="section-header sr">
-      <div>
-        <div class="tag"><span class="tag-dot"></span>Client Love</div>
-        <h2 class="section-title">What Clients<br><em style="font-style:normal;color:var(--lime);">Say</em></h2>
-      </div>
-    </div>
-    <div class="testi-grid">
-
-      <div class="testi-card sr">
-        <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="testi-text">"The branding work was absolutely exceptional. Our church now has a professional look that reflects our values perfectly. We've received so many compliments on our new materials."</p>
-        <div class="testi-author">
-          <div class="testi-avatar" style="background:#1e40af;">P</div>
-          <div>
-            <div class="testi-name">Pastor Emmanuel</div>
-            <div class="testi-role">Senior Pastor, Grace Church</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card white-card sr" style="transition-delay:0.1s;">
-        <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="testi-text">"Incredible turnaround time! I submitted my brief on Monday and had a gorgeous birthday card design by Tuesday morning. The quality is outstanding — nothing like I expected at this price."</p>
-        <div class="testi-author">
-          <div class="testi-avatar" style="background:var(--lime);color:#000;">M</div>
-          <div>
-            <div class="testi-name">Michelle Torres</div>
-            <div class="testi-role">Event Planner, Chicago</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card sr" style="transition-delay:0.2s;">
-        <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="testi-text">"Our album cover got so many compliments when we launched on Spotify. The team nailed the vibe perfectly. We've already commissioned our next project — PraiseGraphics is our go-to design partner."</p>
-        <div class="testi-author">
-          <div class="testi-avatar" style="background:#7c3aed;">J</div>
-          <div>
-            <div class="testi-name">Joshua King</div>
-            <div class="testi-role">Worship Artist, Kingdom Sound</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
      CTA
 ============================================================ -->
 <section class="cta-sec">
@@ -1942,15 +2041,18 @@ footer {
 <!-- ============================================================
      FOOTER
 ============================================================ -->
-<footer>
+<footer id="contact" style="background:var(--dark);border-top:1px solid var(--border);">
   <div class="container">
     <div class="footer-top">
-      <div>
-        <a href="index.html" class="logo" style="margin-bottom:16px;">
-          <div class="logo-mark">PG</div>
-          Praise<span>Graphics</span>
+      <div class="footer-brand">
+        <a href="index.html" class="logo" style="margin-bottom:16px;display:flex;">
+          <img src="gallery/1714665825236.png" alt="PraiseGraphics" style="width:38px;height:38px;border-radius:9px;object-fit:cover;border:2px solid #BDF200;">
+          <div style="margin-left:10px;">
+            <div style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;color:#BDF200;line-height:1;">PraiseGraphics</div>
+            <div style="font-size:10px;color:#777;letter-spacing:1px;text-transform:uppercase;margin-top:2px;">Creative Design Studio</div>
+          </div>
         </a>
-        <p class="footer-brand-desc">Unlimited graphic design for modern brands and ministries. Fast turnarounds, unlimited revisions, flat monthly rate.</p>
+        <p class="footer-brand-desc">PraiseGraphics — unlimited graphic design for modern brands. Fast turnarounds, unlimited revisions, flat monthly rate.</p>
         <div class="social-row">
           <a class="soc-btn" href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
           <a class="soc-btn" href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -1962,12 +2064,12 @@ footer {
       <div class="footer-col">
         <h5>Portfolio</h5>
         <ul>
-          <li><a href="#">Brand Identity</a></li>
-          <li><a href="#">Church Design</a></li>
-          <li><a href="#">Birthday Design</a></li>
-          <li><a href="#">Anniversary</a></li>
-          <li><a href="#">Album Design</a></li>
-          <li><a href="#">Logo Design</a></li>
+          <li><a href="portfolio.html">Brand Identity</a></li>
+          <li><a href="portfolio.html">Church Design</a></li>
+          <li><a href="portfolio.html">Birthday Design</a></li>
+          <li><a href="portfolio.html">Anniversary Design</a></li>
+          <li><a href="portfolio.html">Album Design</a></li>
+          <li><a href="portfolio.html">Logo Design</a></li>
         </ul>
       </div>
 
@@ -1985,21 +2087,21 @@ footer {
 
       <div class="footer-col footer-contact">
         <h5>Stay Updated</h5>
-        <p>Design tips, case studies, and exclusive offers — straight to your inbox.</p>
-        <div class="newsletter-input">
-          <input type="email" placeholder="your@email.com">
-          <button>Subscribe</button>
+        <p>Get design tips, case studies, and exclusive offers — straight to your inbox.</p>
+        <div class="newsletter-input" style="display:flex;gap:8px;">
+          <input type="email" placeholder="your@email.com" style="flex:1;background:#141414;border:1.5px solid #222;border-radius:8px;padding:11px 14px;font-size:13px;color:#fff;font-family:'Poppins',sans-serif;outline:none;">
+          <button style="background:#BDF200;color:#050505;border:none;border-radius:8px;padding:11px 16px;font-weight:700;font-size:13px;cursor:pointer;font-family:'Poppins',sans-serif;">Subscribe</button>
         </div>
-        <p style="margin-top:18px;font-size:13px;"><i class="fa-solid fa-envelope" style="color:var(--lime);margin-right:6px;"></i><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="83ebe6efefecc3f3f1e2eaf0e6e4f1e2f3ebeae0f0ade0ecee">[email&#160;protected]</a></p>
+        <p style="margin-top:18px;font-size:13px;color:#777;"><i class="fa-solid fa-envelope" style="color:#BDF200;margin-right:6px;"></i>hello@praisegraphics.com</p>
       </div>
     </div>
 
     <div class="footer-bottom">
       <span>© 2025 PraiseGraphics. All rights reserved.</span>
       <span>
-        <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
-        <a href="#">Terms</a> &nbsp;·&nbsp;
-        <a href="#">Cookies</a>
+        <a href="#" style="color:#BDF200;">Privacy Policy</a> &nbsp;·&nbsp;
+        <a href="#" style="color:#BDF200;">Terms</a> &nbsp;·&nbsp;
+        <a href="#" style="color:#BDF200;">Cookies</a>
       </span>
       <span>Made with 💚 for great design</span>
     </div>
@@ -2010,6 +2112,25 @@ footer {
      JAVASCRIPT
 ============================================================ -->
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* GZ CATEGORY PILLS */
+const catNames = { all:'All Work', brand:'Brand', church:'Church', birthday:'Birthday', anniversary:'Anniversary', album:'Album', logo:'Logo', social:'Social' };
+const gzPills = document.querySelectorAll('.gz-pill');
+const gzItems = document.querySelectorAll('.gz-img-item');
+const gzHeading = document.getElementById('gzCatHeading');
+gzPills.forEach(pill => {
+  pill.addEventListener('click', () => {
+    gzPills.forEach(p => p.classList.remove('gz-active'));
+    pill.classList.add('gz-active');
+    const cat = pill.dataset.gz;
+    gzHeading.textContent = catNames[cat] || cat;
+    gzItems.forEach(item => {
+      const show = cat === 'all' || item.dataset.gzCat === cat;
+      item.classList.toggle('gz-show', show);
+      if (show) { item.style.animation='none'; setTimeout(()=>{ item.style.animation='fadeUp 0.45s ease both'; },10); }
+    });
+  });
+});
+
 /* SCROLL REVEAL */
 const srEls = document.querySelectorAll('.sr');
 const revealObs = new IntersectionObserver((entries) => {
