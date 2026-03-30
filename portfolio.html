@@ -689,19 +689,10 @@ nav {
 .gz-pill.gz-active { background:var(--lime); color:var(--black); border-color:var(--lime); transform:translateY(-2px); box-shadow:0 8px 24px rgba(189,242,0,0.28); }
 .gz-pill i { font-size:13px; }
 .gz-cat-heading { font-family:'Montserrat',sans-serif; font-size:clamp(24px,3.5vw,42px); font-weight:900; color:var(--lime); margin-bottom:28px; letter-spacing:-1px; }
-.gz-img-grid { display:grid; grid-template-columns:repeat(12,1fr); grid-auto-rows:60px; gap:14px; }
-.gz-img-item { border-radius:18px; overflow:hidden; position:relative; background:var(--card); border:1px solid rgba(255,255,255,0.06); transition:transform 0.4s cubic-bezier(0.34,1.4,0.64,1),box-shadow 0.4s; cursor:pointer; display:none; }
-.gz-img-item.gz-show { display:block; }
+.gz-img-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+.gz-img-item { border-radius:18px; overflow:hidden; position:relative; background:var(--card); border:1px solid rgba(255,255,255,0.06); transition:transform 0.4s cubic-bezier(0.34,1.4,0.64,1),box-shadow 0.4s; cursor:pointer; display:none; height:320px; }
+.gz-img-item.gz-show { display:block; }  
 .gz-img-item:hover { transform:translateY(-8px) scale(1.015); box-shadow:0 28px 70px rgba(0,0,0,0.65),0 0 0 1px rgba(189,242,0,0.25); z-index:5; }
-/* asymmetric spans — same pattern as pg-grid */
-.gz-img-item:nth-child(8n+1) { grid-column:span 5; grid-row:span 7; }
-.gz-img-item:nth-child(8n+2) { grid-column:span 4; grid-row:span 4; }
-.gz-img-item:nth-child(8n+3) { grid-column:span 3; grid-row:span 4; }
-.gz-img-item:nth-child(8n+4) { grid-column:span 4; grid-row:span 5; }
-.gz-img-item:nth-child(8n+5) { grid-column:span 3; grid-row:span 3; }
-.gz-img-item:nth-child(8n+6) { grid-column:span 5; grid-row:span 5; }
-.gz-img-item:nth-child(8n+7) { grid-column:span 4; grid-row:span 4; }
-.gz-img-item:nth-child(8n+8) { grid-column:span 3; grid-row:span 6; }
 .gz-img-placeholder { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; }
 .gz-img-placeholder-inner { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; padding:20px; text-align:center; }
 .gz-img-icon { font-size:52px; line-height:1; filter:drop-shadow(0 6px 20px rgba(0,0,0,0.5)); transition:transform 0.45s cubic-bezier(0.34,1.56,0.64,1); }
@@ -715,16 +706,11 @@ nav {
 .gz-view-btn { background:var(--lime); color:var(--black); font-family:'Poppins',sans-serif; font-size:12px; font-weight:700; padding:8px 18px; border-radius:8px; display:inline-flex; align-items:center; gap:6px; width:fit-content; transform:translateY(8px); transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }
 .gz-img-item:hover .gz-view-btn { transform:translateY(0); }
 @media (max-width:1024px) {
-  .gz-img-grid { grid-template-columns:repeat(6,1fr); grid-auto-rows:70px; }
-  .gz-img-item:nth-child(8n+1),.gz-img-item:nth-child(8n+4),.gz-img-item:nth-child(8n+6) { grid-column:span 3; grid-row:span 5; }
-  .gz-img-item:nth-child(8n+2),.gz-img-item:nth-child(8n+3),.gz-img-item:nth-child(8n+5),.gz-img-item:nth-child(8n+7),.gz-img-item:nth-child(8n+8) { grid-column:span 3; grid-row:span 4; }
+  .gz-img-grid { grid-template-columns:repeat(2,1fr); }
 }
 @media (max-width:640px) {
-  .gz-img-grid { grid-template-columns:1fr 1fr; grid-auto-rows:160px; gap:10px; }
-  .gz-img-item:nth-child(n) { grid-column:span 1; grid-row:span 1; }
-  .gz-img-item:nth-child(8n+1) { grid-column:span 2; }
-  .gz-img-icon { font-size:36px !important; }
-  .gz-img-label { font-size:13px !important; }
+  .gz-img-grid { grid-template-columns:1fr 1fr; gap:10px; }
+  .gz-img-item { height:200px; }
   .gz-cat-wrap { gap:7px; }
   .gz-pill { font-size:12px; padding:8px 14px; }
 }
@@ -1330,7 +1316,7 @@ footer {
     <div class="gz-img-grid" id="gzGrid">
 
       <!-- BRAND -->
-      <div class="gz-img-item gz-show" data-gz-cat="brand" style="background:radial-gradient(ellipse at 30% 20%,#1e3a5f 0%,#0a0f1e 65%)">
+      <div class="gz-img-item gz-show" data-gz-cat="brand" data-gz-first="brand" style="background:radial-gradient(ellipse at 30% 20%,#1e3a5f 0%,#0a0f1e 65%)">
         <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
           <div class="gz-img-icon">🏢</div>
           <div class="gz-img-label">Apex Corporate Rebrand</div>
@@ -1338,7 +1324,7 @@ footer {
         </div></div>
         <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
       </div>
-      <div class="gz-img-item gz-show" data-gz-cat="brand" style="background:radial-gradient(ellipse at 60% 40%,#1a3b1a 0%,#051405 65%)">
+      <div class="gz-img-item" data-gz-cat="brand" style="background:radial-gradient(ellipse at 60% 40%,#1a3b1a 0%,#051405 65%)">
         <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
           <div class="gz-img-icon">🌿</div>
           <div class="gz-img-label">GreenRoot Organic Brand</div>
@@ -1346,7 +1332,7 @@ footer {
         </div></div>
         <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
       </div>
-      <div class="gz-img-item gz-show" data-gz-cat="brand" style="background:radial-gradient(ellipse at 40% 60%,#2a0050 0%,#0d0020 65%)">
+      <div class="gz-img-item" data-gz-cat="brand" style="background:radial-gradient(ellipse at 40% 60%,#2a0050 0%,#0d0020 65%)">
         <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
           <div class="gz-img-icon">🚀</div>
           <div class="gz-img-label">Launchpad Startup Brand</div>
@@ -1354,7 +1340,7 @@ footer {
         </div></div>
         <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
       </div>
-      <div class="gz-img-item gz-show" data-gz-cat="brand" style="background:radial-gradient(ellipse at 65% 30%,#3b1a1a 0%,#150505 65%)">
+      <div class="gz-img-item" data-gz-cat="brand" style="background:radial-gradient(ellipse at 65% 30%,#3b1a1a 0%,#150505 65%)">
         <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
           <div class="gz-img-icon">💄</div>
           <div class="gz-img-label">Velour Beauty Brand</div>
@@ -1364,7 +1350,7 @@ footer {
       </div>
 
       <!-- CHURCH -->
-      <div class="gz-img-item gz-show" data-gz-cat="church" style="background:radial-gradient(ellipse at 70% 30%,#3b1f6e 0%,#0d0520 65%)">
+      <div class="gz-img-item gz-show" data-gz-cat="church" data-gz-first="church" style="background:radial-gradient(ellipse at 70% 30%,#3b1f6e 0%,#0d0520 65%)">
         <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
           <div class="gz-img-icon">⛪</div>
           <div class="gz-img-label">Glory Chapel Sunday Flyer</div>
@@ -1372,7 +1358,7 @@ footer {
         </div></div>
         <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
       </div>
-      <div class="gz-img-item gz-show" data-gz-cat="church" style="background:radial-gradient(ellipse at 40% 60%,#2a1f5e 0%,#0a0818 65%)">
+      <div class="gz-img-item" data-gz-cat="church" style="background:radial-gradient(ellipse at 40% 60%,#2a1f5e 0%,#0a0818 65%)">
         <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
           <div class="gz-img-icon">✝️</div>
           <div class="gz-img-label">Kingdom Arise Conference</div>
@@ -1380,7 +1366,7 @@ footer {
         </div></div>
         <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
       </div>
-      <div class="gz-img-item gz-show" data-gz-cat="church" style="background:radial-gradient(ellipse at 55% 35%,#1f1a5e 0%,#080618 65%)">
+      <div class="gz-img-item" data-gz-cat="church" style="background:radial-gradient(ellipse at 55% 35%,#1f1a5e 0%,#080618 65%)">
         <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
           <div class="gz-img-icon">📖</div>
           <div class="gz-img-label">Bible Study Series</div>
@@ -1388,7 +1374,7 @@ footer {
         </div></div>
         <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
       </div>
-      <div class="gz-img-item gz-show" data-gz-cat="church" style="background:radial-gradient(ellipse at 30% 65%,#3b1f6e 0%,#0d0520 65%)">
+      <div class="gz-img-item" data-gz-cat="church" style="background:radial-gradient(ellipse at 30% 65%,#3b1f6e 0%,#0d0520 65%)">
         <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
           <div class="gz-img-icon">🕊️</div>
           <div class="gz-img-label">Youth Revival Summer Camp</div>
@@ -1398,7 +1384,7 @@ footer {
       </div>
 
       <!-- BIRTHDAY -->
-      <div class="gz-img-item gz-show" data-gz-cat="birthday" style="background:radial-gradient(ellipse at 40% 60%,#6b1a3a 0%,#1a0010 65%)">
+      <div class="gz-img-item gz-show" data-gz-cat="birthday" data-gz-first="birthday" style="background:radial-gradient(ellipse at 40% 60%,#6b1a3a 0%,#1a0010 65%)">
         <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
           <div class="gz-img-icon">🎂</div>
           <div class="gz-img-label">Sarah's 30th Birthday</div>
@@ -1406,7 +1392,7 @@ footer {
         </div></div>
         <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
       </div>
-      <div class="gz-img-item gz-show" data-gz-cat="birthday" style="background:radial-gradient(ellipse at 60% 35%,#5a1a30 0%,#15080c 65%)">
+      <div class="gz-img-item" data-gz-cat="birthday" style="background:radial-gradient(ellipse at 60% 35%,#5a1a30 0%,#15080c 65%)">
         <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
           <div class="gz-img-icon">🎉</div>
           <div class="gz-img-label">Kids Party Invite</div>
@@ -1414,7 +1400,7 @@ footer {
         </div></div>
         <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
       </div>
-      <div class="gz-img-item gz-show" data-gz-cat="birthday" style="background:radial-gradient(ellipse at 45% 65%,#6b1a3a 0%,#1a0010 65%)">
+      <div class="gz-img-item" data-gz-cat="birthday" style="background:radial-gradient(ellipse at 45% 65%,#6b1a3a 0%,#1a0010 65%)">
         <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
           <div class="gz-img-icon">🎀</div>
           <div class="gz-img-label">Emma's Sweet 16</div>
@@ -1422,7 +1408,7 @@ footer {
         </div></div>
         <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
       </div>
-      <div class="gz-img-item gz-show" data-gz-cat="birthday" style="background:radial-gradient(ellipse at 65% 25%,#4a1a28 0%,#120008 65%)">
+      <div class="gz-img-item" data-gz-cat="birthday" style="background:radial-gradient(ellipse at 65% 25%,#4a1a28 0%,#120008 65%)">
         <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
           <div class="gz-img-icon">🎊</div>
           <div class="gz-img-label">Boss Man 50th Bash</div>
@@ -1432,7 +1418,7 @@ footer {
       </div>
 
       <!-- ANNIVERSARY -->
-      <div class="gz-img-item gz-show" data-gz-cat="anniversary" style="background:radial-gradient(ellipse at 60% 40%,#1a4a25 0%,#040e06 65%)">
+      <div class="gz-img-item gz-show" data-gz-cat="anniversary" data-gz-first="anniversary" style="background:radial-gradient(ellipse at 60% 40%,#1a4a25 0%,#040e06 65%)">
         <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
           <div class="gz-img-icon">💍</div>
           <div class="gz-img-label">James & Mary — 25th</div>
@@ -1440,7 +1426,7 @@ footer {
         </div></div>
         <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
       </div>
-      <div class="gz-img-item gz-show" data-gz-cat="anniversary" style="background:radial-gradient(ellipse at 40% 60%,#1a4a25 0%,#040e06 65%)">
+      <div class="gz-img-item" data-gz-cat="anniversary" style="background:radial-gradient(ellipse at 40% 60%,#1a4a25 0%,#040e06 65%)">
         <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
           <div class="gz-img-icon">💐</div>
           <div class="gz-img-label">10th Wedding Anniversary</div>
@@ -1448,7 +1434,7 @@ footer {
         </div></div>
         <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
       </div>
-      <div class="gz-img-item gz-show" data-gz-cat="anniversary" style="background:radial-gradient(ellipse at 55% 35%,#0f3a1a 0%,#030e06 65%)">
+      <div class="gz-img-item" data-gz-cat="anniversary" style="background:radial-gradient(ellipse at 55% 35%,#0f3a1a 0%,#030e06 65%)">
         <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
           <div class="gz-img-icon">🥂</div>
           <div class="gz-img-label">Church 50th Anniversary</div>
@@ -1456,7 +1442,7 @@ footer {
         </div></div>
         <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
       </div>
-      <div class="gz-img-item gz-show" data-gz-cat="anniversary" style="background:radial-gradient(ellipse at 65% 25%,#1a4a25 0%,#040e06 65%)">
+      <div class="gz-img-item" data-gz-cat="anniversary" style="background:radial-gradient(ellipse at 65% 25%,#1a4a25 0%,#040e06 65%)">
         <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
           <div class="gz-img-icon">🌹</div>
           <div class="gz-img-label">Silver Wedding Jubilee</div>
@@ -1466,7 +1452,7 @@ footer {
       </div>
 
       <!-- ALBUM -->
-      <div class="gz-img-item gz-show" data-gz-cat="album" style="background:radial-gradient(ellipse at 50% 50%,#3d2800 0%,#100900 65%)">
+      <div class="gz-img-item gz-show" data-gz-cat="album" data-gz-first="album" style="background:radial-gradient(ellipse at 50% 50%,#3d2800 0%,#100900 65%)">
         <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
           <div class="gz-img-icon">🎵</div>
           <div class="gz-img-label">Elevation Gospel Choir</div>
@@ -1474,7 +1460,7 @@ footer {
         </div></div>
         <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
       </div>
-      <div class="gz-img-item gz-show" data-gz-cat="album" style="background:radial-gradient(ellipse at 35% 60%,#2d1e00 0%,#0c0800 65%)">
+      <div class="gz-img-item" data-gz-cat="album" style="background:radial-gradient(ellipse at 35% 60%,#2d1e00 0%,#0c0800 65%)">
         <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
           <div class="gz-img-icon">🎙️</div>
           <div class="gz-img-label">Arise — Worship EP Cover</div>
@@ -1482,7 +1468,7 @@ footer {
         </div></div>
         <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
       </div>
-      <div class="gz-img-item gz-show" data-gz-cat="album" style="background:radial-gradient(ellipse at 60% 35%,#3d2800 0%,#100900 65%)">
+      <div class="gz-img-item" data-gz-cat="album" style="background:radial-gradient(ellipse at 60% 35%,#3d2800 0%,#100900 65%)">
         <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
           <div class="gz-img-icon">🎺</div>
           <div class="gz-img-label">Breakthrough Praise Album</div>
@@ -1490,7 +1476,7 @@ footer {
         </div></div>
         <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
       </div>
-      <div class="gz-img-item gz-show" data-gz-cat="album" style="background:radial-gradient(ellipse at 45% 65%,#2d1e00 0%,#0c0800 65%)">
+      <div class="gz-img-item" data-gz-cat="album" style="background:radial-gradient(ellipse at 45% 65%,#2d1e00 0%,#0c0800 65%)">
         <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
           <div class="gz-img-icon">🎼</div>
           <div class="gz-img-label">Hallelujah Live Album</div>
@@ -1500,7 +1486,7 @@ footer {
       </div>
 
       <!-- LOGO -->
-      <div class="gz-img-item gz-show" data-gz-cat="logo" style="background:radial-gradient(ellipse at 30% 70%,#003060 0%,#000c1a 65%)">
+      <div class="gz-img-item gz-show" data-gz-cat="logo" data-gz-first="logo" style="background:radial-gradient(ellipse at 30% 70%,#003060 0%,#000c1a 65%)">
         <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
           <div class="gz-img-icon">✦</div>
           <div class="gz-img-label">Nexus Tech Logo</div>
@@ -1508,7 +1494,7 @@ footer {
         </div></div>
         <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
       </div>
-      <div class="gz-img-item gz-show" data-gz-cat="logo" style="background:radial-gradient(ellipse at 55% 35%,#0a3520 0%,#020e08 65%)">
+      <div class="gz-img-item" data-gz-cat="logo" style="background:radial-gradient(ellipse at 55% 35%,#0a3520 0%,#020e08 65%)">
         <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
           <div class="gz-img-icon">☕</div>
           <div class="gz-img-label">Mocha Café Logo</div>
@@ -1516,7 +1502,7 @@ footer {
         </div></div>
         <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
       </div>
-      <div class="gz-img-item gz-show" data-gz-cat="logo" style="background:radial-gradient(ellipse at 40% 60%,#001a50 0%,#00060f 65%)">
+      <div class="gz-img-item" data-gz-cat="logo" style="background:radial-gradient(ellipse at 40% 60%,#001a50 0%,#00060f 65%)">
         <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
           <div class="gz-img-icon">WF</div>
           <div class="gz-img-label">WaveFit Gym Logo</div>
@@ -1524,7 +1510,7 @@ footer {
         </div></div>
         <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
       </div>
-      <div class="gz-img-item gz-show" data-gz-cat="logo" style="background:radial-gradient(ellipse at 65% 30%,#30150a 0%,#10060a 65%)">
+      <div class="gz-img-item" data-gz-cat="logo" style="background:radial-gradient(ellipse at 65% 30%,#30150a 0%,#10060a 65%)">
         <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
           <div class="gz-img-icon">🦅</div>
           <div class="gz-img-label">Apex Brand Mark</div>
@@ -1534,7 +1520,7 @@ footer {
       </div>
 
       <!-- SOCIAL -->
-      <div class="gz-img-item gz-show" data-gz-cat="social" style="background:radial-gradient(ellipse at 70% 20%,#350055 0%,#0a0015 65%)">
+      <div class="gz-img-item gz-show" data-gz-cat="social" data-gz-first="social" style="background:radial-gradient(ellipse at 70% 20%,#350055 0%,#0a0015 65%)">
         <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
           <div class="gz-img-icon">📱</div>
           <div class="gz-img-label">Instagram Story Pack</div>
@@ -1542,7 +1528,7 @@ footer {
         </div></div>
         <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
       </div>
-      <div class="gz-img-item gz-show" data-gz-cat="social" style="background:radial-gradient(ellipse at 50% 40%,#2a0050 0%,#0d0020 65%)">
+      <div class="gz-img-item" data-gz-cat="social" style="background:radial-gradient(ellipse at 50% 40%,#2a0050 0%,#0d0020 65%)">
         <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
           <div class="gz-img-icon">📊</div>
           <div class="gz-img-label">LinkedIn Banner Pack</div>
@@ -1550,7 +1536,7 @@ footer {
         </div></div>
         <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
       </div>
-      <div class="gz-img-item gz-show" data-gz-cat="social" style="background:radial-gradient(ellipse at 35% 65%,#350055 0%,#0a0015 65%)">
+      <div class="gz-img-item" data-gz-cat="social" style="background:radial-gradient(ellipse at 35% 65%,#350055 0%,#0a0015 65%)">
         <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
           <div class="gz-img-icon">🎯</div>
           <div class="gz-img-label">Facebook Ad Campaign Pack</div>
@@ -1558,7 +1544,7 @@ footer {
         </div></div>
         <div class="gz-hover-overlay"><div class="gz-view-btn"><i class="fa-solid fa-eye"></i> View Project</div></div>
       </div>
-      <div class="gz-img-item gz-show" data-gz-cat="social" style="background:radial-gradient(ellipse at 65% 25%,#1a0040 0%,#080015 65%)">
+      <div class="gz-img-item" data-gz-cat="social" style="background:radial-gradient(ellipse at 65% 25%,#1a0040 0%,#080015 65%)">
         <div class="gz-img-placeholder"><div class="gz-img-placeholder-inner">
           <div class="gz-img-icon">📸</div>
           <div class="gz-img-label">Twitter / X Banner Design</div>
@@ -2046,11 +2032,8 @@ footer {
     <div class="footer-top">
       <div class="footer-brand">
         <a href="index.html" class="logo" style="margin-bottom:16px;display:flex;">
-          <img src="gallery/1714665825236.png" alt="PraiseGraphics" style="width:38px;height:38px;border-radius:9px;object-fit:cover;border:2px solid #BDF200;">
-          <div style="margin-left:10px;">
-            <div style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;color:#BDF200;line-height:1;">PraiseGraphics</div>
-            <div style="font-size:10px;color:#777;letter-spacing:1px;text-transform:uppercase;margin-top:2px;">Creative Design Studio</div>
-          </div>
+          <img src="gallery/1714665825236.png" alt="PraiseGraphics" style="width:36px;height:36px;border-radius:8px;object-fit:cover;border:2px solid #BDF200;">
+          <div style="margin-left:10px;"><div style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:800;color:#BDF200;line-height:1;">PraiseGraphics</div><div style="font-size:9px;color:#777;letter-spacing:1px;text-transform:uppercase;margin-top:2px;">Creative Design Studio</div></div>
         </a>
         <p class="footer-brand-desc">PraiseGraphics — unlimited graphic design for modern brands. Fast turnarounds, unlimited revisions, flat monthly rate.</p>
         <div class="social-row">
@@ -2062,7 +2045,7 @@ footer {
       </div>
 
       <div class="footer-col">
-        <h5>Portfolio</h5>
+        <h5>Services</h5>
         <ul>
           <li><a href="portfolio.html">Brand Identity</a></li>
           <li><a href="portfolio.html">Church Design</a></li>
@@ -2088,9 +2071,11 @@ footer {
       <div class="footer-col footer-contact">
         <h5>Stay Updated</h5>
         <p>Get design tips, case studies, and exclusive offers — straight to your inbox.</p>
-        <div class="newsletter-input" style="display:flex;gap:8px;">
-          <input type="email" placeholder="your@email.com" style="flex:1;background:#141414;border:1.5px solid #222;border-radius:8px;padding:11px 14px;font-size:13px;color:#fff;font-family:'Poppins',sans-serif;outline:none;">
-          <button style="background:#BDF200;color:#050505;border:none;border-radius:8px;padding:11px 16px;font-weight:700;font-size:13px;cursor:pointer;font-family:'Poppins',sans-serif;">Subscribe</button>
+        <div class="footer-newsletter">
+          <div class="newsletter-input" style="display:flex;gap:8px;">
+            <input type="email" placeholder="your@email.com" style="flex:1;background:#141414;border:1.5px solid #222;border-radius:8px;padding:11px 14px;font-size:13px;color:#fff;font-family:'Poppins',sans-serif;outline:none;">
+            <button style="background:#BDF200;color:#050505;border:none;border-radius:8px;padding:11px 16px;font-weight:700;font-size:13px;cursor:pointer;font-family:'Poppins',sans-serif;">Subscribe</button>
+          </div>
         </div>
         <p style="margin-top:18px;font-size:13px;color:#777;"><i class="fa-solid fa-envelope" style="color:#BDF200;margin-right:6px;"></i>hello@praisegraphics.com</p>
       </div>
@@ -2103,7 +2088,7 @@ footer {
         <a href="#" style="color:#BDF200;">Terms</a> &nbsp;·&nbsp;
         <a href="#" style="color:#BDF200;">Cookies</a>
       </span>
-      <span>Made with 💚 for great design</span>
+      <span>Made with 💚 by <a href="#" style="color:var(--lime);">Webcultivate Software Solution</a></span>
     </div>
   </div>
 </footer>
@@ -2117,6 +2102,13 @@ const catNames = { all:'All Work', brand:'Brand', church:'Church', birthday:'Bir
 const gzPills = document.querySelectorAll('.gz-pill');
 const gzItems = document.querySelectorAll('.gz-img-item');
 const gzHeading = document.getElementById('gzCatHeading');
+
+/* Page load: sirf 4 categories (album, logo, social, church) ki first item show karo */
+const allShowCats = ['album','logo','social','church'];
+gzItems.forEach(item => {
+  const isFirst = item.hasAttribute('data-gz-first') && allShowCats.includes(item.dataset.gzCat);
+  item.classList.toggle('gz-show', isFirst);
+});
 gzPills.forEach(pill => {
   pill.addEventListener('click', () => {
     gzPills.forEach(p => p.classList.remove('gz-active'));
@@ -2124,7 +2116,12 @@ gzPills.forEach(pill => {
     const cat = pill.dataset.gz;
     gzHeading.textContent = catNames[cat] || cat;
     gzItems.forEach(item => {
-      const show = cat === 'all' || item.dataset.gzCat === cat;
+      let show;
+      if (cat === 'all') {
+        show = item.hasAttribute('data-gz-first') && allShowCats.includes(item.dataset.gzCat);
+      } else {
+        show = item.dataset.gzCat === cat;
+      }
       item.classList.toggle('gz-show', show);
       if (show) { item.style.animation='none'; setTimeout(()=>{ item.style.animation='fadeUp 0.45s ease both'; },10); }
     });
