@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PraiseGraphics — Unlimited Graphic Design Services</title>
+<title>GraphicsZoo — Unlimited Graphic Design Services</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
@@ -584,20 +584,16 @@ nav {
 .stats-bar-inner {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  divide-x: 1px solid var(--border);
 }
 
 .stat-item {
-  padding: 36px 40px;
-  border-right: 1px solid var(--border);
+  padding: 22px 28px;
   position: relative;
 }
 
-.stat-item:last-child { border-right: none; }
-
 .stat-num {
   font-family: 'Montserrat', sans-serif;
-  font-size: clamp(36px, 4vw, 52px);
+  font-size: clamp(24px, 2.8vw, 36px);
   font-weight: 800;
   color: #111;
   line-height: 1;
@@ -606,9 +602,9 @@ nav {
 .stat-num span { color: #5a9000; }
 
 .stat-lbl {
-  font-size: 13px;
+  font-size: 12px;
   color: #555;
-  margin-top: 6px;
+  margin-top: 4px;
   letter-spacing: 0.3px;
 }
 
@@ -630,7 +626,7 @@ nav {
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
@@ -1099,6 +1095,9 @@ nav {
   font-size: 52px;
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   color: rgba(255,255,255,0.25);
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
 }
 
 .port-item:hover .port-bg { transform: scale(1.08); }
@@ -1140,31 +1139,12 @@ nav {
 }
 
 /* ============================================================
-   RECENT WORK SECTION
-============================================================ */
-.grid-section {
-  background: var(--dark);
-  border-top: 1px solid var(--border);
-  padding: 90px 0;
-}
-
-/* ============================================================
    TESTIMONIALS
 ============================================================ */
 .testimonials-sec { background: var(--black); }
 .testimonials-sec .section-title { color: var(--white); }
 
-.testi-card:nth-child(2) {
-  background: #ffffff;
-  border-color: #e0e0e0;
-  color: #111;
-}
-.testi-card:nth-child(2) .testi-text { color: #444; }
-.testi-card:nth-child(2) .testi-name { color: #111; }
-.testi-card:nth-child(2) .testi-role { color: #666; }
-.testi-card:nth-child(2) .testi-stars span { color: #a0d000; }
-.testi-card:nth-child(2)::before { color: #a0d000; }
-.testi-card:nth-child(2) .testi-author { border-top-color: #ddd; }
+/* all testi cards same dark style */
 
 .testi-grid {
   display: grid;
@@ -1641,6 +1621,9 @@ header.scrolled {
   border-color: rgba(189,242,0,0.2) !important;
 }
 .price-card:not(.popular) { transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s ease !important; }
+.price-card { display: flex !important; flex-direction: column !important; }
+.price-feats { flex: 1 !important; }
+.pricing-grid .btn-outline { background: var(--lime) !important; color: #050505 !important; border-color: var(--lime) !important; }
 .price-card:not(.popular):hover { transform: translateY(-6px) !important; box-shadow: 0 20px 50px rgba(0,0,0,0.4) !important; }
 .testi-card { transition: transform 0.3s ease, box-shadow 0.3s ease !important; }
 .testi-card:hover { transform: translateY(-5px) !important; box-shadow: 0 16px 40px rgba(0,0,0,0.35) !important; }
@@ -1757,7 +1740,7 @@ header.scrolled {
      MOBILE NAV OVERLAY
 ============================================================ -->
 <div class="mobile-nav" id="mobileNav">
-  <a href="index.html" onclick="closeMobile()">Home</a>
+  <a href="#home" onclick="closeMobile()">Home</a>
   <a href="about.html" onclick="closeMobile()">About</a>
   <a href="#services" onclick="closeMobile()">Services</a>
   <a href="portfolio.html" onclick="closeMobile()">Portfolio</a>
@@ -1772,11 +1755,8 @@ header.scrolled {
 <header id="site-header">
   <nav class="container">
     <a href="#home" class="logo">
-      <img src="gallery/1714665825236.png" alt="PraiseGraphics" style="width:38px;height:38px;border-radius:9px;object-fit:cover;border:2px solid #BDF200;">
-      <div>
-        <div style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;color:#BDF200;line-height:1;">PraiseGraphics</div>
-        <div style="font-size:10px;color:#777;letter-spacing:1px;text-transform:uppercase;margin-top:2px;">Creative Design Studio</div>
-      </div>
+      <div class="logo-mark">PG</div>
+      Praise<span>Graphics</span>
     </a>
 
     <ul class="nav-menu">
@@ -1789,7 +1769,6 @@ header.scrolled {
     </ul>
 
     <div class="nav-actions">
-      <a href="#pricing" class="btn btn-outline" style="padding:10px 22px;font-size:13px;">View Plans</a>
       <a href="#cta" class="btn btn-lime" style="padding:10px 22px;font-size:13px;">Get Started →</a>
     </div>
 
@@ -1922,33 +1901,49 @@ header.scrolled {
     <div class="services-grid">
       <div class="svc-card sr">
         <div class="svc-num">01</div>
-        <span class="svc-icon"><i class="fa-solid fa-palette"></i></span>
-        <h3>Brand Identity</h3>
-        <p>Logos, brand guidelines, color systems, and complete visual identities that make you instantly recognizable.</p>
+        <span class="svc-icon"><i class="fa-solid fa-pen-ruler"></i></span>
+        <h3>Logo Design</h3>
+        <p>Iconic, versatile logos crafted from scratch to represent your brand across every platform and medium.</p>
         <span class="svc-link">Learn more <span class="svc-link-arrow">↗</span></span>
       </div>
 
       <div class="svc-card featured sr">
         <div class="svc-num">02</div>
-        <span class="svc-icon"><i class="fa-solid fa-desktop"></i></span>
-        <h3>UI/UX Design</h3>
-        <p>Landing pages, dashboards, mobile apps, and web interfaces designed to convert visitors into customers.</p>
+        <span class="svc-icon"><i class="fa-solid fa-palette"></i></span>
+        <h3>Brand Identity Design</h3>
+        <p>Complete visual identities — logos, color systems, typography, and brand guidelines that make you unforgettable.</p>
         <span class="svc-link">Learn more <span class="svc-link-arrow">↗</span></span>
       </div>
 
       <div class="svc-card sr">
         <div class="svc-num">03</div>
         <span class="svc-icon"><i class="fa-solid fa-mobile-screen"></i></span>
-        <h3>Social Media</h3>
+        <h3>Social Media Design</h3>
         <p>Posts, stories, carousels, and ad creatives built for maximum engagement across every platform.</p>
         <span class="svc-link">Learn more <span class="svc-link-arrow">↗</span></span>
       </div>
 
       <div class="svc-card sr">
         <div class="svc-num">04</div>
-        <span class="svc-icon"><i class="fa-solid fa-film"></i></span>
-        <h3>Video Editing</h3>
-        <p>Motion graphics, reels, explainer videos, and branded video content that captures attention instantly.</p>
+        <span class="svc-icon"><i class="fa-solid fa-rectangle-ad"></i></span>
+        <h3>Poster &amp; Flyer Design</h3>
+        <p>Eye-catching posters, flyers, and banners designed to grab attention and communicate your message instantly.</p>
+        <span class="svc-link">Learn more <span class="svc-link-arrow">↗</span></span>
+      </div>
+
+      <div class="svc-card sr">
+        <div class="svc-num">05</div>
+        <span class="svc-icon"><i class="fa-solid fa-briefcase"></i></span>
+        <h3>Business Branding Kits</h3>
+        <p>All-in-one branding packages — business cards, letterheads, email signatures, and everything your business needs.</p>
+        <span class="svc-link">Learn more <span class="svc-link-arrow">↗</span></span>
+      </div>
+
+      <div class="svc-card sr">
+        <div class="svc-num">06</div>
+        <span class="svc-icon"><i class="fa-solid fa-rotate"></i></span>
+        <h3>Rebranding Services</h3>
+        <p>Refresh your existing brand with a modern look — strategic redesigns that keep your identity while elevating it.</p>
         <span class="svc-link">Learn more <span class="svc-link-arrow">↗</span></span>
       </div>
     </div>
@@ -1963,7 +1958,7 @@ header.scrolled {
     <div class="features-inner">
       <!-- LEFT TEXT -->
       <div>
-        <div class="tag sr"><span class="tag-dot"></span>Why PraiseGraphics</div>
+        <div class="tag sr"><span class="tag-dot"></span>Why GraphicsZoo</div>
         <h2 class="section-title sr">The Smarter Way<br>to <span class="text-lime">Get Design Done</span></h2>
 
         <div class="feat-list">
@@ -2005,7 +2000,7 @@ header.scrolled {
             <div class="dash-dots">
               <span></span><span></span><span></span>
             </div>
-            <div class="dash-title">PraiseGraphics Dashboard</div>
+            <div class="dash-title">GraphicsZoo Dashboard</div>
           </div>
           <div class="dash-body">
             <div class="dash-stat-row">
@@ -2104,242 +2099,188 @@ header.scrolled {
         <div class="tag"><span class="tag-dot"></span>Our Work</div>
         <h2 class="section-title">Designs That <span class="text-lime">Convert</span></h2>
       </div>
-      <div>
-        <div class="portfolio-tabs">
-          <button class="tab-btn active">All</button>
-          <button class="tab-btn">Brand Identity</button>
-          <button class="tab-btn">Church Design</button>
-          <button class="tab-btn">Birthday Design</button>
-          <button class="tab-btn">Anniversary Design</button>
-          <button class="tab-btn">Album Design</button>
-          <button class="tab-btn">Logo Design</button>
-        </div>
-      </div>
+
     </div>
 
     <div class="portfolio-scroll-wrap">
       <div class="portfolio-grid">
-        <!-- original set -->
-        <div class="port-item" style="background:linear-gradient(135deg,#1a0a1a,#0d0010);background-image:url('https://drive.google.com/thumbnail?id=1yG7TWyJDPEa-rmmFdfiLZFlrowGtmDLJ&sz=w800');background-size:cover;background-position:center;">
+        <div class="port-item" style="background:#000;">
+          <div class="port-bg" style="background-image:url('https://drive.google.com/thumbnail?id=1M_XrD37wYoNhQRua-nmyprD01mhVvPhJ&sz=w800');background-size:cover;background-position:center;"></div>
           <div class="port-overlay">
             <div><div class="port-info-title">Brand Design</div><div class="port-info-cat">Identity & Branding</div></div>
             <div class="port-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
           </div>
         </div>
-        <div class="port-item" style="background:linear-gradient(135deg,#0a0a1a,#050510);background-image:url('https://drive.google.com/thumbnail?id=1NqkADAsXZ4V1bJNbTx37wV3lvDHTwc-z&sz=w800');background-size:cover;background-position:center;">
+        <div class="port-item" style="background:#000;">
+          <div class="port-bg" style="background-image:url('https://drive.google.com/thumbnail?id=1vbN0cPLITgVYB3pfhD8SF2z5Y-_AVcCa&sz=w800');background-size:cover;background-position:center;"></div>
           <div class="port-overlay">
             <div><div class="port-info-title">Church Design</div><div class="port-info-cat">Church Graphics</div></div>
             <div class="port-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
           </div>
         </div>
-        <div class="port-item" style="background:linear-gradient(135deg,#1a0d2e,#0d0018);background-image:url('https://drive.google.com/thumbnail?id=14C5186Ttu-GWRwOeIycQMc7FcFSjy2I6&sz=w800');background-size:cover;background-position:center;">
+        <div class="port-item" style="background:#000;">
+          <div class="port-bg" style="background-image:url('https://drive.google.com/thumbnail?id=13LVJBKQt-POh0sJbUB67TTwCwKXzxzP6&sz=w800');background-size:cover;background-position:center;"></div>
           <div class="port-overlay">
             <div><div class="port-info-title">Birthday Design</div><div class="port-info-cat">Celebration Graphics</div></div>
             <div class="port-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
           </div>
         </div>
-        <div class="port-item" style="background:linear-gradient(135deg,#1a0a00,#100600);background-image:url('https://drive.google.com/thumbnail?id=1M_XrD37wYoNhQRua-nmyprD01mhVvPhJ&sz=w800');background-size:cover;background-position:center;">
+        <div class="port-item" style="background:#000;">
+          <div class="port-bg" style="background-image:url('https://drive.google.com/thumbnail?id=1G4rIDNo_8SiZt_YVmC-acqCpgjntKQUc&sz=w800');background-size:cover;background-position:center;"></div>
           <div class="port-overlay">
             <div><div class="port-info-title">Anniversary Design</div><div class="port-info-cat">Milestone Celebrations</div></div>
             <div class="port-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
           </div>
         </div>
-        <div class="port-item" style="background:linear-gradient(135deg,#0a1a0d,#050f08);background-image:url('https://drive.google.com/thumbnail?id=1vbN0cPLITgVYB3pfhD8SF2z5Y-_AVcCa&sz=w800');background-size:cover;background-position:center;">
+        <div class="port-item" style="background:#000;">
+          <div class="port-bg" style="background-image:url('https://drive.google.com/thumbnail?id=1yG7TWyJDPEa-rmmFdfiLZFlrowGtmDLJ&sz=w800');background-size:cover;background-position:center;"></div>
           <div class="port-overlay">
             <div><div class="port-info-title">Album Design</div><div class="port-info-cat">Photo & Music Albums</div></div>
             <div class="port-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
           </div>
         </div>
-        <div class="port-item" style="background:linear-gradient(135deg,#1a1500,#100d00);background-image:url('https://drive.google.com/thumbnail?id=1-S7fX1h-TYfbHC37dnt2hKbGcPxvM_Io&sz=w800');background-size:cover;background-position:center;">
+        <div class="port-item" style="background:#000;">
+          <div class="port-bg" style="background-image:url('https://drive.google.com/thumbnail?id=1NqkADAsXZ4V1bJNbTx37wV3lvDHTwc-z&sz=w800');background-size:cover;background-position:center;"></div>
           <div class="port-overlay">
             <div><div class="port-info-title">Book Design</div><div class="port-info-cat">Covers & Layouts</div></div>
             <div class="port-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
           </div>
         </div>
-        <div class="port-item" style="background:linear-gradient(135deg,#001a10,#00100a);background-image:url('https://drive.google.com/thumbnail?id=13LVJBKQt-POh0sJbUB67TTwCwKXzxzP6&sz=w800');background-size:cover;background-position:center;">
+        <div class="port-item" style="background:#000;">
+          <div class="port-bg" style="background-image:url('https://drive.google.com/thumbnail?id=1yGQr951PJx8U6DqPnkjqiQ_05cFV99UJ&sz=w800');background-size:cover;background-position:center;"></div>
           <div class="port-overlay">
             <div><div class="port-info-title">Logo Design</div><div class="port-info-cat">Brand Marks & Icons</div></div>
+            <div class="port-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </div>
+        </div>
+        <!-- duplicate set for seamless loop -->
+        <div class="port-item" style="background:#000;">
+          <div class="port-bg" style="background-image:url('https://drive.google.com/thumbnail?id=1M_XrD37wYoNhQRua-nmyprD01mhVvPhJ&sz=w800');background-size:cover;background-position:center;"></div>
+          <div class="port-overlay">
+            <div><div class="port-info-title">Brand Design</div><div class="port-info-cat">Identity & Branding</div></div>
+            <div class="port-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </div>
+        </div>
+        <div class="port-item" style="background:#000;">
+          <div class="port-bg" style="background-image:url('https://drive.google.com/thumbnail?id=1vbN0cPLITgVYB3pfhD8SF2z5Y-_AVcCa&sz=w800');background-size:cover;background-position:center;"></div>
+          <div class="port-overlay">
+            <div><div class="port-info-title">Church Design</div><div class="port-info-cat">Church Graphics</div></div>
+            <div class="port-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </div>
+        </div>
+        <div class="port-item" style="background:#000;">
+          <div class="port-bg" style="background-image:url('https://drive.google.com/thumbnail?id=13LVJBKQt-POh0sJbUB67TTwCwKXzxzP6&sz=w800');background-size:cover;background-position:center;"></div>
+          <div class="port-overlay">
+            <div><div class="port-info-title">Birthday Design</div><div class="port-info-cat">Celebration Graphics</div></div>
+            <div class="port-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </div>
+        </div>
+        <div class="port-item" style="background:#000;">
+          <div class="port-bg" style="background-image:url('https://drive.google.com/thumbnail?id=1G4rIDNo_8SiZt_YVmC-acqCpgjntKQUc&sz=w800');background-size:cover;background-position:center;"></div>
+          <div class="port-overlay">
+            <div><div class="port-info-title">Anniversary Design</div><div class="port-info-cat">Milestone Celebrations</div></div>
+            <div class="port-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </div>
+        </div>
+        <div class="port-item" style="background:#000;">
+          <div class="port-bg" style="background-image:url('https://drive.google.com/thumbnail?id=1yG7TWyJDPEa-rmmFdfiLZFlrowGtmDLJ&sz=w800');background-size:cover;background-position:center;"></div>
+          <div class="port-overlay">
+            <div><div class="port-info-title">Album Design</div><div class="port-info-cat">Photo & Music Albums</div></div>
+            <div class="port-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </div>
+        </div>
+        <div class="port-item" style="background:#000;">
+          <div class="port-bg" style="background-image:url('https://drive.google.com/thumbnail?id=1NqkADAsXZ4V1bJNbTx37wV3lvDHTwc-z&sz=w800');background-size:cover;background-position:center;"></div>
+          <div class="port-overlay">
+            <div><div class="port-info-title">Book Design</div><div class="port-info-cat">Covers & Layouts</div></div>
+            <div class="port-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </div>
+        </div>
+        <div class="port-item" style="background:#000;">
+          <div class="port-bg" style="background-image:url('https://drive.google.com/thumbnail?id=1yGQr951PJx8U6DqPnkjqiQ_05cFV99UJ&sz=w800');background-size:cover;background-position:center;"></div>
+          <div class="port-overlay">
+            <div><div class="port-info-title">Logo Design</div><div class="port-info-cat">Brand Marks & Icons</div></div>
+            <div class="port-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ============================================================
-     RECENT WORK CAROUSEL (from Portfolio)
-============================================================ -->
-<section class="grid-section" id="recent-work">
-  <div class="container">
-    <div class="section-header">
+    <!-- RECENT WORK CAROUSEL -->
+    <div class="section-header sr" style="margin-top:60px;">
       <div>
-        <div class="tag sr"><span class="tag-dot"></span>All Projects</div>
-        <h2 class="section-title sr">Recent <span class="text-lime">Work</span></h2>
+        <div class="tag" style="background:rgba(100,180,0,0.1);border-color:rgba(100,180,0,0.3);color:#5a9000;"><span class="tag-dot" style="background:#5a9000;"></span>Recent Work</div>
+        <h2 class="section-title" style="color:#111;">Recent <span style="color:#5a9000;">Work</span></h2>
       </div>
-      <a href="index.html#pricing" class="btn btn-outline sr">Start a Project →</a>
+      <a href="portfolio.html" class="btn btn-outline" style="border-color:#ccc;color:#555;">View All Projects →</a>
     </div>
 
-    <div class="rw-carousel-wrap" style="perspective: 1200px;">
-
+    <div class="rw-carousel-wrap" style="perspective:1200px;background:#050505;">
       <button id="rwPrevBtn" class="rw-arrow-btn" style="left:16px;" aria-label="Previous">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;color:#BDF200;"><path d="m15 18-6-6 6-6"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;color:#5a9000;"><path d="m15 18-6-6 6-6"></path></svg>
       </button>
-
       <div class="rw-carousel-stage">
-        <div class="rw-carousel-track" style="transform-style: preserve-3d;" id="rwCarouselTrack">
-
-          <div class="rw-card" data-index="0">
-            <div class="rw-card-bg" style="background:linear-gradient(135deg,#1a0a1a,#0d0010);background-image:url('https://drive.google.com/thumbnail?id=1M_XrD37wYoNhQRua-nmyprD01mhVvPhJ&sz=w800');background-size:cover;background-position:center;"></div>
-            <div class="rw-card-gradient"></div>
-            <div class="rw-card-bottom">
-              <div class="rw-card-pill"><i class="fa-solid fa-fingerprint" style="color:#BDF200;font-size:10px;"></i><span>Brand Design</span></div>
-              <p class="rw-card-title">Brand Identity</p>
-            </div>
-          </div>
-
-          <div class="rw-card" data-index="1">
-            <div class="rw-card-bg" style="background:linear-gradient(135deg,#0a0a1a,#050510);background-image:url('https://drive.google.com/thumbnail?id=142ZRKeozabOrpPAsXQKiSG7JmV-qU2w2&sz=w800');background-size:cover;background-position:center;"></div>
-            <div class="rw-card-gradient"></div>
-            <div class="rw-card-bottom">
-              <div class="rw-card-pill"><i class="fa-solid fa-church" style="color:#BDF200;font-size:10px;"></i><span>Church Design</span></div>
-              <p class="rw-card-title">Church Graphics</p>
-            </div>
-          </div>
-
-          <div class="rw-card" data-index="2" id="birthdayCard">
-            <div class="rw-card-bg" id="birthdayBg" style="background:linear-gradient(135deg,#1a0d2e,#0d0018);background-image:url('https://drive.google.com/thumbnail?id=1NqkADAsXZ4V1bJNbTx37wV3lvDHTwc-z&sz=w800');background-size:cover;background-position:center;"></div>
-            <div class="rw-card-gradient"></div>
-            <div class="rw-card-top"><div class="rw-card-featured"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>Featured</div></div>
-            <div class="rw-card-bottom">
-              <div class="rw-card-pill rw-card-pill-lg"><i class="fa-solid fa-cake-candles" style="color:#BDF200;font-size:10px;"></i><span>Birthday Design</span></div>
-              <p class="rw-card-title rw-card-title-lg">Birthday Graphics</p>
-              <p class="rw-card-desc">Custom birthday cards, banners & social posts</p>
-              <div id="bdDots" style="display:flex;gap:5px;margin-top:10px;"></div>
-            </div>
-          </div>
-
-          <div class="rw-card" data-index="3">
-            <div class="rw-card-bg" style="background:linear-gradient(135deg,#1a0a00,#100600);background-image:url('https://drive.google.com/thumbnail?id=1G4rIDNo_8SiZt_YVmC-acqCpgjntKQUc&sz=w800');background-size:cover;background-position:center;"></div>
-            <div class="rw-card-gradient"></div>
-            <div class="rw-card-bottom">
-              <div class="rw-card-pill"><i class="fa-solid fa-heart" style="color:#BDF200;font-size:10px;"></i><span>Anniversary Design</span></div>
-              <p class="rw-card-title">Anniversary</p>
-            </div>
-          </div>
-
-          <div class="rw-card" data-index="4">
-            <div class="rw-card-bg" style="background:linear-gradient(135deg,#0a1a0d,#050f08);background-image:url('https://drive.google.com/thumbnail?id=1lquvhMvq--tBALEJ1QYg3Fesa9kTnKbs&sz=w800');background-size:cover;background-position:center;"></div>
-            <div class="rw-card-gradient"></div>
-            <div class="rw-card-bottom">
-              <div class="rw-card-pill"><i class="fa-solid fa-book-open" style="color:#BDF200;font-size:10px;"></i><span>Album Design</span></div>
-              <p class="rw-card-title">Album Design</p>
-            </div>
-          </div>
-
-          <div class="rw-card" data-index="5">
-            <div class="rw-card-bg" style="background:linear-gradient(135deg,#1a1500,#100d00);background-image:url('https://drive.google.com/thumbnail?id=1yGQr951PJx8U6DqPnkjqiQ_05cFV99UJ&sz=w800');background-size:cover;background-position:center;"></div>
-            <div class="rw-card-gradient"></div>
-            <div class="rw-card-bottom">
-              <div class="rw-card-pill"><i class="fa-solid fa-book" style="color:#BDF200;font-size:10px;"></i><span>Book Design</span></div>
-              <p class="rw-card-title">Book Design</p>
-            </div>
-          </div>
-
-          <div class="rw-card" data-index="6">
-            <div class="rw-card-bg" style="background:linear-gradient(135deg,#001a10,#00100a);background-image:url('https://drive.google.com/thumbnail?id=1tWgyQpmTI4j8m3kc_6ONaxqtKngpMZI9&sz=w800');background-size:cover;background-position:center;"></div>
-            <div class="rw-card-gradient"></div>
-            <div class="rw-card-bottom">
-              <div class="rw-card-pill"><i class="fa-solid fa-pen-ruler" style="color:#BDF200;font-size:10px;"></i><span>Logo Design</span></div>
-              <p class="rw-card-title">Logo Design</p>
-            </div>
-          </div>
-
+        <div class="rw-carousel-track" id="rwCarouselTrack">
+          <div class="rw-card" data-index="0"><div class="rw-card-bg" style="background:linear-gradient(135deg,#1a0a1a,#0d0010);background-image:url('https://drive.google.com/thumbnail?id=1M_XrD37wYoNhQRua-nmyprD01mhVvPhJ&sz=w800');background-size:cover;background-position:center;"></div><div class="rw-card-gradient"></div><div class="rw-card-bottom"><div class="rw-card-pill"><i class="fa-solid fa-fingerprint" style="color:#BDF200;font-size:10px;"></i><span>Brand Design</span></div><p class="rw-card-title">Brand Identity</p></div></div>
+          <div class="rw-card" data-index="1"><div class="rw-card-bg" style="background:linear-gradient(135deg,#0a0a1a,#050510);background-image:url('https://drive.google.com/thumbnail?id=142ZRKeozabOrpPAsXQKiSG7JmV-qU2w2&sz=w800');background-size:cover;background-position:center;"></div><div class="rw-card-gradient"></div><div class="rw-card-bottom"><div class="rw-card-pill"><i class="fa-solid fa-church" style="color:#BDF200;font-size:10px;"></i><span>Church Design</span></div><p class="rw-card-title">Church Graphics</p></div></div>
+          <div class="rw-card" data-index="2"><div class="rw-card-bg" style="background:linear-gradient(135deg,#1a0d2e,#0d0018);background-image:url('https://drive.google.com/thumbnail?id=19WxLp5c2LGALKrfzybXI8hHNGPEnpbkt&sz=w800');background-size:cover;background-position:center;"></div><div class="rw-card-gradient"></div><div class="rw-card-top"><div class="rw-card-featured">Featured</div></div><div class="rw-card-bottom"><div class="rw-card-pill rw-card-pill-lg"><i class="fa-solid fa-cake-candles" style="color:#BDF200;font-size:10px;"></i><span>Birthday Design</span></div><p class="rw-card-title rw-card-title-lg">Birthday Graphics</p><p class="rw-card-desc">Custom birthday cards, banners &amp; social posts</p></div></div>
+          <div class="rw-card" data-index="3"><div class="rw-card-bg" style="background:linear-gradient(135deg,#1a0a00,#100600);background-image:url('https://drive.google.com/thumbnail?id=1G4rIDNo_8SiZt_YVmC-acqCpgjntKQUc&sz=w800');background-size:cover;background-position:center;"></div><div class="rw-card-gradient"></div><div class="rw-card-bottom"><div class="rw-card-pill"><i class="fa-solid fa-heart" style="color:#BDF200;font-size:10px;"></i><span>Anniversary Design</span></div><p class="rw-card-title">Anniversary</p></div></div>
+          <div class="rw-card" data-index="4"><div class="rw-card-bg" style="background:linear-gradient(135deg,#0a1a0d,#050f08);background-image:url('https://drive.google.com/thumbnail?id=1lquvhMvq--tBALEJ1QYg3Fesa9kTnKbs&sz=w800');background-size:cover;background-position:center;"></div><div class="rw-card-gradient"></div><div class="rw-card-bottom"><div class="rw-card-pill"><i class="fa-solid fa-book-open" style="color:#BDF200;font-size:10px;"></i><span>Album Design</span></div><p class="rw-card-title">Album Design</p></div></div>
+          <div class="rw-card" data-index="5"><div class="rw-card-bg" style="background:linear-gradient(135deg,#1a1500,#100d00);background-image:url('https://drive.google.com/thumbnail?id=1yGQr951PJx8U6DqPnkjqiQ_05cFV99UJ&sz=w800');background-size:cover;background-position:center;"></div><div class="rw-card-gradient"></div><div class="rw-card-bottom"><div class="rw-card-pill"><i class="fa-solid fa-book" style="color:#BDF200;font-size:10px;"></i><span>Book Design</span></div><p class="rw-card-title">Book Design</p></div></div>
+          <div class="rw-card" data-index="6"><div class="rw-card-bg" style="background:linear-gradient(135deg,#001a10,#00100a);background-image:url('https://drive.google.com/thumbnail?id=1tWgyQpmTI4j8m3kc_6ONaxqtKngpMZI9&sz=w800');background-size:cover;background-position:center;"></div><div class="rw-card-gradient"></div><div class="rw-card-bottom"><div class="rw-card-pill"><i class="fa-solid fa-pen-ruler" style="color:#BDF200;font-size:10px;"></i><span>Logo Design</span></div><p class="rw-card-title">Logo Design</p></div></div>
         </div>
       </div>
-
       <button id="rwNextBtn" class="rw-arrow-btn" style="right:16px;" aria-label="Next">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;color:#BDF200;"><path d="m9 18 6-6-6-6"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;color:#5a9000;"><path d="m9 18 6-6-6-6"></path></svg>
       </button>
-
     </div>
+
+    <style>
+    .rw-carousel-wrap{position:relative;display:flex;align-items:center;justify-content:center;height:520px;background:var(--black);border-radius:16px;padding:20px 0;}
+    .rw-carousel-stage{position:relative;width:100%;max-width:480px;height:480px;display:flex;align-items:center;justify-content:center;}
+    .rw-carousel-track{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
+    .rw-card{position:absolute;width:320px;height:460px;border-radius:20px;overflow:hidden;cursor:pointer;transition:all 0.5s cubic-bezier(0.4,0,0.2,1);outline:1px solid rgba(255,255,255,0.1);}
+    .rw-card-bg{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:80px;transition:transform 0.6s ease;}
+    .rw-card:hover .rw-card-bg{transform:scale(1.06);}
+    .rw-card-gradient{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0.25) 50%,transparent 100%);}
+    .rw-card-top{position:absolute;top:24px;right:24px;z-index:3;}
+    .rw-card-featured{display:inline-flex;align-items:center;gap:5px;background:#BDF200;color:#050505;font-size:11px;font-weight:700;padding:6px 14px;border-radius:50px;letter-spacing:1px;}
+    .rw-card-bottom{position:absolute;bottom:0;left:0;right:0;padding:24px;z-index:3;}
+    .rw-card-pill{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);backdrop-filter:blur(8px);padding:5px 12px;border-radius:50px;font-size:11px;color:#fff;margin-bottom:10px;}
+    .rw-card-pill-lg{padding:6px 14px;font-size:12px;margin-bottom:14px;}
+    .rw-card-title{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;color:#fff;line-height:1.2;margin:0;}
+    .rw-card-title-lg{font-size:28px;font-weight:800;margin-bottom:6px;}
+    .rw-card-desc{font-size:13px;color:rgba(255,255,255,0.7);margin:0;line-height:1.5;}
+    .rw-arrow-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:20;width:48px;height:48px;background:rgba(0,0,0,0.08);border:1px solid #ddd;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.25s;}
+    .rw-arrow-btn:hover{background:rgba(100,180,0,0.1);border-color:#a0d000;}
+    @media(max-width:768px){.rw-carousel-wrap{height:380px;}.rw-carousel-stage{height:340px;max-width:100%;}.rw-card{width:220px;height:320px;border-radius:14px;}.rw-card-title{font-size:15px;}.rw-card-title-lg{font-size:18px;}.rw-card-desc{font-size:11px;}}
+    </style>
+    <script>
+    (function(){
+      var cards=document.querySelectorAll('#rwCarouselTrack .rw-card');
+      var cur=3;
+      function upd(){
+        var mob=window.innerWidth<=768,gap=mob?120:180,far=mob?240:360;
+        cards.forEach(function(c,i){
+          var r=i-cur,t,o,f,z,s='',ol;
+          if(r===0){t='translateX(0px) scale(1) rotateY(0deg)';o=1;f='brightness(1)';z=10;ol='2px solid rgba(189,242,0,0.4)';s='0px 20px 60px rgba(163,230,53,0.3)';c.style.background='rgba(189,242,0,0.05)';}
+          else if(r===-1){t='translateX(-'+gap+'px) scale(0.9) rotateY(10deg)';o=0.6;f='brightness(0.75)';z=5;ol='1px solid rgba(255,255,255,0.1)';c.style.background='';}
+          else if(r===1){t='translateX('+gap+'px) scale(0.9) rotateY(-10deg)';o=0.6;f='brightness(0.75)';z=5;ol='1px solid rgba(255,255,255,0.1)';c.style.background='';}
+          else if(r===-2){t='translateX(-'+far+'px) scale(0.85) rotateY(20deg)';o=mob?0:0.4;f='brightness(0.6)';z=2;ol='1px solid rgba(255,255,255,0.1)';c.style.background='';}
+          else if(r===2){t='translateX('+far+'px) scale(0.85) rotateY(-20deg)';o=mob?0:0.4;f='brightness(0.6)';z=2;ol='1px solid rgba(255,255,255,0.1)';c.style.background='';}
+          else{t='translateX('+(r*gap)+'px) scale(0.75) rotateY('+(-r*15)+'deg)';o=0;f='brightness(0.5)';z=1;ol='1px solid rgba(255,255,255,0.1)';c.style.background='';}
+          c.style.transform=t;c.style.opacity=o;c.style.filter=f;c.style.zIndex=z;c.style.boxShadow=s;c.style.outline=ol;
+        });
+      }
+      document.getElementById('rwPrevBtn').addEventListener('click',function(){cur=(cur-1+cards.length)%cards.length;upd();});
+      document.getElementById('rwNextBtn').addEventListener('click',function(){cur=(cur+1)%cards.length;upd();});
+      window.addEventListener('resize',upd);
+      upd();
+    })();
+    </script>
+
   </div>
 </section>
-
-<style>
-/* Recent Work Carousel */
-.rw-carousel-wrap { position:relative;display:flex;align-items:center;justify-content:center;height:520px; }
-.rw-carousel-stage { position:relative;width:100%;max-width:480px;height:480px;display:flex;align-items:center;justify-content:center; }
-.rw-carousel-track { position:absolute;inset:0;display:flex;align-items:center;justify-content:center; }
-.rw-card { position:absolute;width:320px;height:460px;border-radius:20px;overflow:hidden;cursor:pointer;transition:all 0.5s cubic-bezier(0.4,0,0.2,1);outline:1px solid rgba(255,255,255,0.1); }
-.rw-card-bg { width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:80px;transition:transform 0.6s ease; }
-.rw-card:hover .rw-card-bg { transform:scale(1.06); }
-.rw-card-gradient { position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0.25) 50%,transparent 100%); }
-.rw-card-top { position:absolute;top:24px;right:24px;z-index:3; }
-.rw-card-featured { display:inline-flex;align-items:center;gap:5px;background:#BDF200;color:#050505;font-size:11px;font-weight:700;padding:6px 14px;border-radius:50px;letter-spacing:1px; }
-.rw-card-bottom { position:absolute;bottom:0;left:0;right:0;padding:24px;z-index:3; }
-.rw-card-pill { display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);backdrop-filter:blur(8px);padding:5px 12px;border-radius:50px;font-size:11px;color:#fff;margin-bottom:10px; }
-.rw-card-pill-lg { padding:6px 14px;font-size:12px;margin-bottom:14px; }
-.rw-card-title { font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;color:#fff;line-height:1.2;margin:0; }
-.rw-card-title-lg { font-size:28px;font-weight:800;margin-bottom:6px; }
-.rw-card-desc { font-size:13px;color:rgba(255,255,255,0.7);margin:0;line-height:1.5; }
-.rw-arrow-btn { position:absolute;top:50%;transform:translateY(-50%);z-index:20;width:48px;height:48px;background:rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.1);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.25s; }
-.rw-arrow-btn:hover { background:rgba(255,255,255,0.08);border-color:#BDF200; }
-@media(max-width:768px){
-  .rw-carousel-wrap{height:380px;}
-  .rw-carousel-stage{height:340px;max-width:100%;}
-  .rw-card{width:220px;height:320px;border-radius:14px;}
-  .rw-card-title{font-size:15px;}
-  .rw-card-title-lg{font-size:18px;}
-  .rw-card-desc{font-size:11px;}
-  .rw-card-bg{font-size:52px!important;}
-  .rw-arrow-btn{width:36px;height:36px;}
-}
-</style>
-
-<script>
-(function(){
-  const bdImages=['1NqkADAsXZ4V1bJNbTx37wV3lvDHTwc-z','1yG7TWyJDPEa-rmmFdfiLZFlrowGtmDLJ','14C5186Ttu-GWRwOeIycQMc7FcFSjy2I6','17BEN7dO0RXPjtvjM0dMdI_qX5DNxtjWl','1-S7fX1h-TYfbHC37dnt2hKbGcPxvM_Io','1vbN0cPLITgVYB3pfhD8SF2z5Y-_AVcCa','1M_XrD37wYoNhQRua-nmyprD01mhVvPhJ','1E-dRUgNs1uLFfuEfYiZPonaRSWdJf9db','13LVJBKQt-POh0sJbUB67TTwCwKXzxzP6'];
-  const bg=document.getElementById('birthdayBg');
-  const dotsWrap=document.getElementById('bdDots');
-  let bdIdx=0;
-  if(bg&&dotsWrap){
-    bdImages.forEach((_,i)=>{const d=document.createElement('div');d.style.cssText=`width:${i===0?'18px':'6px'};height:6px;border-radius:3px;background:${i===0?'#BDF200':'rgba(255,255,255,0.35)'};transition:all 0.3s;`;dotsWrap.appendChild(d);});
-    function setBdSlide(idx){bg.style.backgroundImage=`url('https://drive.google.com/thumbnail?id=${bdImages[idx]}&sz=w800')`;bg.style.backgroundSize='cover';bg.style.backgroundPosition='center';Array.from(dotsWrap.children).forEach((d,i)=>{d.style.width=i===idx?'18px':'6px';d.style.background=i===idx?'#BDF200':'rgba(255,255,255,0.35)';});bdIdx=idx;}
-    setInterval(()=>{setBdSlide((bdIdx+1)%bdImages.length);},2500);
-  }
-  const cards=[{},{},{},{},{},{},{}];
-  let currentIndex=3;
-  const prevBtn=document.getElementById('rwPrevBtn');
-  const nextBtn=document.getElementById('rwNextBtn');
-  const rwCards=document.querySelectorAll('.rw-card');
-  function updateCarousel(){
-    const isMobile=window.innerWidth<=768;
-    const gap=isMobile?120:180;
-    const farGap=isMobile?240:360;
-    rwCards.forEach((card,i)=>{
-      const rel=i-currentIndex;
-      let transform,opacity,filter,zIndex,shadow='',outline;
-      if(rel===0){transform='translateX(0px) scale(1) rotateY(0deg)';opacity=1;filter='brightness(1)';zIndex=10;outline='2px solid rgba(189,242,0,0.4)';shadow='0px 20px 60px rgba(163,230,53,0.3)';card.style.background='rgba(189,242,0,0.05)';}
-      else if(rel===-1){transform=`translateX(-${gap}px) scale(0.9) rotateY(10deg)`;opacity=0.6;filter='brightness(0.75)';zIndex=5;outline='1px solid rgba(255,255,255,0.1)';card.style.background='';}
-      else if(rel===1){transform=`translateX(${gap}px) scale(0.9) rotateY(-10deg)`;opacity=0.6;filter='brightness(0.75)';zIndex=5;outline='1px solid rgba(255,255,255,0.1)';card.style.background='';}
-      else if(rel===-2){transform=`translateX(-${farGap}px) scale(0.85) rotateY(20deg)`;opacity=isMobile?0:0.4;filter='brightness(0.6)';zIndex=2;outline='1px solid rgba(255,255,255,0.1)';card.style.background='';}
-      else if(rel===2){transform=`translateX(${farGap}px) scale(0.85) rotateY(-20deg)`;opacity=isMobile?0:0.4;filter='brightness(0.6)';zIndex=2;outline='1px solid rgba(255,255,255,0.1)';card.style.background='';}
-      else{transform=`translateX(${rel*gap}px) scale(0.75) rotateY(${-rel*15}deg)`;opacity=0;filter='brightness(0.5)';zIndex=1;outline='1px solid rgba(255,255,255,0.1)';card.style.background='';}
-      card.style.transform=transform;card.style.opacity=opacity;card.style.filter=filter;card.style.zIndex=zIndex;card.style.boxShadow=shadow;card.style.outline=outline;
-    });
-  }
-  if(prevBtn&&nextBtn){
-    prevBtn.addEventListener('click',()=>{currentIndex=(currentIndex-1+cards.length)%cards.length;updateCarousel();});
-    nextBtn.addEventListener('click',()=>{currentIndex=(currentIndex+1)%cards.length;updateCarousel();});
-    window.addEventListener('resize',updateCarousel);
-    updateCarousel();
-  }
-})();
-</script>
-
-<!-- ============================================================
-     TESTIMONIALS
-============================================================ -->
 <section class="testimonials-sec section-pad" id="testimonials">
   <div class="container">
     <div style="text-align:center;" class="sr">
@@ -2354,7 +2295,7 @@ header.scrolled {
         </div>
         <p class="testi-text">"GraphicsZoo completely transformed how our agency operates. We went from 3-week turnarounds to 2 days. Our clients are absolutely thrilled with the results."</p>
         <div class="testi-author">
-          <div class="testi-avatar" style="background:linear-gradient(135deg,#4a90e2,#357ac0);">JM</div>
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#BDF200,#a0d000);color:#000;">JM</div>
           <div>
             <div class="testi-name">James Morrison</div>
             <div class="testi-role">CEO, D² Creative Group</div>
@@ -2382,7 +2323,7 @@ header.scrolled {
         </div>
         <p class="testi-text">"I was skeptical at first, but after the first month I was completely sold. The team is responsive, talented, and genuinely cares about the outcome."</p>
         <div class="testi-author">
-          <div class="testi-avatar" style="background:linear-gradient(135deg,#e2634a,#c04a30);">AK</div>
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#BDF200,#a0d000);color:#000;">AK</div>
           <div>
             <div class="testi-name">Alex Kim</div>
             <div class="testi-role">Founder, LaunchPad Agency</div>
@@ -2497,10 +2438,10 @@ header.scrolled {
     <div class="footer-top">
       <div class="footer-brand">
         <a href="#home" class="logo">
-          <img src="gallery/1714665825236.png" alt="PraiseGraphics" style="width:36px;height:36px;border-radius:8px;object-fit:cover;border:2px solid #BDF200;">
-          <div style="margin-left:10px;"><div style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:800;color:#BDF200;line-height:1;">PraiseGraphics</div><div style="font-size:9px;color:#777;letter-spacing:1px;text-transform:uppercase;margin-top:2px;">Creative Design Studio</div></div>
+          <div class="logo-mark">G</div>
+          Graphics<span>Zoo</span>
         </a>
-        <p class="footer-brand-desc">PraiseGraphics — unlimited graphic design for modern brands. Fast turnarounds, unlimited revisions, flat monthly rate.</p>
+        <p class="footer-brand-desc">The world's leading unlimited graphic design service for agencies and growing businesses. Top 1% designers. Flat monthly rate.</p>
         <div class="social-row">
           <a class="soc-btn" href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
           <a class="soc-btn" href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -2547,13 +2488,13 @@ header.scrolled {
     </div>
 
     <div class="footer-bottom">
-      <span>© 2025 PraiseGraphics. All rights reserved.</span>
+      <span>© 2026 GraphicsZoo. All rights reserved.</span>
       <span>
         <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
         <a href="#">Terms</a> &nbsp;·&nbsp;
         <a href="#">Cookies</a>
       </span>
-      <span>Made with 💚 by <a href="#" style="color:var(--lime);">Webcultivate Software Solution</a></span>
+      <span>Made with 💚 for great design</span>
     </div>
   </div>
 </footer>

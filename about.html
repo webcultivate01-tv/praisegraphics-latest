@@ -8,40 +8,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-:root{
-  --bg:#0a0a0a;
-  --bg2:#111111;
-  --bg3:#161616;
-  --accent:#AAFF00;
-  --accent2:#CCFF44;
-  --white:#ffffff;
-  --grey:#888888;
-  --grey2:#555555;
-  --border:rgba(170,255,0,0.15);
-  --border2:rgba(255,255,255,0.08);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--white);line-height:1.6;overflow-x:hidden}
-
-/* ── SCROLL ANIMATION ── */
-.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.65s ease,transform 0.65s ease}
-.reveal.visible{opacity:1;transform:none}
-.reveal.from-left{transform:translateX(-60px)}
-.reveal.from-right{transform:translateX(60px)}
-.reveal.from-bottom{transform:translateY(60px) scale(0.97)}
-.reveal.visible{opacity:1;transform:none}
-.reveal-delay-1{transition-delay:0.1s}
-.reveal-delay-2{transition-delay:0.2s}
-.reveal-delay-3{transition-delay:0.3s}
-.reveal-delay-4{transition-delay:0.4s}
-.reveal-delay-5{transition-delay:0.5s}
-.reveal-delay-6{transition-delay:0.6s}
-
-/* ============================================================
-   HOME-STYLE NAVBAR
-============================================================ */
-header {
+/* ── INDEX-STYLE NAVBAR ── */
+.container { max-width: 1240px; margin: 0 auto; padding: 0 40px; }
+header#site-header {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
@@ -51,19 +20,11 @@ header {
   border-bottom: 1px solid #222222;
   transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
 }
-header.scrolled {
-  background: rgba(5,5,5,0.97);
-  box-shadow: 0 4px 40px rgba(0,0,0,0.5);
-  border-bottom-color: rgba(189,242,0,0.2);
-}
-nav {
+header#site-header nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 72px;
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 0 40px;
 }
 .logo {
   display: flex;
@@ -85,7 +46,6 @@ nav {
   font-size: 13px;
   font-weight: 900;
   color: #050505;
-  letter-spacing: -0.5px;
 }
 .logo span { color: #BDF200; }
 .nav-menu {
@@ -112,46 +72,22 @@ nav {
   background: #BDF200;
   transition: width 0.3s;
 }
-.nav-menu a:hover { color: #fff; }
-.nav-menu a:hover::after { width: 100%; }
-.nav-menu a.active-nav { color: #BDF200 !important; }
-.nav-menu a.active-nav::after { width: 100% !important; }
+.nav-menu a:hover, .nav-menu a.active-nav { color: #BDF200; }
+.nav-menu a:hover::after, .nav-menu a.active-nav::after { width: 100%; }
 .nav-actions { display: flex; align-items: center; gap: 12px; }
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  padding: 14px 30px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  border: none;
-  outline: none;
-  text-decoration: none;
-}
 .btn-lime {
   background: linear-gradient(135deg, #d4ff00 0%, #BDF200 45%, #a0d000 100%);
   color: #050505;
-  box-shadow: 0 4px 20px rgba(189,242,0,0.2);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s;
+  border: none;
 }
-.btn-lime:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 40px rgba(189,242,0,0.45);
-}
-.btn-outline {
-  background: transparent;
-  color: #fff;
-  border: 1.5px solid #222222;
-}
-.btn-outline:hover {
-  border-color: #BDF200;
-  color: #BDF200;
-  transform: translateY(-3px);
-}
+.btn-lime:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(189,242,0,0.35); }
 .hamburger {
   display: none;
   flex-direction: column;
@@ -165,7 +101,6 @@ nav {
   width: 24px; height: 1.5px;
   background: #fff;
   border-radius: 2px;
-  transition: all 0.3s;
   display: block;
 }
 .mobile-nav {
@@ -186,27 +121,78 @@ nav {
   font-size: 28px;
   font-weight: 700;
   color: #fff;
-  transition: color 0.3s;
   text-decoration: none;
+  transition: color 0.3s;
 }
 .mobile-nav a:hover { color: #BDF200; }
 @media (max-width: 768px) {
   .nav-menu, .nav-actions { display: none; }
   .hamburger { display: flex; }
-  nav { padding: 0 20px; }
 }
 
+/* ── ORIGINAL STYLES ── */
+:root{
+  --bg:#0a0a0a;
+  --bg2:#111111;
+  --bg3:#161616;
+  --accent:#BDF200;
+  --accent2:#a0d000;
+  --white:#ffffff;
+  --grey:#888888;
+  --grey2:#555555;
+  --border:rgba(189,242,0,0.15);
+  --border2:rgba(255,255,255,0.08);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--white);line-height:1.6;overflow-x:hidden}
+
+/* ── SCROLL ANIMATION ── */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.65s ease,transform 0.65s ease}
+.reveal.visible{opacity:1;transform:none}
+.reveal.from-left{transform:translateX(-60px)}
+.reveal.from-right{transform:translateX(60px)}
+.reveal.from-bottom{transform:translateY(60px) scale(0.97)}
+.reveal.visible{opacity:1;transform:none}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+.reveal-delay-4{transition-delay:0.4s}
+.reveal-delay-5{transition-delay:0.5s}
+.reveal-delay-6{transition-delay:0.6s}
+
 /* ── NAV ── */
-nav#mainNav{display:none}
+nav{position:fixed;top:0;width:100%;background:rgba(10,10,10,0.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--border2);z-index:1000;transition:box-shadow 0.3s}
+nav.scrolled{box-shadow:0 4px 30px rgba(0,0,0,0.6);border-bottom-color:var(--border)}
+.nav-container{max-width:1240px;margin:0 auto;padding:0 30px;display:flex;justify-content:space-between;align-items:center;height:72px}
+.logo-wrapper{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0}
+.logo-img{width:44px;height:44px;border-radius:8px;object-fit:cover;border:2px solid var(--accent)}
+.logo-text{display:flex;flex-direction:column}
+.logo-name{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;color:var(--accent);line-height:1}
+.logo-tagline{font-size:10px;color:var(--grey);letter-spacing:1px;margin-top:3px;text-transform:uppercase}
+.nav-menu{display:flex;gap:28px;list-style:none;align-items:center;margin:0;padding:0}
+.nav-menu a{text-decoration:none;color:#aaa;font-weight:500;font-size:13.5px;letter-spacing:0.3px;transition:color 0.3s;position:relative;white-space:nowrap}
+.nav-menu a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--accent);transition:width 0.3s}
+.nav-menu a:hover,.nav-menu a.active{color:var(--accent)}
+.nav-menu a:hover::after,.nav-menu a.active::after{width:100%}
+.cta-nav{background:var(--accent)!important;color:#0a0a0a!important;padding:9px 20px;border-radius:6px;font-weight:700!important}
+.cta-nav::after{display:none!important}
+.cta-nav:hover{opacity:0.88;transform:translateY(-1px)}
+.menu-toggle{display:none;background:none;border:none;font-size:22px;cursor:pointer;color:var(--accent);padding:6px}
+.mobile-menu{position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(10,10,10,0.99);z-index:999;display:none;flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.mobile-menu.active{display:flex}
+.mobile-menu a{font-family:'Montserrat',sans-serif;font-size:24px;font-weight:700;color:#fff;text-decoration:none;transition:color 0.3s}
+.mobile-menu a:hover{color:var(--accent)}
+.close-menu{position:absolute;top:24px;right:30px;font-size:32px;background:none;border:none;cursor:pointer;color:#fff}
 
 /* ── HERO ── */
-.hero{position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--bg);padding-top:72px}
+.hero{position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--bg)}
 .hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(170,255,0,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(170,255,0,0.04) 1px,transparent 1px);background-size:60px 60px;z-index:0}
 .hero-glow{position:absolute;top:30%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(170,255,0,0.07) 0%,transparent 65%);pointer-events:none;z-index:0}
 .hero-particles{position:absolute;inset:0;overflow:hidden;z-index:1}
 .particle{position:absolute;width:2px;height:2px;background:var(--accent);border-radius:50%;opacity:0.35;animation:drift linear infinite}
 @keyframes drift{0%{transform:translateY(100vh);opacity:0}10%{opacity:0.35}90%{opacity:0.35}100%{transform:translateY(-10vh);opacity:0}}
-.hero-inner{position:relative;z-index:2;max-width:900px;margin:0 auto;padding:160px 30px 100px;text-align:center}
+.hero-inner{position:relative;z-index:2;max-width:900px;margin:0 auto;padding:140px 30px 60px;text-align:center}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(170,255,0,0.08);border:1px solid rgba(170,255,0,0.3);color:var(--accent);padding:8px 22px;border-radius:30px;font-size:12px;font-weight:700;margin-bottom:28px;letter-spacing:1.5px;text-transform:uppercase;animation:fadeInDown 0.7s ease}
 @keyframes fadeInDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
 .hero h1{font-family:'Montserrat',sans-serif;font-size:clamp(42px,6vw,72px);font-weight:800;color:#fff;line-height:1.05;margin-bottom:22px;letter-spacing:-2px;animation:fadeInUp 0.8s ease 0.1s backwards}
@@ -228,7 +214,7 @@ nav#mainNav{display:none}
 .section-desc{color:var(--grey);font-size:16px;max-width:560px;margin:18px auto 0;line-height:1.7}
 
 /* ── FOUNDER ── */
-.founder{padding:100px 30px;position:relative;overflow:hidden;background:var(--bg)}
+.founder{padding:60px 30px;position:relative;overflow:hidden;background:var(--bg)}
 .founder::before{content:'';position:absolute;top:-150px;right:-150px;width:600px;height:600px;background:radial-gradient(circle,rgba(170,255,0,0.04),transparent 70%);border-radius:50%;pointer-events:none}
 .founder-content{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:420px 1fr;gap:80px;align-items:center}
 .founder-img-wrap{position:relative}
@@ -247,10 +233,10 @@ nav#mainNav{display:none}
 .founder-role{color:var(--grey);font-size:14px;margin-bottom:28px;font-weight:500;letter-spacing:0.5px}
 .founder-text p{color:#999;font-size:16px;line-height:1.9;margin-bottom:18px}
 .founder-highlights{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:32px}
-.highlight-item{background:rgba(255,255,255,0.02);border:1px solid var(--border2);border-radius:12px;padding:18px 20px;transition:all 0.35s}
-.highlight-item:hover{border-color:var(--accent);background:rgba(170,255,0,0.05);transform:translateY(-3px)}
-.highlight-item strong{display:block;font-family:'Montserrat',sans-serif;color:var(--accent);font-size:22px;font-weight:800;margin-bottom:4px}
-.highlight-item span{color:var(--grey);font-size:12px;text-transform:uppercase;letter-spacing:0.5px}
+.highlight-item{background:rgba(255,255,255,0.04);border:1px solid rgba(189,242,0,0.2);border-radius:12px;padding:18px 20px;transition:all 0.35s}
+.highlight-item:hover{border-color:var(--accent);background:rgba(170,255,0,0.08);transform:translateY(-3px)}
+.highlight-item strong{display:block;font-family:'Montserrat',sans-serif;color:#BDF200;font-size:22px;font-weight:800;margin-bottom:4px}
+.highlight-item span{color:#ffffff;font-size:12px;text-transform:uppercase;letter-spacing:0.5px}
 
 /* ── FOUNDER SOCIAL ── */
 .founder-social{margin-top:28px;padding-top:24px;border-top:1px solid var(--border2)}
@@ -372,127 +358,33 @@ nav#mainNav{display:none}
 .btn-secondary{display:inline-flex;align-items:center;gap:10px;background:transparent;color:var(--accent);padding:16px 36px;border-radius:8px;border:2px solid rgba(170,255,0,0.35);font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700;text-decoration:none;transition:all 0.35s}
 .btn-secondary:hover{background:rgba(170,255,0,0.07);border-color:var(--accent);transform:translateY(-3px)}
 
-/* ── FOOTER HOME STYLE ── */
-footer#contact {
-  background: #0f0f0f;
-  border-top: 1px solid #222222;
-}
-footer#contact .footer-top {
-  display: grid;
-  grid-template-columns: 2.2fr 1fr 1fr 1.3fr;
-  gap: 60px;
-  padding: 64px 0 48px;
-}
-footer#contact .footer-brand-desc {
-  font-size: 14px;
-  color: #777;
-  line-height: 1.75;
-  max-width: 280px;
-  margin-bottom: 24px;
-}
-footer#contact .social-row { display: flex; gap: 10px; }
-footer#contact .soc-btn {
-  width: 38px; height: 38px;
-  background: #141414;
-  border: 1px solid #222;
-  border-radius: 8px;
-  display: grid;
-  place-items: center;
-  font-size: 15px;
-  color: #777;
-  text-decoration: none;
-  transition: all 0.3s;
-}
-footer#contact .soc-btn:hover {
-  background: #BDF200;
-  border-color: #BDF200;
-  color: #050505;
-  transform: translateY(-2px);
-}
-footer#contact .footer-col h5 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: 0.5px;
-  margin-bottom: 20px;
-}
-footer#contact .footer-col ul { display: flex; flex-direction: column; gap: 10px; list-style: none; padding: 0; }
-footer#contact .footer-col a {
-  font-size: 14px;
-  color: #777;
-  transition: color 0.25s;
-  text-decoration: none;
-}
-footer#contact .footer-col a:hover { color: #BDF200; }
-footer#contact .footer-contact p { font-size: 13.5px; color: #777; line-height: 1.7; margin-bottom: 16px; }
-footer#contact .newsletter-input {
-  display: flex;
-  gap: 8px;
-}
-footer#contact .newsletter-input input {
-  flex: 1;
-  background: #141414;
-  border: 1.5px solid #222;
-  border-radius: 8px;
-  padding: 11px 16px;
-  font-size: 13px;
-  color: #fff;
-  font-family: 'Poppins', sans-serif;
-  outline: none;
-}
-footer#contact .newsletter-input input:focus { border-color: #BDF200; }
-footer#contact .newsletter-input input::placeholder { color: #555; }
-footer#contact .newsletter-input button {
-  background: #BDF200;
-  color: #050505;
-  border: none;
-  border-radius: 8px;
-  padding: 11px 18px;
-  font-weight: 700;
-  font-size: 13px;
-  cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-  transition: background 0.3s;
-  white-space: nowrap;
-}
-footer#contact .newsletter-input button:hover { background: #ceff00; }
-footer#contact .footer-bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 24px 0;
-  border-top: 1px solid #222;
-  font-size: 13px;
-  color: #555;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-footer#contact .footer-bottom a { color: #BDF200; text-decoration: none; }
-footer#contact .footer-bottom a:hover { text-decoration: underline; }
-@media (max-width: 1100px) { footer#contact .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; } }
-@media (max-width: 768px) {
-  footer#contact .footer-top { grid-template-columns: 1fr; gap: 32px; padding: 40px 0 32px; }
-  footer#contact .footer-bottom { flex-direction: column; text-align: center; }
-}
-
-/* ── FOOTER ── */
-footer{background:#050505;color:#fff;padding:60px 30px 30px;border-top:1px solid var(--border2)}
-.footer-content{max-width:1200px;margin:0 auto}
-.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
-.footer-col h4{font-family:'Montserrat',sans-serif;color:var(--accent);font-size:17px;margin-bottom:20px;font-weight:700}
-.footer-col ul{list-style:none}
-.footer-col ul li{margin-bottom:11px}
-.footer-col ul li a{color:var(--grey);text-decoration:none;font-size:14px;transition:color 0.3s}
-.footer-col ul li a:hover{color:var(--accent)}
-.footer-logo-wrap{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-.footer-logo-img{width:42px;height:42px;border-radius:8px;border:2px solid var(--accent);object-fit:cover}
-.footer-logo{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;color:var(--accent)}
-.footer-desc{color:var(--grey);font-size:14px;line-height:1.7;margin-bottom:20px}
-.social-links{display:flex;gap:14px;justify-content:center;margin-bottom:32px}
-.social-link{width:42px;height:42px;border-radius:50%;background:rgba(170,255,0,0.06);border:1px solid rgba(170,255,0,0.15);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-size:17px;transition:all 0.3s}
-.social-link:hover{background:var(--accent);color:#0a0a0a;transform:translateY(-3px)}
-.footer-bottom{border-top:1px solid var(--border2);padding-top:24px;color:#555;font-size:13px;text-align:center}
+/* ── HOME-STYLE FOOTER ── */
+footer { background: var(--dark, #0f0f0f); border-top: 1px solid #222; }
+.footer-top { display: grid; grid-template-columns: 2.2fr 1fr 1fr 1.3fr; gap: 60px; padding: 64px 0 48px; max-width: 1240px; margin: 0 auto; padding-left: 40px; padding-right: 40px; }
+.footer-brand .logo { margin-bottom: 16px; display: flex; align-items: center; gap: 10px; font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 800; color: #fff; text-decoration: none; }
+.footer-brand .logo-mark { width: 38px; height: 38px; background: #BDF200; border-radius: 9px; display: grid; place-items: center; font-size: 13px; font-weight: 900; color: #050505; }
+.footer-brand .logo span { color: #BDF200; }
+.footer-brand-desc { font-size: 14px; color: #777; line-height: 1.75; max-width: 280px; margin-bottom: 24px; }
+.social-row { display: flex; gap: 10px; }
+.soc-btn { width: 38px; height: 38px; background: #141414; border: 1px solid #222; border-radius: 8px; display: grid; place-items: center; font-size: 15px; color: #fff; text-decoration: none; transition: all 0.3s; }
+.soc-btn:hover { background: #BDF200; border-color: #BDF200; color: #050505; transform: translateY(-2px); }
+.footer-col h5 { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: #fff; letter-spacing: 0.5px; margin-bottom: 20px; }
+.footer-col ul { display: flex; flex-direction: column; gap: 10px; list-style: none; padding: 0; }
+.footer-col a { font-size: 14px; color: #777; transition: color 0.25s; text-decoration: none; }
+.footer-col a:hover { color: #BDF200; }
+.footer-contact p { font-size: 13.5px; color: #777; line-height: 1.7; margin-bottom: 16px; }
+.footer-newsletter { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+.newsletter-input { display: flex; gap: 8px; }
+.newsletter-input input { flex: 1; background: #141414; border: 1.5px solid #222; border-radius: 8px; padding: 11px 16px; font-size: 13px; color: #fff; font-family: 'Poppins', sans-serif; outline: none; }
+.newsletter-input input:focus { border-color: #BDF200; }
+.newsletter-input input::placeholder { color: #777; }
+.newsletter-input button { background: #BDF200; color: #050505; border: none; border-radius: 8px; padding: 11px 18px; font-weight: 700; font-size: 13px; cursor: pointer; font-family: 'Poppins', sans-serif; transition: background 0.3s; white-space: nowrap; }
+.newsletter-input button:hover { background: #ceff00; }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; padding: 24px 40px; border-top: 1px solid #222; font-size: 13px; color: #777; flex-wrap: wrap; gap: 12px; max-width: 1240px; margin: 0 auto; }
+.footer-bottom a { color: #BDF200; }
+.footer-bottom a:hover { text-decoration: underline; }
+@media (max-width: 900px) { .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; } }
+@media (max-width: 600px) { .footer-top { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; text-align: center; } }
 
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
@@ -516,7 +408,6 @@ footer{background:#050505;color:#fff;padding:60px 30px 30px;border-top:1px solid
 @media(max-width:768px){
   .nav-menu{display:none}
   .menu-toggle{display:block}
-  .nav-right{gap:0}
   .hero-inner{padding:120px 20px 80px}
   .hero-stats{flex-direction:column;gap:24px;padding:24px 30px}
   .hero-divider{width:50px;height:1px}
@@ -533,6 +424,29 @@ footer{background:#050505;color:#fff;padding:60px 30px 30px;border-top:1px solid
 </head>
 <body>
 
+<header id="site-header">
+  <nav class="container">
+    <a href="index.html" class="logo">
+      <div class="logo-mark">PG</div>
+      Praise<span>Graphics</span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active-nav">About</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="index.html#cta" class="btn btn-lime" style="padding:10px 22px;font-size:13px;">Get Started →</a>
+    </div>
+    <button class="hamburger" id="hamBtn" onclick="toggleMobile()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
 <div class="mobile-nav" id="mobileNav">
   <a href="index.html" onclick="closeMobile()">Home</a>
   <a href="about.html" onclick="closeMobile()">About</a>
@@ -543,36 +457,6 @@ footer{background:#050505;color:#fff;padding:60px 30px 30px;border-top:1px solid
   <a href="index.html#cta" class="btn btn-lime" onclick="closeMobile()">Get Started</a>
 </div>
 
-<header id="site-header">
-  <nav class="container">
-    <a href="index.html" class="logo">
-      <img src="gallery/1714665825236.png" alt="PraiseGraphics" style="width:38px;height:38px;border-radius:9px;object-fit:cover;border:2px solid #BDF200;">
-      <div>
-        <div style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;color:#BDF200;line-height:1;">PraiseGraphics</div>
-        <div style="font-size:10px;color:#777;letter-spacing:1px;text-transform:uppercase;margin-top:2px;">Creative Design Studio</div>
-      </div>
-    </a>
-
-    <ul class="nav-menu">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html" class="active-nav">About</a></li>
-      <li><a href="index.html#services">Services</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="index.html#pricing">Pricing</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
-    </ul>
-
-    <div class="nav-actions">
-      <a href="index.html#pricing" class="btn btn-outline" style="padding:10px 22px;font-size:13px;">View Plans</a>
-      <a href="index.html#cta" class="btn btn-lime" style="padding:10px 22px;font-size:13px;">Get Started →</a>
-    </div>
-
-    <button class="hamburger" id="hamBtn" onclick="toggleMobile()" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-</header>
-
 <!-- ══ HERO ══ -->
 <section class="hero">
   <div class="hero-grid-bg"></div>
@@ -582,7 +466,11 @@ footer{background:#050505;color:#fff;padding:60px 30px 30px;border-top:1px solid
     <div class="hero-badge">✦ Since 2019 · Lagos, Nigeria</div>
     <h1>About <span>Praise Graphics</span></h1>
     <p class="hero-desc">Nigeria's leading creative design studio — transforming businesses through bold identity, strategic thinking, and visual storytelling.</p>
-    <div class="hero-stats">
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:8px;">
+      <a href="portfolio.html" class="btn-primary">View Our Work →</a>
+      <a href="index.html#contact" class="btn-secondary">Get In Touch</a>
+    </div>
+    <div class="hero-stats" style="display:none;">
       <div class="hero-stat"><strong>150+</strong><span>Projects Done</span></div>
       <div class="hero-divider"></div>
       <div class="hero-stat"><strong>80+</strong><span>Happy Clients</span></div>
@@ -608,8 +496,20 @@ footer{background:#050505;color:#fff;padding:60px 30px 30px;border-top:1px solid
       <div class="founder-label">Meet the Founder</div>
       <h2>The Creative <span>Mind</span> Behind It All</h2>
       <p class="founder-role">Founder & Creative Director · Lagos, Nigeria</p>
-      <p>Driven by an obsession with great design, Praise established this studio in 2019 with one goal — to give Nigerian businesses the world-class visual identity they deserve.</p>
-      <p>With a deep understanding of both global design trends and local market dynamics, we craft brand stories that connect, convert, and leave lasting impressions. Every project is personal — because your brand is your livelihood.</p>
+      <p style="color:#fff;font-size:16px;font-weight:600;margin-top:8px;margin-bottom:6px;">About PraiseGraphics</p>
+      <p>PraiseGraphics is a creative design brand focused on building powerful and visually compelling brand identities for individuals, businesses, and organizations. The brand is dedicated to transforming ideas into professional and engaging visuals that communicate purpose, attract attention, and elevate how brands are perceived.</p>
+      <p>Through a blend of creativity, strategy, and modern design principles, PraiseGraphics helps clients establish a strong visual presence across both digital and print platforms. PraiseGraphics doesn't just create designs — it builds visual experiences that help brands stand out, connect with their audience, and grow with confidence.</p>
+
+      <p style="color:#fff;font-size:16px;font-weight:600;margin-top:8px;margin-bottom:10px;">Services We Offer</p>
+      <ul style="list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px;">
+        <li style="color:#aaa;font-size:14px;"><span style="color:var(--accent);margin-right:8px;">✦</span>Logo Design</li>
+        <li style="color:#aaa;font-size:14px;"><span style="color:var(--accent);margin-right:8px;">✦</span>Brand Identity Design</li>
+        <li style="color:#aaa;font-size:14px;"><span style="color:var(--accent);margin-right:8px;">✦</span>Social Media Design</li>
+        <li style="color:#aaa;font-size:14px;"><span style="color:var(--accent);margin-right:8px;">✦</span>Poster &amp; Flyer Design</li>
+        <li style="color:#aaa;font-size:14px;"><span style="color:var(--accent);margin-right:8px;">✦</span>Business Branding Kits</li>
+        <li style="color:#aaa;font-size:14px;"><span style="color:var(--accent);margin-right:8px;">✦</span>Rebranding Services</li>
+        <li style="color:#aaa;font-size:14px;"><span style="color:var(--accent);margin-right:8px;">✦</span>And many more...</li>
+      </ul>
       <div class="founder-highlights">
         <div class="highlight-item"><strong>150+</strong><span>Projects Completed</span></div>
         <div class="highlight-item"><strong>80+</strong><span>Happy Clients</span></div>
@@ -799,18 +699,16 @@ footer{background:#050505;color:#fff;padding:60px 30px 30px;border-top:1px solid
   </div>
 </section>
 
-<!-- ============================================================
-     FOOTER
-============================================================ -->
+<!-- ══ FOOTER ══ -->
 <footer id="contact">
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="index.html" class="logo" style="margin-bottom:16px;display:flex;">
-          <img src="gallery/1714665825236.png" alt="PraiseGraphics" style="width:36px;height:36px;border-radius:8px;object-fit:cover;border:2px solid #BDF200;">
-          <div style="margin-left:10px;"><div style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:800;color:#BDF200;line-height:1;">PraiseGraphics</div><div style="font-size:9px;color:#777;letter-spacing:1px;text-transform:uppercase;margin-top:2px;">Creative Design Studio</div></div>
+        <a href="index.html" class="logo">
+          <div class="logo-mark">G</div>
+          Graphics<span>Zoo</span>
         </a>
-        <p class="footer-brand-desc">PraiseGraphics — unlimited graphic design for modern brands. Fast turnarounds, unlimited revisions, flat monthly rate.</p>
+        <p class="footer-brand-desc">The world's leading unlimited graphic design service for agencies and growing businesses. Top 1% designers. Flat monthly rate.</p>
         <div class="social-row">
           <a class="soc-btn" href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
           <a class="soc-btn" href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -818,52 +716,46 @@ footer{background:#050505;color:#fff;padding:60px 30px 30px;border-top:1px solid
           <a class="soc-btn" href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
         </div>
       </div>
-
       <div class="footer-col">
         <h5>Services</h5>
         <ul>
-          <li><a href="portfolio.html">Brand Identity</a></li>
-          <li><a href="portfolio.html">Church Design</a></li>
-          <li><a href="portfolio.html">Birthday Design</a></li>
-          <li><a href="portfolio.html">Anniversary Design</a></li>
-          <li><a href="portfolio.html">Album Design</a></li>
-          <li><a href="portfolio.html">Logo Design</a></li>
+          <li><a href="#">Brand Identity</a></li>
+          <li><a href="#">Social Media</a></li>
+          <li><a href="#">UI/UX Design</a></li>
+          <li><a href="#">Motion Graphics</a></li>
+          <li><a href="#">Packaging</a></li>
+          <li><a href="#">Print Design</a></li>
         </ul>
       </div>
-
       <div class="footer-col">
         <h5>Company</h5>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Us</a></li>
-          <li><a href="index.html#process">How It Works</a></li>
-          <li><a href="index.html#pricing">Pricing</a></li>
           <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="index.html#pricing">Pricing</a></li>
           <li><a href="index.html#contact">Contact</a></li>
         </ul>
       </div>
-
       <div class="footer-col footer-contact">
         <h5>Stay Updated</h5>
         <p>Get design tips, case studies, and exclusive offers — straight to your inbox.</p>
         <div class="footer-newsletter">
-          <div class="newsletter-input" style="display:flex;gap:8px;">
-            <input type="email" placeholder="your@email.com" style="flex:1;background:#141414;border:1.5px solid #222;border-radius:8px;padding:11px 14px;font-size:13px;color:#fff;font-family:'Poppins',sans-serif;outline:none;">
-            <button style="background:#BDF200;color:#050505;border:none;border-radius:8px;padding:11px 16px;font-weight:700;font-size:13px;cursor:pointer;font-family:'Poppins',sans-serif;">Subscribe</button>
+          <div class="newsletter-input">
+            <input type="email" placeholder="your@email.com">
+            <button>Subscribe</button>
           </div>
         </div>
-        <p style="margin-top:18px;font-size:13px;color:#777;"><i class="fa-solid fa-envelope" style="color:#BDF200;margin-right:6px;"></i>hello@praisegraphics.com</p>
       </div>
     </div>
-
     <div class="footer-bottom">
-      <span>© 2025 PraiseGraphics. All rights reserved.</span>
+      <span>© 2026 PraiseGraphics. All rights reserved.</span>
       <span>
-        <a href="#" style="color:#BDF200;">Privacy Policy</a> &nbsp;·&nbsp;
-        <a href="#" style="color:#BDF200;">Terms</a> &nbsp;·&nbsp;
-        <a href="#" style="color:#BDF200;">Cookies</a>
+        <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
+        <a href="#">Terms</a> &nbsp;·&nbsp;
+        <a href="#">Cookies</a>
       </span>
-      <span>Made with 💚 by <a href="#" style="color:#BDF200;">Webcultivate Software Solution</a></span>
+      <span>Made with 💚 for great design</span>
     </div>
   </div>
 </footer>
@@ -871,24 +763,20 @@ footer{background:#050505;color:#fff;padding:60px 30px 30px;border-top:1px solid
 <script>
 // ── NAV SCROLL EFFECT ──
 window.addEventListener('scroll',()=>{
-  document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 80);
-}, { passive: true });
+  document.getElementById('site-header').classList.toggle('scrolled',window.scrollY>50);
+});
 
 // ── MOBILE MENU ──
-function toggleMobile() {
+function toggleMobile(){
   const nav = document.getElementById('mobileNav');
   const ham = document.getElementById('hamBtn');
-  if (!nav) return;
   const isOpen = nav.classList.toggle('open');
   ham.classList.toggle('open', isOpen);
   document.body.style.overflow = isOpen ? 'hidden' : '';
 }
-function closeMobile() {
-  const nav = document.getElementById('mobileNav');
-  const ham = document.getElementById('hamBtn');
-  if (!nav) return;
-  nav.classList.remove('open');
-  ham.classList.remove('open');
+function closeMobile(){
+  document.getElementById('mobileNav').classList.remove('open');
+  document.getElementById('hamBtn').classList.remove('open');
   document.body.style.overflow = '';
 }
 
