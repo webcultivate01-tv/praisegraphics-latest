@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -12,9 +12,9 @@
    VARIABLES & RESET
 ============================================================ */
 :root {
-  --lime: #BDF200;
-  --lime-dark: #a0d000;
-  --lime-glow: rgba(189,242,0,0.15);
+  --lime: #ffbf00;
+  --lime-dark: #e6ac00;
+  --lime-glow: rgba(255,191,0,0.15);
   --black: #050505;
   --dark: #0f0f0f;
   --card: #141414;
@@ -59,8 +59,8 @@ img { max-width: 100%; display: block; }
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  background: rgba(189,242,0,0.08);
-  border: 1px solid rgba(189,242,0,0.25);
+  background: rgba(255,191,0,0.08);
+  border: 1px solid rgba(255,191,0,0.25);
   color: var(--lime);
   font-size: 11px;
   font-weight: 600;
@@ -119,14 +119,14 @@ h2.section-title {
 }
 
 .btn-lime {
-  background: linear-gradient(135deg, #d4ff00 0%, #BDF200 45%, #a0d000 100%);
+  background: linear-gradient(135deg, #ffd000 0%, #ffbf00 45%, #e6ac00 100%);
   color: var(--black);
-  box-shadow: 0 4px 20px rgba(189,242,0,0.2);
+  box-shadow: 0 4px 20px rgba(255,191,0,0.2);
 }
 .btn-lime:hover {
-  background: linear-gradient(135deg, #e8ff00 0%, #ceff00 45%, #b0e000 100%);
+  background: linear-gradient(135deg, #ffd000 0%, #ffd000 45%, #e6ac00 100%);
   transform: translateY(-3px);
-  box-shadow: 0 14px 40px rgba(189,242,0,0.45);
+  box-shadow: 0 14px 40px rgba(255,191,0,0.45);
 }
 
 .btn-outline {
@@ -254,8 +254,8 @@ nav {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 65% 65% at 75% 55%, rgba(189,242,0,0.05) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 50% at 10% 80%, rgba(189,242,0,0.03) 0%, transparent 60%),
+    radial-gradient(ellipse 65% 65% at 75% 55%, rgba(255,191,0,0.05) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 50% at 10% 80%, rgba(255,191,0,0.03) 0%, transparent 60%),
     #000000;
 }
 
@@ -271,8 +271,8 @@ nav {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(189,242,0,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(189,242,0,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(255,191,0,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,191,0,0.03) 1px, transparent 1px);
   background-size: 56px 56px;
 }
 
@@ -448,7 +448,7 @@ nav {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, rgba(189,242,0,0.08) 0%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(255,191,0,0.08) 0%, transparent 70%);
 }
 
 .design-icon {
@@ -476,8 +476,8 @@ nav {
   display: flex;
   align-items: center;
   gap: 6px;
-  background: rgba(189,242,0,0.1);
-  border: 1px solid rgba(189,242,0,0.25);
+  background: rgba(255,191,0,0.1);
+  border: 1px solid rgba(255,191,0,0.25);
   padding: 5px 12px;
   border-radius: 50px;
   font-size: 11px;
@@ -601,7 +601,7 @@ nav {
   line-height: 1;
 }
 
-.stat-num span { color: #5a9000; }
+.stat-num span { color: #cc9900; }
 
 .stat-lbl {
   font-size: 12px;
@@ -648,15 +648,15 @@ nav {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(189,242,0,0.04) 0%, transparent 100%);
+  background: linear-gradient(135deg, rgba(255,191,0,0.04) 0%, transparent 100%);
   opacity: 0;
   transition: opacity 0.4s;
 }
 
 .svc-card:hover {
-  border-color: rgba(189,242,0,0.35);
+  border-color: rgba(255,191,0,0.35);
   transform: translateY(-8px);
-  box-shadow: 0 24px 80px rgba(189,242,0,0.08);
+  box-shadow: 0 24px 80px rgba(255,191,0,0.08);
 }
 
 .svc-card:hover::before { opacity: 1; }
@@ -715,18 +715,18 @@ nav {
 
 /* FEATURED SERVICE */
 .svc-card.featured {
-  background: var(--lime);
-  border-color: var(--lime);
-  color: var(--black);
+  background: var(--card);
+  border-color: var(--border);
+  color: var(--white);
 }
 
 .svc-card.featured h3,
-.svc-card.featured p { color: rgba(0,0,0,0.75); }
-.svc-card.featured h3 { color: var(--black); }
-.svc-card.featured .svc-num { color: rgba(0,0,0,0.45); }
-.svc-card.featured .svc-link { color: rgba(0,0,0,0.65); }
-.svc-card.featured:hover { background: #ceff00; }
-.svc-card.featured:hover .svc-link { color: var(--black); }
+.svc-card.featured p { color: var(--light-gray); }
+.svc-card.featured h3 { color: var(--white); }
+.svc-card.featured .svc-num { color: var(--gray); }
+.svc-card.featured .svc-link { color: var(--gray); }
+.svc-card.featured:hover { background: var(--card); border-color: rgba(255,191,0,0.35); }
+.svc-card.featured:hover .svc-link { color: var(--lime); }
 
 /* ============================================================
    FEATURES
@@ -738,18 +738,18 @@ nav {
 }
 .features-sec .section-title { color: #111; }
 .features-sec .tag {
-  background: rgba(100,180,0,0.1);
-  border-color: rgba(100,180,0,0.3);
-  color: #5a9000;
+  background: rgba(255,191,0,0.1);
+  border-color: rgba(255,191,0,0.3);
+  color: #cc9900;
 }
-.features-sec .tag-dot { background: #5a9000; }
+.features-sec .tag-dot { background: #cc9900; }
 .features-sec .feat-item { border-bottom-color: #e0e0e0; }
 .features-sec .feat-icon {
-  background: rgba(100,180,0,0.1);
-  border-color: rgba(100,180,0,0.25);
-  color: #5a9000;
+  background: rgba(255,191,0,0.1);
+  border-color: rgba(255,191,0,0.25);
+  color: #cc9900;
 }
-.features-sec .feat-item:hover .feat-icon { background: #a0d000; border-color: #a0d000; color: #000; }
+.features-sec .feat-item:hover .feat-icon { background: #e6ac00; border-color: #e6ac00; color: #000; }
 .features-sec .feat-body h4 { color: #111; }
 .features-sec .feat-body p { color: #555; }
 .features-sec .dash-wrap { background: #f4f4f4; border-color: #ddd; }
@@ -793,8 +793,8 @@ nav {
 .feat-icon {
   width: 48px; height: 48px;
   min-width: 48px;
-  background: rgba(189,242,0,0.08);
-  border: 1px solid rgba(189,242,0,0.2);
+  background: rgba(255,191,0,0.08);
+  border: 1px solid rgba(255,191,0,0.2);
   border-radius: 10px;
   display: grid;
   place-items: center;
@@ -907,7 +907,7 @@ nav {
   transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
 }
 
-.dash-project-item:hover { border-color: rgba(189,242,0,0.25); }
+.dash-project-item:hover { border-color: rgba(255,191,0,0.25); }
 
 .proj-thumb {
   width: 42px; height: 42px;
@@ -931,7 +931,7 @@ nav {
   text-transform: uppercase;
 }
 
-.badge-done { background: rgba(189,242,0,0.12); color: var(--lime); border: 1px solid rgba(189,242,0,0.25); }
+.badge-done { background: rgba(255,191,0,0.12); color: var(--lime); border: 1px solid rgba(255,191,0,0.25); }
 .badge-wip { background: rgba(255,200,0,0.1); color: #ffc800; border: 1px solid rgba(255,200,0,0.2); }
 .badge-rev { background: rgba(74,144,226,0.1); color: #4a90e2; border: 1px solid rgba(74,144,226,0.2); }
 
@@ -992,7 +992,7 @@ nav {
   background: var(--lime);
   color: var(--black);
   border-color: var(--lime);
-  box-shadow: 0 0 40px rgba(189,242,0,0.3);
+  box-shadow: 0 0 40px rgba(255,191,0,0.3);
 }
 
 .proc-step h4 {
@@ -1014,18 +1014,18 @@ nav {
 }
 .portfolio-sec .section-title { color: #111; }
 .portfolio-sec .tag {
-  background: rgba(100,180,0,0.1);
-  border-color: rgba(100,180,0,0.3);
-  color: #5a9000;
+  background: rgba(255,191,0,0.1);
+  border-color: rgba(255,191,0,0.3);
+  color: #cc9900;
 }
-.portfolio-sec .tag-dot { background: #5a9000; }
+.portfolio-sec .tag-dot { background: #cc9900; }
 .portfolio-sec .tab-btn {
   border-color: #ccc;
   color: #555;
   background: #fff;
 }
 .portfolio-sec .tab-btn.active,
-.portfolio-sec .tab-btn:hover { background: #a0d000; color: #000; border-color: #a0d000; }
+.portfolio-sec .tab-btn:hover { background: #e6ac00; color: #000; border-color: #e6ac00; }
 
 .portfolio-tabs {
   display: flex;
@@ -1089,7 +1089,7 @@ nav {
   transition: all 0.4s;
 }
 
-.port-item:hover { transform: scale(1.01); border-color: rgba(189,242,0,0.3); }
+.port-item:hover { transform: scale(1.01); border-color: rgba(255,191,0,0.3); }
 
 .port-bg {
   width: 100%; height: 100%;
@@ -1165,9 +1165,9 @@ nav {
 }
 
 .testi-card:hover {
-  border-color: rgba(189,242,0,0.25);
+  border-color: rgba(255,191,0,0.25);
   transform: translateY(-5px);
-  box-shadow: 0 20px 60px rgba(189,242,0,0.05);
+  box-shadow: 0 20px 60px rgba(255,191,0,0.05);
 }
 
 .testi-card::before {
@@ -1233,22 +1233,22 @@ nav {
 }
 .pricing-sec .section-title { color: #111; }
 .pricing-sec .tag {
-  background: rgba(100,180,0,0.1);
-  border-color: rgba(100,180,0,0.3);
-  color: #5a9000;
+  background: rgba(255,191,0,0.1);
+  border-color: rgba(255,191,0,0.3);
+  color: #cc9900;
 }
-.pricing-sec .tag-dot { background: #5a9000; }
+.pricing-sec .tag-dot { background: #cc9900; }
 .pricing-sec .price-card { background: #f7f7f7; border-color: #ddd; }
-.pricing-sec .price-card.popular { background: linear-gradient(160deg,rgba(160,208,0,0.08),#f7f7f7); border-color: #a0d000; }
+.pricing-sec .price-card.popular { background: linear-gradient(160deg,rgba(255,191,0,0.08),#f7f7f7); border-color: #e6ac00; }
 .pricing-sec .price-card-title { color: #111; }
 .pricing-sec .price-val { color: #111; }
 .pricing-sec .price-period { color: #777; }
 .pricing-sec .price-divider { background: #ddd; }
 .pricing-sec .price-feats li { color: #555; }
-.pricing-sec .check { background: rgba(100,180,0,0.1); border-color: rgba(100,180,0,0.3); }
-.pricing-sec .check::before { color: #5a9000; }
+.pricing-sec .check { background: rgba(255,191,0,0.1); border-color: rgba(255,191,0,0.3); }
+.pricing-sec .check::before { color: #cc9900; }
 .pricing-sec .pricing-toggle { color: #555; }
-.pricing-sec .save-badge { background: rgba(100,180,0,0.1); color: #5a9000; border-color: rgba(100,180,0,0.3); }
+.pricing-sec .save-badge { background: rgba(255,191,0,0.1); color: #cc9900; border-color: rgba(255,191,0,0.3); }
 
 .pricing-toggle {
   display: flex;
@@ -1279,9 +1279,9 @@ nav {
 }
 
 .save-badge {
-  background: rgba(189,242,0,0.12);
+  background: rgba(255,191,0,0.12);
   color: var(--lime);
-  border: 1px solid rgba(189,242,0,0.3);
+  border: 1px solid rgba(255,191,0,0.3);
   padding: 2px 10px;
   border-radius: 50px;
   font-size: 11px;
@@ -1306,13 +1306,13 @@ nav {
 
 .price-card.popular {
   border-color: var(--lime);
-  background: linear-gradient(160deg, rgba(189,242,0,0.06) 0%, var(--card) 50%);
+  background: linear-gradient(160deg, rgba(255,191,0,0.06) 0%, var(--card) 50%);
 }
 
 .price-card:hover:not(.popular) {
-  border-color: rgba(189,242,0,0.3);
+  border-color: rgba(255,191,0,0.3);
   transform: translateY(-6px);
-  box-shadow: 0 20px 70px rgba(189,242,0,0.06);
+  box-shadow: 0 20px 70px rgba(255,191,0,0.06);
 }
 
 .price-card.popular:hover { transform: translateY(-6px); }
@@ -1378,8 +1378,8 @@ nav {
 
 .check {
   width: 18px; height: 18px;
-  background: rgba(189,242,0,0.12);
-  border: 1px solid rgba(189,242,0,0.25);
+  background: rgba(255,191,0,0.12);
+  border: 1px solid rgba(255,191,0,0.25);
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -1408,7 +1408,7 @@ nav {
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
   width: 600px; height: 400px;
-  background: radial-gradient(ellipse, rgba(189,242,0,0.1) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(255,191,0,0.1) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -1567,7 +1567,7 @@ footer {
   white-space: nowrap;
 }
 
-.newsletter-input button:hover { background: #ceff00; }
+.newsletter-input button:hover { background: #ffd000; }
 
 .footer-bottom {
   display: flex;
@@ -1602,7 +1602,7 @@ footer {
 header.scrolled {
   background: rgba(5,5,5,0.97);
   box-shadow: 0 4px 40px rgba(0,0,0,0.5);
-  border-bottom-color: rgba(189,242,0,0.2);
+  border-bottom-color: rgba(255,191,0,0.2);
 }
 
 /* --- ACTIVE NAV LINK --- */
@@ -1619,8 +1619,8 @@ header.scrolled {
 }
 .service-card:hover {
   transform: translateY(-8px) !important;
-  box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(189,242,0,0.15) !important;
-  border-color: rgba(189,242,0,0.2) !important;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,191,0,0.15) !important;
+  border-color: rgba(255,191,0,0.2) !important;
 }
 .price-card:not(.popular) { transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s ease !important; }
 .price-card { display: flex !important; flex-direction: column !important; }
@@ -2023,7 +2023,7 @@ header.scrolled {
             <div class="dash-projects-title">Recent Projects</div>
 
             <div class="dash-project-item">
-              <div class="proj-thumb" style="background:rgba(189,242,0,0.1);"><i class="fa-solid fa-palette" style="color:var(--lime);"></i></div>
+              <div class="proj-thumb" style="background:rgba(255,191,0,0.1);"><i class="fa-solid fa-palette" style="color:var(--lime);"></i></div>
               <div>
                 <div class="proj-name">NexTech Brand Identity</div>
                 <div class="proj-type">Logo + Guidelines</div>
@@ -2211,29 +2211,29 @@ header.scrolled {
     <!-- RECENT WORK CAROUSEL -->
     <div class="section-header sr" style="margin-top:60px;">
       <div>
-        <div class="tag" style="background:rgba(100,180,0,0.1);border-color:rgba(100,180,0,0.3);color:#5a9000;"><span class="tag-dot" style="background:#5a9000;"></span>Recent Work</div>
-        <h2 class="section-title" style="color:#111;">Recent <span style="color:#5a9000;">Work</span></h2>
+        <div class="tag" style="background:rgba(255,191,0,0.1);border-color:rgba(255,191,0,0.3);color:#cc9900;"><span class="tag-dot" style="background:#cc9900;"></span>Recent Work</div>
+        <h2 class="section-title" style="color:#111;">Recent <span style="color:#cc9900;">Work</span></h2>
       </div>
       <a href="portfolio.html" class="btn btn-outline" style="border-color:#ccc;color:#555;">View All Projects →</a>
     </div>
 
     <div class="rw-carousel-wrap" style="perspective:1200px;background:#050505;">
       <button id="rwPrevBtn" class="rw-arrow-btn" style="left:16px;" aria-label="Previous">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;color:#5a9000;"><path d="m15 18-6-6 6-6"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;color:#cc9900;"><path d="m15 18-6-6 6-6"></path></svg>
       </button>
       <div class="rw-carousel-stage">
         <div class="rw-carousel-track" id="rwCarouselTrack">
-          <div class="rw-card" data-index="0"><div class="rw-card-bg" style="background:linear-gradient(135deg,#1a0a1a,#0d0010);background-image:url('https://drive.google.com/thumbnail?id=1M_XrD37wYoNhQRua-nmyprD01mhVvPhJ&sz=w800');background-size:cover;background-position:center;"></div><div class="rw-card-gradient"></div><div class="rw-card-bottom"><div class="rw-card-pill"><i class="fa-solid fa-fingerprint" style="color:#BDF200;font-size:10px;"></i><span>Brand Design</span></div><p class="rw-card-title">Brand Identity</p></div></div>
-          <div class="rw-card" data-index="1"><div class="rw-card-bg" style="background:linear-gradient(135deg,#0a0a1a,#050510);background-image:url('https://drive.google.com/thumbnail?id=142ZRKeozabOrpPAsXQKiSG7JmV-qU2w2&sz=w800');background-size:cover;background-position:center;"></div><div class="rw-card-gradient"></div><div class="rw-card-bottom"><div class="rw-card-pill"><i class="fa-solid fa-church" style="color:#BDF200;font-size:10px;"></i><span>Church Design</span></div><p class="rw-card-title">Church Graphics</p></div></div>
-          <div class="rw-card" data-index="2"><div class="rw-card-bg" style="background:linear-gradient(135deg,#1a0d2e,#0d0018);background-image:url('https://drive.google.com/thumbnail?id=19WxLp5c2LGALKrfzybXI8hHNGPEnpbkt&sz=w800');background-size:cover;background-position:center;"></div><div class="rw-card-gradient"></div><div class="rw-card-top"><div class="rw-card-featured">Featured</div></div><div class="rw-card-bottom"><div class="rw-card-pill rw-card-pill-lg"><i class="fa-solid fa-cake-candles" style="color:#BDF200;font-size:10px;"></i><span>Birthday Design</span></div><p class="rw-card-title rw-card-title-lg">Birthday Graphics</p><p class="rw-card-desc">Custom birthday cards, banners &amp; social posts</p></div></div>
-          <div class="rw-card" data-index="3"><div class="rw-card-bg" style="background:linear-gradient(135deg,#1a0a00,#100600);background-image:url('https://drive.google.com/thumbnail?id=1G4rIDNo_8SiZt_YVmC-acqCpgjntKQUc&sz=w800');background-size:cover;background-position:center;"></div><div class="rw-card-gradient"></div><div class="rw-card-bottom"><div class="rw-card-pill"><i class="fa-solid fa-heart" style="color:#BDF200;font-size:10px;"></i><span>Anniversary Design</span></div><p class="rw-card-title">Anniversary</p></div></div>
-          <div class="rw-card" data-index="4"><div class="rw-card-bg" style="background:linear-gradient(135deg,#0a1a0d,#050f08);background-image:url('https://drive.google.com/thumbnail?id=1lquvhMvq--tBALEJ1QYg3Fesa9kTnKbs&sz=w800');background-size:cover;background-position:center;"></div><div class="rw-card-gradient"></div><div class="rw-card-bottom"><div class="rw-card-pill"><i class="fa-solid fa-book-open" style="color:#BDF200;font-size:10px;"></i><span>Album Design</span></div><p class="rw-card-title">Album Design</p></div></div>
-          <div class="rw-card" data-index="5"><div class="rw-card-bg" style="background:linear-gradient(135deg,#1a1500,#100d00);background-image:url('https://drive.google.com/thumbnail?id=1yGQr951PJx8U6DqPnkjqiQ_05cFV99UJ&sz=w800');background-size:cover;background-position:center;"></div><div class="rw-card-gradient"></div><div class="rw-card-bottom"><div class="rw-card-pill"><i class="fa-solid fa-book" style="color:#BDF200;font-size:10px;"></i><span>Book Design</span></div><p class="rw-card-title">Book Design</p></div></div>
-          <div class="rw-card" data-index="6"><div class="rw-card-bg" style="background:linear-gradient(135deg,#001a10,#00100a);background-image:url('https://drive.google.com/thumbnail?id=1tWgyQpmTI4j8m3kc_6ONaxqtKngpMZI9&sz=w800');background-size:cover;background-position:center;"></div><div class="rw-card-gradient"></div><div class="rw-card-bottom"><div class="rw-card-pill"><i class="fa-solid fa-pen-ruler" style="color:#BDF200;font-size:10px;"></i><span>Logo Design</span></div><p class="rw-card-title">Logo Design</p></div></div>
+          <div class="rw-card" data-index="0"><div class="rw-card-bg" style="background:linear-gradient(135deg,#1a0a1a,#0d0010);background-image:url('https://drive.google.com/thumbnail?id=1M_XrD37wYoNhQRua-nmyprD01mhVvPhJ&sz=w800');background-size:cover;background-position:center;"></div><div class="rw-card-gradient"></div><div class="rw-card-bottom"><div class="rw-card-pill"><i class="fa-solid fa-fingerprint" style="color:#ffbf00;font-size:10px;"></i><span>Brand Design</span></div><p class="rw-card-title">Brand Identity</p></div></div>
+          <div class="rw-card" data-index="1"><div class="rw-card-bg" style="background:linear-gradient(135deg,#0a0a1a,#050510);background-image:url('https://drive.google.com/thumbnail?id=142ZRKeozabOrpPAsXQKiSG7JmV-qU2w2&sz=w800');background-size:cover;background-position:center;"></div><div class="rw-card-gradient"></div><div class="rw-card-bottom"><div class="rw-card-pill"><i class="fa-solid fa-church" style="color:#ffbf00;font-size:10px;"></i><span>Church Design</span></div><p class="rw-card-title">Church Graphics</p></div></div>
+          <div class="rw-card" data-index="2"><div class="rw-card-bg" style="background:linear-gradient(135deg,#1a0d2e,#0d0018);background-image:url('https://drive.google.com/thumbnail?id=19WxLp5c2LGALKrfzybXI8hHNGPEnpbkt&sz=w800');background-size:cover;background-position:center;"></div><div class="rw-card-gradient"></div><div class="rw-card-top"><div class="rw-card-featured">Featured</div></div><div class="rw-card-bottom"><div class="rw-card-pill rw-card-pill-lg"><i class="fa-solid fa-cake-candles" style="color:#ffbf00;font-size:10px;"></i><span>Birthday Design</span></div><p class="rw-card-title rw-card-title-lg">Birthday Graphics</p><p class="rw-card-desc">Custom birthday cards, banners &amp; social posts</p></div></div>
+          <div class="rw-card" data-index="3"><div class="rw-card-bg" style="background:linear-gradient(135deg,#1a0a00,#100600);background-image:url('https://drive.google.com/thumbnail?id=1G4rIDNo_8SiZt_YVmC-acqCpgjntKQUc&sz=w800');background-size:cover;background-position:center;"></div><div class="rw-card-gradient"></div><div class="rw-card-bottom"><div class="rw-card-pill"><i class="fa-solid fa-heart" style="color:#ffbf00;font-size:10px;"></i><span>Anniversary Design</span></div><p class="rw-card-title">Anniversary</p></div></div>
+          <div class="rw-card" data-index="4"><div class="rw-card-bg" style="background:linear-gradient(135deg,#0a1a0d,#050f08);background-image:url('https://drive.google.com/thumbnail?id=1lquvhMvq--tBALEJ1QYg3Fesa9kTnKbs&sz=w800');background-size:cover;background-position:center;"></div><div class="rw-card-gradient"></div><div class="rw-card-bottom"><div class="rw-card-pill"><i class="fa-solid fa-book-open" style="color:#ffbf00;font-size:10px;"></i><span>Album Design</span></div><p class="rw-card-title">Album Design</p></div></div>
+          <div class="rw-card" data-index="5"><div class="rw-card-bg" style="background:linear-gradient(135deg,#1a1500,#100d00);background-image:url('https://drive.google.com/thumbnail?id=1yGQr951PJx8U6DqPnkjqiQ_05cFV99UJ&sz=w800');background-size:cover;background-position:center;"></div><div class="rw-card-gradient"></div><div class="rw-card-bottom"><div class="rw-card-pill"><i class="fa-solid fa-book" style="color:#ffbf00;font-size:10px;"></i><span>Book Design</span></div><p class="rw-card-title">Book Design</p></div></div>
+          <div class="rw-card" data-index="6"><div class="rw-card-bg" style="background:linear-gradient(135deg,#001a10,#00100a);background-image:url('https://drive.google.com/thumbnail?id=1tWgyQpmTI4j8m3kc_6ONaxqtKngpMZI9&sz=w800');background-size:cover;background-position:center;"></div><div class="rw-card-gradient"></div><div class="rw-card-bottom"><div class="rw-card-pill"><i class="fa-solid fa-pen-ruler" style="color:#ffbf00;font-size:10px;"></i><span>Logo Design</span></div><p class="rw-card-title">Logo Design</p></div></div>
         </div>
       </div>
       <button id="rwNextBtn" class="rw-arrow-btn" style="right:16px;" aria-label="Next">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;color:#5a9000;"><path d="m9 18 6-6-6-6"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;color:#cc9900;"><path d="m9 18 6-6-6-6"></path></svg>
       </button>
     </div>
 
@@ -2246,7 +2246,7 @@ header.scrolled {
     .rw-card:hover .rw-card-bg{transform:scale(1.06);}
     .rw-card-gradient{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0.25) 50%,transparent 100%);}
     .rw-card-top{position:absolute;top:24px;right:24px;z-index:3;}
-    .rw-card-featured{display:inline-flex;align-items:center;gap:5px;background:#BDF200;color:#050505;font-size:11px;font-weight:700;padding:6px 14px;border-radius:50px;letter-spacing:1px;}
+    .rw-card-featured{display:inline-flex;align-items:center;gap:5px;background:#ffbf00;color:#050505;font-size:11px;font-weight:700;padding:6px 14px;border-radius:50px;letter-spacing:1px;}
     .rw-card-bottom{position:absolute;bottom:0;left:0;right:0;padding:24px;z-index:3;}
     .rw-card-pill{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);backdrop-filter:blur(8px);padding:5px 12px;border-radius:50px;font-size:11px;color:#fff;margin-bottom:10px;}
     .rw-card-pill-lg{padding:6px 14px;font-size:12px;margin-bottom:14px;}
@@ -2254,7 +2254,7 @@ header.scrolled {
     .rw-card-title-lg{font-size:28px;font-weight:800;margin-bottom:6px;}
     .rw-card-desc{font-size:13px;color:rgba(255,255,255,0.7);margin:0;line-height:1.5;}
     .rw-arrow-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:20;width:48px;height:48px;background:rgba(0,0,0,0.08);border:1px solid #ddd;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.25s;}
-    .rw-arrow-btn:hover{background:rgba(100,180,0,0.1);border-color:#a0d000;}
+    .rw-arrow-btn:hover{background:rgba(255,191,0,0.1);border-color:#e6ac00;}
     @media(max-width:768px){.rw-carousel-wrap{height:380px;}.rw-carousel-stage{height:340px;max-width:100%;}.rw-card{width:220px;height:320px;border-radius:14px;}.rw-card-title{font-size:15px;}.rw-card-title-lg{font-size:18px;}.rw-card-desc{font-size:11px;}}
     </style>
     <script>
@@ -2265,7 +2265,7 @@ header.scrolled {
         var mob=window.innerWidth<=768,gap=mob?120:180,far=mob?240:360;
         cards.forEach(function(c,i){
           var r=i-cur,t,o,f,z,s='',ol;
-          if(r===0){t='translateX(0px) scale(1) rotateY(0deg)';o=1;f='brightness(1)';z=10;ol='2px solid rgba(189,242,0,0.4)';s='0px 20px 60px rgba(163,230,53,0.3)';c.style.background='rgba(189,242,0,0.05)';}
+          if(r===0){t='translateX(0px) scale(1) rotateY(0deg)';o=1;f='brightness(1)';z=10;ol='2px solid rgba(255,191,0,0.4)';s='0px 20px 60px rgba(163,230,53,0.3)';c.style.background='rgba(255,191,0,0.05)';}
           else if(r===-1){t='translateX(-'+gap+'px) scale(0.9) rotateY(10deg)';o=0.6;f='brightness(0.75)';z=5;ol='1px solid rgba(255,255,255,0.1)';c.style.background='';}
           else if(r===1){t='translateX('+gap+'px) scale(0.9) rotateY(-10deg)';o=0.6;f='brightness(0.75)';z=5;ol='1px solid rgba(255,255,255,0.1)';c.style.background='';}
           else if(r===-2){t='translateX(-'+far+'px) scale(0.85) rotateY(20deg)';o=mob?0:0.4;f='brightness(0.6)';z=2;ol='1px solid rgba(255,255,255,0.1)';c.style.background='';}
@@ -2297,7 +2297,7 @@ header.scrolled {
         </div>
         <p class="testi-text">"GraphicsZoo completely transformed how our agency operates. We went from 3-week turnarounds to 2 days. Our clients are absolutely thrilled with the results."</p>
         <div class="testi-author">
-          <div class="testi-avatar" style="background:linear-gradient(135deg,#BDF200,#a0d000);color:#000;">JM</div>
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#ffbf00,#e6ac00);color:#000;">JM</div>
           <div>
             <div class="testi-name">James Morrison</div>
             <div class="testi-role">CEO, D² Creative Group</div>
@@ -2311,7 +2311,7 @@ header.scrolled {
         </div>
         <p class="testi-text">"The quality of design is consistently outstanding. Our revenue grew 25% after partnering with GZ because we could take on far more clients each month."</p>
         <div class="testi-author">
-          <div class="testi-avatar" style="background:linear-gradient(135deg,#BDF200,#a0d000);color:#000;">SR</div>
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#ffbf00,#e6ac00);color:#000;">SR</div>
           <div>
             <div class="testi-name">Sarah Rodriguez</div>
             <div class="testi-role">Creative Director, BrandStack</div>
@@ -2325,7 +2325,7 @@ header.scrolled {
         </div>
         <p class="testi-text">"I was skeptical at first, but after the first month I was completely sold. The team is responsive, talented, and genuinely cares about the outcome."</p>
         <div class="testi-author">
-          <div class="testi-avatar" style="background:linear-gradient(135deg,#BDF200,#a0d000);color:#000;">AK</div>
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#ffbf00,#e6ac00);color:#000;">AK</div>
           <div>
             <div class="testi-name">Alex Kim</div>
             <div class="testi-role">Founder, LaunchPad Agency</div>
