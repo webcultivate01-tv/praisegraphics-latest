@@ -422,7 +422,7 @@ nav {
 }
 .card-dots span:nth-child(1) { background: #ff5f56; }
 .card-dots span:nth-child(2) { background: #ffbd2e; }
-.card-dots span:nth-child(3) { background: #27c93f; }
+.card-dots span:nth-child(3) { background: #ffbf00; }
 
 .card-label {
   font-size: 11px;
@@ -847,7 +847,7 @@ nav {
 }
 .dash-dots span:nth-child(1) { background: #ff5f56; }
 .dash-dots span:nth-child(2) { background: #ffbd2e; }
-.dash-dots span:nth-child(3) { background: #27c93f; }
+.dash-dots span:nth-child(3) { background: #ffbf00; }
 
 .dash-title {
   font-size: 12px;
@@ -1148,11 +1148,31 @@ nav {
 
 /* all testi cards same dark style */
 
-.testi-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+.testi-marquee-outer {
+  overflow: hidden;
+  width: 100%;
   margin-top: 56px;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+
+.testi-marquee-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: testiScroll 28s linear infinite;
+}
+
+.testi-marquee-track:hover { animation-play-state: paused; }
+
+@keyframes testiScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.testi-card {
+  width: 360px;
+  flex-shrink: 0;
 }
 
 .testi-card {
@@ -1684,30 +1704,108 @@ header.scrolled {
   .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
   .process-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
   .process-grid::before { display: none; }
-  .testi-grid { grid-template-columns: 1fr; }
   .port-item { width: 280px; height: 220px; }
   .pricing-grid { grid-template-columns: 1fr; max-width: 440px; margin-left: auto; margin-right: auto; }
+  .testi-grid { grid-template-columns: 1fr; }
+  .features-inner { grid-template-columns: 1fr; gap: 40px; }
 }
 
 @media (max-width: 768px) {
-  .container { padding: 0 20px; }
-  .section-pad { padding: 80px 0; }
+  .container { padding: 0 18px; }
+  .section-pad { padding: 70px 0; }
+
+  /* NAV */
   .nav-menu { display: none; }
   .nav-actions .btn { display: none; }
   .hamburger { display: flex; }
-  .services-grid { grid-template-columns: 1fr; }
-  .stats-bar-inner { grid-template-columns: 1fr 1fr; }
-  .testi-grid { grid-template-columns: 1fr; }
-  .footer-top { grid-template-columns: 1fr; gap: 32px; }
-  .footer-bottom { flex-direction: column; text-align: center; }
-  .portfolio-grid { grid-template-columns: 1fr; }
-  .section-header { flex-direction: column; align-items: flex-start; }
 
-  /* Hero image — hide on small screens to save space */
+  /* HERO */
   .hero-right { display: none; }
   .hero-inner { grid-template-columns: 1fr; }
-  .hero-left { padding: 40px 0 48px; }
+  .hero-left { padding: 30px 0 40px; text-align: center; }
   .hero { min-height: auto; padding-top: 72px; }
+  .hero h1 { font-size: clamp(36px, 9vw, 52px); letter-spacing: -1px; }
+  .hero-desc { font-size: 15px; margin: 0 auto 32px; }
+  .hero-ctas { justify-content: center; }
+  .hero-trust { justify-content: center; }
+  .hero-badge { margin: 0 auto 24px; }
+
+  /* MARQUEE */
+  .marquee-item { font-size: 13px; padding: 0 18px; }
+
+  /* STATS */
+  .stats-bar-inner { grid-template-columns: 1fr 1fr; }
+  .stat-num { font-size: 26px; }
+
+  /* SERVICES */
+  .services-grid { grid-template-columns: 1fr; }
+  .section-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+  h2.section-title { font-size: clamp(28px, 7vw, 42px); }
+
+  /* FEATURES */
+  .features-inner { grid-template-columns: 1fr; gap: 40px; }
+  .dash-wrap { display: none; }
+
+  /* PROCESS */
+  .process-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .process-grid::before { display: none; }
+  .proc-num { width: 64px; height: 64px; font-size: 20px; }
+
+  /* PORTFOLIO */
+  .port-item { width: 260px; height: 200px; }
+  .portfolio-tabs { gap: 6px; }
+  .tab-btn { padding: 7px 14px; font-size: 12px; }
+
+  /* TESTIMONIALS */
+  .testi-marquee-outer { -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%); }
+  .testi-card { width: 300px; padding: 24px 20px; }
+
+  /* PRICING */
+  .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+
+  /* FOOTER */
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; text-align: center; gap: 8px; }
+  .newsletter-input { flex-direction: column; }
+  .newsletter-input input, .newsletter-input button { width: 100%; }
+
+  /* BUTTONS */
+  .btn { padding: 12px 22px; font-size: 13px; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  .section-pad { padding: 56px 0; }
+
+  /* HERO */
+  .hero h1 { font-size: clamp(30px, 10vw, 42px); }
+  .hero-ctas { flex-direction: column; align-items: center; }
+  .hero-ctas .btn { width: 100%; justify-content: center; }
+
+  /* STATS */
+  .stats-bar-inner { grid-template-columns: 1fr 1fr; }
+  .stat-item { padding: 16px; }
+  .stat-num { font-size: 22px; }
+
+  /* PROCESS */
+  .process-grid { grid-template-columns: 1fr; }
+
+  /* SERVICES */
+  .svc-card { padding: 24px 20px; }
+
+  /* TESTIMONIALS */
+  .testi-card { width: 280px; }
+
+  /* PRICING */
+  .price-card { padding: 28px 20px; }
+
+  /* FOOTER */
+  .footer-brand-desc { max-width: 100%; }
+  .social-row { justify-content: flex-start; }
+
+  /* MOBILE NAV */
+  .mobile-nav a { font-size: 22px; }
+  .mobile-nav { gap: 24px; }
 }
 
 /* Mobile nav overlay */
@@ -2208,13 +2306,21 @@ header.scrolled {
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- ============================================================
+     RECENT WORK
+============================================================ -->
+<section style="background:#050505;padding:80px 0;" id="recent-work">
+  <div class="container">
     <!-- RECENT WORK CAROUSEL -->
-    <div class="section-header sr" style="margin-top:60px;">
+    <div class="section-header sr" style="margin-bottom:40px;">
       <div>
-        <div class="tag" style="background:rgba(255,191,0,0.1);border-color:rgba(255,191,0,0.3);color:#cc9900;"><span class="tag-dot" style="background:#cc9900;"></span>Recent Work</div>
-        <h2 class="section-title" style="color:#111;">Recent <span style="color:#cc9900;">Work</span></h2>
+        <div class="tag" style="background:rgba(255,191,0,0.08);border-color:rgba(255,191,0,0.25);color:#ffbf00;"><span class="tag-dot" style="background:#ffbf00;"></span>Recent Work</div>
+        <h2 class="section-title" style="color:#ffffff;">Recent <span style="color:#ffbf00;">Work</span></h2>
       </div>
-      <a href="portfolio.html" class="btn btn-outline" style="border-color:#ccc;color:#555;">View All Projects →</a>
+      <a href="portfolio.html" class="btn btn-outline" style="border-color:#333;color:#aaa;">View All Projects →</a>
     </div>
 
     <div class="rw-carousel-wrap" style="perspective:1200px;background:#050505;">
@@ -2265,7 +2371,7 @@ header.scrolled {
         var mob=window.innerWidth<=768,gap=mob?120:180,far=mob?240:360;
         cards.forEach(function(c,i){
           var r=i-cur,t,o,f,z,s='',ol;
-          if(r===0){t='translateX(0px) scale(1) rotateY(0deg)';o=1;f='brightness(1)';z=10;ol='2px solid rgba(255,191,0,0.4)';s='0px 20px 60px rgba(163,230,53,0.3)';c.style.background='rgba(255,191,0,0.05)';}
+          if(r===0){t='translateX(0px) scale(1) rotateY(0deg)';o=1;f='brightness(1)';z=10;ol='2px solid rgba(255,191,0,0.4)';s='0px 20px 60px rgba(255,191,0,0.3)';c.style.background='rgba(255,191,0,0.05)';}
           else if(r===-1){t='translateX(-'+gap+'px) scale(0.9) rotateY(10deg)';o=0.6;f='brightness(0.75)';z=5;ol='1px solid rgba(255,255,255,0.1)';c.style.background='';}
           else if(r===1){t='translateX('+gap+'px) scale(0.9) rotateY(-10deg)';o=0.6;f='brightness(0.75)';z=5;ol='1px solid rgba(255,255,255,0.1)';c.style.background='';}
           else if(r===-2){t='translateX(-'+far+'px) scale(0.85) rotateY(20deg)';o=mob?0:0.4;f='brightness(0.6)';z=2;ol='1px solid rgba(255,255,255,0.1)';c.style.background='';}
@@ -2290,47 +2396,101 @@ header.scrolled {
       <h2 class="section-title">What Our <span class="text-lime">Clients Say</span></h2>
     </div>
 
-    <div class="testi-grid">
-      <div class="testi-card sr">
-        <div class="testi-stars">
-          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-        </div>
-        <p class="testi-text">"GraphicsZoo completely transformed how our agency operates. We went from 3-week turnarounds to 2 days. Our clients are absolutely thrilled with the results."</p>
-        <div class="testi-author">
-          <div class="testi-avatar" style="background:linear-gradient(135deg,#ffbf00,#e6ac00);color:#000;">JM</div>
-          <div>
-            <div class="testi-name">James Morrison</div>
-            <div class="testi-role">CEO, D² Creative Group</div>
-          </div>
-        </div>
-      </div>
+    <div class="testi-marquee-outer">
+      <div class="testi-marquee-track">
 
-      <div class="testi-card sr">
-        <div class="testi-stars">
-          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-        </div>
-        <p class="testi-text">"The quality of design is consistently outstanding. Our revenue grew 25% after partnering with GZ because we could take on far more clients each month."</p>
-        <div class="testi-author">
-          <div class="testi-avatar" style="background:linear-gradient(135deg,#ffbf00,#e6ac00);color:#000;">SR</div>
-          <div>
-            <div class="testi-name">Sarah Rodriguez</div>
-            <div class="testi-role">Creative Director, BrandStack</div>
+        <!-- SET 1 -->
+        <div class="testi-card">
+          <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="testi-text">"GraphicsZoo completely transformed how our agency operates. We went from 3-week turnarounds to 2 days. Our clients are absolutely thrilled with the results."</p>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background:linear-gradient(135deg,#ffbf00,#e6ac00);color:#000;">JM</div>
+            <div><div class="testi-name">James Morrison</div><div class="testi-role">CEO, D² Creative Group</div></div>
           </div>
         </div>
-      </div>
 
-      <div class="testi-card sr">
-        <div class="testi-stars">
-          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-        </div>
-        <p class="testi-text">"I was skeptical at first, but after the first month I was completely sold. The team is responsive, talented, and genuinely cares about the outcome."</p>
-        <div class="testi-author">
-          <div class="testi-avatar" style="background:linear-gradient(135deg,#ffbf00,#e6ac00);color:#000;">AK</div>
-          <div>
-            <div class="testi-name">Alex Kim</div>
-            <div class="testi-role">Founder, LaunchPad Agency</div>
+        <div class="testi-card">
+          <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="testi-text">"The quality of design is consistently outstanding. Our revenue grew 25% after partnering with GZ because we could take on far more clients each month."</p>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background:linear-gradient(135deg,#ffbf00,#e6ac00);color:#000;">SR</div>
+            <div><div class="testi-name">Sarah Rodriguez</div><div class="testi-role">Creative Director, BrandStack</div></div>
           </div>
         </div>
+
+        <div class="testi-card">
+          <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="testi-text">"I was skeptical at first, but after the first month I was completely sold. The team is responsive, talented, and genuinely cares about the outcome."</p>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background:linear-gradient(135deg,#ffbf00,#e6ac00);color:#000;">AK</div>
+            <div><div class="testi-name">Alex Kim</div><div class="testi-role">Founder, LaunchPad Agency</div></div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="testi-text">"We needed a full rebrand in under two weeks — GraphicsZoo delivered everything on time and beyond expectations. The logo, social kit, and pitch deck were all perfect."</p>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background:linear-gradient(135deg,#a78bfa,#7c3aed);color:#fff;">MP</div>
+            <div><div class="testi-name">Marcus Patel</div><div class="testi-role">Co-Founder, NovaBrand Studio</div></div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="testi-text">"Switching to GraphicsZoo was the best business decision I made this year. Unlimited revisions means I never feel rushed, and the turnaround is genuinely fast."</p>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background:linear-gradient(135deg,#34d399,#059669);color:#fff;">LT</div>
+            <div><div class="testi-name">Lisa Thompson</div><div class="testi-role">Marketing Lead, PixelForge</div></div>
+          </div>
+        </div>
+
+        <!-- SET 2 — duplicate for seamless loop -->
+        <div class="testi-card">
+          <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="testi-text">"GraphicsZoo completely transformed how our agency operates. We went from 3-week turnarounds to 2 days. Our clients are absolutely thrilled with the results."</p>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background:linear-gradient(135deg,#ffbf00,#e6ac00);color:#000;">JM</div>
+            <div><div class="testi-name">James Morrison</div><div class="testi-role">CEO, D² Creative Group</div></div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="testi-text">"The quality of design is consistently outstanding. Our revenue grew 25% after partnering with GZ because we could take on far more clients each month."</p>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background:linear-gradient(135deg,#ffbf00,#e6ac00);color:#000;">SR</div>
+            <div><div class="testi-name">Sarah Rodriguez</div><div class="testi-role">Creative Director, BrandStack</div></div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="testi-text">"I was skeptical at first, but after the first month I was completely sold. The team is responsive, talented, and genuinely cares about the outcome."</p>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background:linear-gradient(135deg,#ffbf00,#e6ac00);color:#000;">AK</div>
+            <div><div class="testi-name">Alex Kim</div><div class="testi-role">Founder, LaunchPad Agency</div></div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="testi-text">"We needed a full rebrand in under two weeks — GraphicsZoo delivered everything on time and beyond expectations. The logo, social kit, and pitch deck were all perfect."</p>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background:linear-gradient(135deg,#a78bfa,#7c3aed);color:#fff;">MP</div>
+            <div><div class="testi-name">Marcus Patel</div><div class="testi-role">Co-Founder, NovaBrand Studio</div></div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="testi-text">"Switching to GraphicsZoo was the best business decision I made this year. Unlimited revisions means I never feel rushed, and the turnaround is genuinely fast."</p>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background:linear-gradient(135deg,#34d399,#059669);color:#fff;">LT</div>
+            <div><div class="testi-name">Lisa Thompson</div><div class="testi-role">Marketing Lead, PixelForge</div></div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
