@@ -1422,6 +1422,50 @@ nav {
 
 .check::before { content: '✓'; font-size: 10px; color: var(--lime); font-weight: 700; }
 
+/* PRICING BUTTONS */
+.price-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 14px 24px;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  margin-top: auto;
+}
+.price-btn-lime {
+  background: linear-gradient(135deg, #ffd000 0%, #ffbf00 45%, #e6ac00 100%);
+  color: #050505;
+  border: none;
+  box-shadow: 0 4px 20px rgba(255,191,0,0.25);
+}
+.price-btn-lime:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(255,191,0,0.4); }
+.pricing-sec .price-btn-outline {
+  background: linear-gradient(135deg, #ffd000 0%, #ffbf00 45%, #e6ac00 100%);
+  color: #050505;
+  border: none;
+  box-shadow: 0 4px 20px rgba(255,191,0,0.25);
+}
+.pricing-sec .price-btn-outline:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(255,191,0,0.4); }
+
+/* Cards center on mobile */
+@media (max-width: 768px) {
+  .price-card { text-align: center; }
+  .price-plan-name { text-align: center; }
+  .price-feats { text-align: left; }
+  .price-feats li { justify-content: flex-start; }
+  .popular-pill { white-space: nowrap; }
+}
+
+/* card flex so button sticks to bottom */
+.price-card { display: flex; flex-direction: column; }
+.price-feats { flex: 1; }
+
 /* ============================================================
    CTA SECTION
 ============================================================ */
@@ -1658,7 +1702,6 @@ header.scrolled {
 .price-card:not(.popular) { transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s ease !important; }
 .price-card { display: flex !important; flex-direction: column !important; }
 .price-feats { flex: 1 !important; }
-.pricing-grid .btn-outline { background: var(--lime) !important; color: #050505 !important; border-color: var(--lime) !important; }
 .price-card:not(.popular):hover { transform: translateY(-6px) !important; box-shadow: 0 20px 50px rgba(0,0,0,0.4) !important; }
 .testi-card { transition: transform 0.3s ease, box-shadow 0.3s ease !important; }
 .testi-card:hover { transform: translateY(-5px) !important; box-shadow: 0 16px 40px rgba(0,0,0,0.35) !important; }
@@ -1799,8 +1842,10 @@ header.scrolled {
   .testi-text { font-size: 13.5px; }
 
   /* PRICING */
-  .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin: 52px auto 0; }
-  .price-card { padding: 28px 22px; }
+  .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin: 52px auto 0; }
+  .price-card { padding: 32px 24px; }
+  .price-val { font-size: 52px; }
+  .price-btn { padding: 14px 20px; font-size: 14px; }
 
   /* CTA */
   .cta-glow { display: none; }
@@ -1857,9 +1902,11 @@ header.scrolled {
   .testi-name { font-size: 13px; }
 
   /* PRICING */
-  .price-card { padding: 22px 16px; }
-  .price-val { font-size: 42px; }
+  .price-card { padding: 24px 18px; }
+  .price-val { font-size: 44px; }
+  .price-card-title { font-size: 20px; }
   .price-feats li { font-size: 13px; }
+  .price-btn { padding: 13px 18px; font-size: 13px; }
 
   /* FOOTER */
   .footer-top { gap: 22px; }
@@ -2572,9 +2619,9 @@ header.scrolled {
 <section class="pricing-sec section-pad" id="pricing">
   <div class="container">
     <div style="text-align:center;" class="sr">
-      <div class="tag" style="margin:0 auto 20px;"><span class="tag-dot"></span>Pricing</div>
-      <h2 class="section-title">Simple, Flat-Rate <span class="text-lime">Pricing</span></h2>
-      <p class="section-sub" style="margin:0 auto;">No contracts, no hidden fees. Cancel anytime. Scale up or down as you need.</p>
+      <div class="tag" style="margin:0 auto 20px;"><span class="tag-dot" style="background:#cc9900;"></span>Pricing</div>
+      <h2 class="section-title" style="color:#111;">Simple, Flat-Rate <span style="color:#cc9900;">Pricing</span></h2>
+      <p class="section-sub" style="margin:0 auto;color:#555;">No contracts, no hidden fees. Cancel anytime. Scale up or down as you need.</p>
       <div class="pricing-toggle" style="justify-content:center;margin-top:16px;">
         <span>Monthly</span>
         <div class="toggle-pill"></div>
@@ -2583,6 +2630,7 @@ header.scrolled {
     </div>
 
     <div class="pricing-grid">
+
       <!-- Starter -->
       <div class="price-card sr">
         <div class="price-plan-name">Starter</div>
@@ -2598,7 +2646,7 @@ header.scrolled {
           <li><span class="check"></span>Source Files Included</li>
           <li><span class="check"></span>Dedicated Account Manager</li>
         </ul>
-        <a href="#cta" class="btn btn-outline" style="width:100%;justify-content:center;">Get Started →</a>
+        <a href="#cta" class="price-btn price-btn-outline">Get Started →</a>
       </div>
 
       <!-- Pro (popular) -->
@@ -2619,7 +2667,7 @@ header.scrolled {
           <li><span class="check"></span>Motion Graphics Included</li>
           <li><span class="check"></span>Priority Queue Access</li>
         </ul>
-        <a href="#cta" class="btn btn-lime" style="width:100%;justify-content:center;">Get Started →</a>
+        <a href="#cta" class="price-btn price-btn-lime">Get Started →</a>
       </div>
 
       <!-- Agency -->
@@ -2639,8 +2687,9 @@ header.scrolled {
           <li><span class="check"></span>Slack Integration</li>
           <li><span class="check"></span>Team Member Access</li>
         </ul>
-        <a href="#cta" class="btn btn-outline" style="width:100%;justify-content:center;">Get Started →</a>
+        <a href="#cta" class="price-btn price-btn-outline">Get Started →</a>
       </div>
+
     </div>
   </div>
 </section>
@@ -2715,7 +2764,7 @@ header.scrolled {
             <button>Subscribe</button>
           </div>
         </div>
-        <p style="margin-top:20px;"><i class="fa-solid fa-envelope" style="color:var(--lime);"></i> <a href="/cdn-cgi/l/email-protection#94fcf1f8f8fbd4f3e6f5e4fcfdf7e7eefbfbbaf7fbf9"><span class="__cf_email__" data-cfemail="3d55585151527d5a4f5c4d55545e4e475252135e5250">[email&#160;protected]</span></a></p>
+        <p style="margin-top:20px;"><i class="fa-solid fa-envelope" style="color:var(--lime);"></i> <a href="mailto:gideonpraise700@gmail.com" style="color:var(--lime);">gideonpraise700@gmail.com</a></p>
       </div>
     </div>
 
