@@ -44,6 +44,9 @@ header#site-header nav {
   letter-spacing: -0.5px;
   color: #fff;
 }
+.logo-text-wrap { display: flex; flex-direction: column; line-height: 1; gap: 4px; }
+.logo-name-line { display: block; font-size: 22px; font-weight: 800; letter-spacing: -0.5px; line-height: 1; }
+.logo-tagline { font-size: 9px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: #777; margin-top: 3px; }
 .logo-mark {
   width: 38px; height: 38px;
   background: transparent;
@@ -515,7 +518,7 @@ footer { background: #0f0f0f; border-top: 1px solid #222; }
   <nav class="container">
     <a href="index.html" class="logo">
       <div class="logo-mark" style="overflow:hidden;padding:0;"><img src="gallery/1714665825236.png" alt="PG" style="width:100%;height:100%;object-fit:cover;border-radius:9px;"></div>
-      Praise<span>Graphics</span>
+      <div class="logo-text-wrap"><span class="logo-name-line">Praise<span>Graphics</span></span><span class="logo-tagline">Creative Design Studio</span></div>
     </a>
 
     <ul class="nav-menu">
@@ -829,6 +832,8 @@ footer { background: #0f0f0f; border-top: 1px solid #222; }
             <button>Subscribe</button>
           </div>
         </div>
+        <p style="margin-top:16px;"><i class="fa-solid fa-envelope" style="color:#ffbf00;"></i> <a href="mailto:gideonpraise700@gmail.com" style="color:#ffbf00;">gideonpraise700@gmail.com</a></p>
+        <p style="margin-top:10px;"><i class="fa-solid fa-phone" style="color:#ffbf00;"></i> <a href="tel:+2348012345678" style="color:#777;">+234 801 234 5678</a></p>
       </div>
     </div>
 
